@@ -1,8 +1,24 @@
 import React from 'react';
-// import style from './style.module.css';
+import {ReactComponent as ACIcon} from "../../Assets/icon/acIcon.svg"; //相對路徑
+import styles from './style.module.css';
 const LoginInput=()=>{
     return(
-        <div>LoginInput HELLO!!!!!</div>
+    <div className={styles.loginInput}>
+        <ACIcon className={styles.ACIcon}/>
+        <h1>登入 Alphitter</h1>
+        <section className = {styles.inputSection}>
+            <div className={styles.inputHere}>
+                <div className={styles.inputTitle}>帳號</div>
+                <input type="text" placeholder="請輸入帳號" className={styles.inputText}></input>
+            </div>
+            <div className={styles.inputHere}>
+                <div className={styles.inputTitle}>密碼</div>
+                <input type="text" placeholder="請輸入密碼" className={styles.inputText}></input>
+            </div>
+            <div className={styles.loginButton}>登入</div>
+            <section><a href="" className={styles.register}>註冊</a><span className={styles.midDot}>‧</span><a href="" className={styles.backStage}>後台登入</a></section>
+        </section>
+    </div>
     )
 }
 export default LoginInput;
