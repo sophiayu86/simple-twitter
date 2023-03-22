@@ -16,7 +16,7 @@ const LoginInput=()=>{
                 <input type="text" placeholder="請輸入密碼" className={styles.inputText}></input>
             </div>
             <div className={styles.loginButton}>登入</div>
-            <section><a href="" className={styles.register}>註冊</a><span className={styles.midDot}>‧</span><a href="" className={styles.backStage}>後台登入</a></section>
+            <section><span className={styles.register}>註冊</span><span className={styles.midDot}>‧</span><span href="" className={styles.backStage}>後台登入</span></section>
         </section>
     </div>
     )
