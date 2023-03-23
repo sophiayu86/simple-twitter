@@ -2,6 +2,7 @@ import React from 'react';
 import { Header, SideNav } from '../../Components';
 import styles from './style.module.css';
 
+
 const MainPage=()=>{
     return(
     <div className={styles.mainpage}>

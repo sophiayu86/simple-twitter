@@ -1,0 +1,7 @@
+.tabs{
+    display: flex;
+    height: 53px;
+}
+.tabs div{
+    width: 130px;
+}
