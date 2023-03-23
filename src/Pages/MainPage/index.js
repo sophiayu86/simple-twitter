@@ -1,5 +1,5 @@
 import React from 'react';
-import { SideNav } from '../../Components';
+import { SideNav, Tabs } from '../../Components';
 // import styles from './style.module.css';
 
 const MainPage=()=>{
@@ -7,6 +7,7 @@ const MainPage=()=>{
     <div>
         <SideNav />
         MainPage
+        <Tabs />
     </div>
     )
 }
