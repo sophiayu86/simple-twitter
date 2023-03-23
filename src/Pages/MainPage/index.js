@@ -1,12 +1,12 @@
 import React from 'react';
-import { SideNav } from '../../Components';
-// import styles from './style.module.css';
+import { Header, SideNav } from '../../Components';
+import styles from './style.module.css';
 
 const MainPage=()=>{
     return(
-    <div>
+    <div className={styles.mainpage}>
         <SideNav />
-        MainPage
+        <Header text="首頁" />
     </div>
     )
 }

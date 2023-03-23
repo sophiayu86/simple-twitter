@@ -1,10 +1,12 @@
 import React from 'react';
-// import styles from './style.module.css';
+import { Header, SideNav } from '../../Components';
+import styles from './style.module.css';
 
 const SettingPage=()=>{
     return(
-    <div>
-        SettingPage
+        <div className={styles.settingpage}>
+        <SideNav />
+        <Header text="帳戶設定" />
     </div>
     )
 }

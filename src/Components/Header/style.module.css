@@ -1,0 +1,12 @@
+.header {
+    width: 639px;
+    height: 74px;
+    font-size: 24px;
+    padding-left: 64px;
+    padding-top:24px;
+    text-align: left;
+  }
+.header span {
+    font-weight: bold;
+    margin-left: 19px;
+}
