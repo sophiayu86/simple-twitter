@@ -1,10 +1,12 @@
 import React from 'react';
-// import styles from './style.module.css';
+import { Header, SideNav } from '../../Components';
+import styles from './style.module.css';
 
 const ReplyPage=()=>{
     return(
-    <div>
-        ReplyPage
+        <div className={styles.replypage}>
+        <SideNav />
+        <Header text="推文" />
     </div>
     )
 }
