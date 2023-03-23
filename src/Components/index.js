@@ -6,4 +6,4 @@ export { default as Tabs } from './Tabs';
 export { default as ProfileTabs } from './ProfileTabs';
 export { default as Header } from './Header';
 export { default as ProfileHeader } from './ProfileHeader';
-
+export { default as PopularItem } from './PopularItem';
