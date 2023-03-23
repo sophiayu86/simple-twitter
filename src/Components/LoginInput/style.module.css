@@ -1,12 +1,57 @@
 .loginInput {
-  border: 1px solid black;
+  border: 1px dashed black;
 }
 
 .ACIcon {
   /* position: absolute; */
-  position: relative;
   width: 50px;
   height: 50px;
-  /* left: 675px; */
-  /* top: 64px; */
+  top: 64px;
+  left: 675px;
+  top: 64px;
+
+}
+
+.pageTitle {
+  /* position: absolute; */
+  width: 185px;
+  height: 26px;
+  /* left: 608px;
+  top: 138px; */
+
+  /* heading/h3 */
+
+  font-family: "Noto Sans TC";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 26px;
+  /* identical to box height, or 93% */
+
+  color: #1c1c1c;
+}
+
+.loginButton {
+  width: 356px;
+  height: 46px;
+  background-color: #ff6600;
+  color: #ffffff;
+  /* display: flex; */
+  /* flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+  padding: 8px 24px;
+  border-radius: 50px;
+  border: 0px;
+}
+
+.loginButton:hover {
+  cursor: pointer;
+}
+
+.input {
+  
+  border-radius: 2px;
+  background: #f5f8fa;
+ 
 }
