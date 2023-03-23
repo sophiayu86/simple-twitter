@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
-import { ReactComponent as ACIcon } from "../../Assets/icon/acIcon.svg"; //相對路徑
+import { Link } from "react-router-dom";
+import { ReactComponent as ACIcon } from "../../Assets/icon/acIcon.svg";
 import { login } from "../../API/auth.js";
 import styles from "./style.module.css";
 
@@ -9,8 +10,8 @@ const LoginInput = () => {
   const [password, setPassword] = useState("");
 
   const handleClick = async () => {
-    console.log(account);
-    console.log(password);
+    console.log("輸入 accout 為", account);
+    console.log("輸入 password 為", password);
     if (account.length === 0) {
       return;
     }
@@ -18,51 +19,59 @@ const LoginInput = () => {
       return;
     }
 
-    const { success, authToken } = await login({
+    const { token } = await login({
       account,
       password,
     });
-    if (success) {
-      localStorage.setItem("authToken", authToken);
+
+    if (token) {
+      localStorage.setItem("authToken", token);
     }
   };
 
   return (
     <div className={styles.loginInput}>
       <ACIcon className={styles.ACIcon} />
-      <h1>登入 Alphitter</h1>
+      <span className={styles.pageTitle}>
+        <h3>登入 Alphitter</h3>
+      </span>
       <section className={styles.inputSection}>
-        <div className={styles.inputHere}>
-          <div className={styles.inputTitle}>帳號</div>
+        <div className={styles.input}>
+          <div className={styles.Label}>帳號</div>
           <input
             type="text"
             placeholder="請輸入帳號"
             className={styles.inputText}
-            onChange={(event) => setAccount(event.target.value)}
+            onChange={(event) => {
+              setAccount(event.target.value);
+            }}
             value={account}
           ></input>
+          <div className={styles.bottomLine}></div>
         </div>
-        <div className={styles.inputHere}>
-          <div className={styles.inputTitle}>密碼</div>
+
+        <div className={styles.input}>
+          <div className={styles.Label}>密碼</div>
           <input
-            type="text"
+            type="password"
             placeholder="請輸入密碼"
             className={styles.inputText}
             value={password}
             onChange={(event) => setPassword(event.target.value)}
           ></input>
+          <div className={styles.bottomLine}></div>
         </div>
-        <div className={styles.loginButton} onClick={handleClick}>
+        <button className={styles.loginButton} onClick={handleClick}>
           登入
-        </div>
+        </button>
         <section>
-          <a href="123" className={styles.register}>
+          <Link to="/signup" className={styles.register}>
             註冊
-          </a>
+          </Link>
           <span className={styles.midDot}>‧</span>
-          <a href="123" className={styles.backStage}>
+          <Link to="/admin_login" className={styles.backStage}>
             後台登入
-          </a>
+          </Link>
         </section>
       </section>
     </div>
