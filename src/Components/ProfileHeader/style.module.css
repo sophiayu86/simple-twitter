@@ -1,0 +1,25 @@
+.profileheader {
+    width: 639px;
+    height: 74px;
+    font-size: 24px;
+    padding-left: 64px;
+    padding-top:24px;
+    text-align: left;
+    display: flex;
+    align-items:  first baseline;
+  }
+.profileheader div{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+.profileheader p {
+    font-weight: bold;
+    margin-left: 19px;
+    margin-bottom: 1px;
+}
+.profileheader span {
+  color: #6C757D;
+  margin-left: 19px;
+  font-size: 13px;
+}
