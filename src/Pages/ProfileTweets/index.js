@@ -1,10 +1,12 @@
 import React from 'react';
-// import styles from './style.module.css';
+import { ProfileHeader, SideNav } from '../../Components';
+import styles from './style.module.css';
 
 const ProfileTweets=()=>{
     return(
-    <div>
-        ProfileTweets
+    <div className={styles.userpage}>
+        <SideNav />
+        <ProfileHeader text="John" num="25"/>
     </div>
     )
 }
