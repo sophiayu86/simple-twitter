@@ -3,6 +3,7 @@ import { Header, SideNav } from '../../Components';
 import PopularList from '../../Lists/PopularList';
 import styles from './style.module.css';
 
+
 const MainPage=()=>{
     return(
     <div className={styles.mainpage}>
