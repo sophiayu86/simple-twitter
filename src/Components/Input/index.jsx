@@ -2,9 +2,10 @@ import React from 'react';
 import { useState } from 'react';
 import styles from './style.module.css';
 
-const Input = ({ label, name, type, placeholder, onHandlers, info }) => {
-  const { status, message } = info;
-  const { handleOnChange, handleOnFocus, handleOnBlur } = onHandlers;
+const Input = ({ label, name, type, placeholder, status, message, onHandlers }) => {
+  const handleOnChange = onHandlers?.handleOnChange;
+  const handleOnFocus = onHandlers?.handleOnFocus;
+  const handleOnBlur = onHandlers?.handleOnBlur;
   const [inputValue, setInputValue] = useState('');
   const inputStyle = status === 'focus' ? styles.inputFocus : status === 'error' ? styles.inputError : styles.inputDefault;
   return (
