@@ -7,7 +7,7 @@ import styles from "./style.module.css";
 
 const NotificationCard = ({status, message}) => {
   let icon = ''
-  let circleStyle = ''
+  let circleStyle = {}
   if (status === 'error') {
     icon = <ErrorIcon />
     circleStyle = {boxShadow: '0px 0px 0px 2px #FC5A5A'}
