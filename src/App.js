@@ -20,10 +20,10 @@ export default function App() {
               {/* <Route path="user/:UserId/tweet" element={<ProfileTweets />} /> */}
               <Route path="user" element={<ProfileTweets />} />
               <Route
-                path="user/:UserId/replied_tweets"
+                path="replied_tweets"
                 element={<ProfileReply />}
               />
-              <Route path="user/:UserId/likes" element={<ProfileLikes />} />
+              <Route path="likes" element={<ProfileLikes />} />
               {/* <Route
                 path="user/:UserId/followers"
                 element={<UserFollowerPage />}
@@ -33,7 +33,7 @@ export default function App() {
                 element={<UserFollowerPage />}
               />
               <Route
-                path="user/:UserId/following"
+                path="following"
                 element={<UserFollowingPage />}
               />
               <Route path="user/setting" element={<SettingPage />} />

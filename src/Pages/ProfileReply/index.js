@@ -1,10 +1,11 @@
 import React from 'react';
+import ProfileLayout from '../../Layout/ProfileLayout';
 // import styles from './style.module.css';
 
 const ProfileReply=()=>{
     return(
     <div>
-        ProfileReply
+        <ProfileLayout />
     </div>
     )
 }

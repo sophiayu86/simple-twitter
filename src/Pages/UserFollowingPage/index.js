@@ -1,10 +1,11 @@
 import React from 'react';
-// import styles from './style.module.css';
+import FollowshipLayout from '../../Layout/FollowshipLayout';
+import styles from './style.module.css';
 
 const UserFollowingPage=()=>{
     return(
-    <div>
-        UserFollowingPage
+    <div className={styles.followingpage}>
+        <FollowshipLayout />
     </div>
     )
 }
