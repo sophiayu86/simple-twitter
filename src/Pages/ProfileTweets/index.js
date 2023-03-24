@@ -1,13 +1,12 @@
 import React from 'react';
-import { ProfileHeader, SideNav } from '../../Components';
-import styles from './style.module.css';
+// import { ProfileHeader, SideNav } from '../../Components';
+import ProfileLayout from '../../Layout/ProfileLayout';
+// import PopularList from '../../Lists/PopularList';
+// import styles from './style.module.css';
 
 const ProfileTweets=()=>{
     return(
-    <div className={styles.userpage}>
-        <SideNav />
-        <ProfileHeader text="John" num="25"/>
-    </div>
+    <ProfileLayout/>
     )
 }
 export default ProfileTweets;

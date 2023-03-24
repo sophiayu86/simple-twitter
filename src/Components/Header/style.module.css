@@ -1,9 +1,9 @@
 .header {
     width: 639px;
-    height: 74px;
+    height: 50px;
     font-size: 24px;
-    padding-left: 64px;
-    padding-top:24px;
+    padding-left: 28px;
+    margin-top:24px; 
     text-align: left;
   }
 .header span {

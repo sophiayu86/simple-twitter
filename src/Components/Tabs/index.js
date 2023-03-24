@@ -5,10 +5,10 @@ const Tabs = () => {
   return (
     <nav className={style.tabs}>
       <div>
-        <Link to="/">追蹤者</Link>
+        <Link to="/followers">追蹤者</Link>
       </div>
       <div>
-        <Link to="/">正在追蹤</Link>
+        <Link to="/following">正在追蹤</Link>
       </div>
     </nav>
   );

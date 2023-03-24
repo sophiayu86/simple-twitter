@@ -1,12 +1,11 @@
 import React from 'react';
-import { Header, SideNav } from '../../Components';
+import MainLayout from '../../Layout/MainLayout';
 import styles from './style.module.css';
 
 const ReplyPage=()=>{
     return(
         <div className={styles.replypage}>
-        <SideNav />
-        <Header text="推文" />
+        <MainLayout header="推文" />
     </div>
     )
 }
