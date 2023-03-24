@@ -11,3 +11,4 @@ export { default as ProfileHeader } from './ProfileHeader';
 export { default as PopularItem } from './PopularItem';
 export { default as NotificationCard } from './NotificationCard';
 export { default as FollowItem } from './FollowItem';
+export { default as AdminUserCard } from "./AdminUserCard";

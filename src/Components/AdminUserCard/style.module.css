@@ -1,0 +1,113 @@
+.AdminUserCard {
+  border: 1px solid black;
+  width: 210px;
+  height: 314px;
+  position: relative;
+}
+
+.bgImg {
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 55.41%;
+  width: 210px;
+  height: 140px;
+  border: 1px solid black;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.avatar {
+  height: 100px;
+  width: 100px;
+  /* border: 4px solid #FFFFFF; */
+  border: 4px solid grey;
+  border-radius: 50%;
+}
+
+.nameAndPhoto {
+  position: absolute;
+  top: 64px;
+  left: 55px;
+}
+
+.username {
+  position: absolute;
+  width: 100px;
+  height: 26px;
+  left: 0px;
+  top: 108px;
+  font-family: "Noto Sans TC";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.account {
+  position: absolute;
+  width: 90.54px;
+  height: 22px;
+  left: 1.35px;
+  top: 132px;
+  font-family: "Noto Sans TC";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.rowAction,
+.reply,
+.like {
+  display: flex;
+}
+
+.rowAction {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  gap: 16px;
+
+  position: absolute;
+  left: 16.67%;
+  right: 17.14%;
+  top: 74.52%;
+}
+
+.follow {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  gap: 8px;
+
+  position: absolute;
+  left: 12.38%;
+  right: 12.38%;
+  top: 85.35%;
+  bottom: 7.64%;
+}
+
+.following{
+  width: 75px;
+height: 22px;
+font-family: 'Noto Sans TC';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 22px;}
+
+.follower{
+width: 75px;
+height: 22px;
+font-family: 'Noto Sans TC';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 22px;
+}
+
