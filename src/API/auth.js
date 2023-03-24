@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-// const authURL = "https://ac-twitter-12345.herokuapp.com";
-const authURL = 'http://localhost:3000/api';
+const authURL = "https://ac-twitter-12345.herokuapp.com/api";
 
 export const login = async ({ account, password }) => {
   try {
