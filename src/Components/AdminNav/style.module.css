@@ -1,0 +1,19 @@
+.AdminNav {
+  border: 1px solid black;
+  width: 178px;
+  height: 1200px;
+}
+
+.ACIcon {
+  /* position: absolute; */
+
+  left: 10%;
+  right: 22.92%;
+  top: 10%;
+  bottom: 36.21%;
+}
+
+.sideNavItem {
+  width: 178px;
+  height: 58px;
+}

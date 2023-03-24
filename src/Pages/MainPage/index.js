@@ -1,11 +1,7 @@
-
 import React from "react";
 import { Header, SideNav, UserCard } from "../../Components";
 import styles from "./style.module.css";
-import React from 'react';
-import PopularList from '../../Lists/PopularList';
-import styles from './style.module.css';
-
+import PopularList from "../../Lists/PopularList";
 
 const MainPage = () => {
   return (
@@ -15,8 +11,7 @@ const MainPage = () => {
         <Header text="首頁" />
         <UserCard />
       </div>
-        <PopularList />
-
+      <PopularList />
     </div>
   );
 };
