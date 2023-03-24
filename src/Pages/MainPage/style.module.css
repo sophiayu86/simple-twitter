@@ -1,3 +1,9 @@
 .mainpage{
     display: flex;
 }
+
+.middle{
+    position:relative;
+    width:639px;
+    border:2px solid yellowgreen;
+}

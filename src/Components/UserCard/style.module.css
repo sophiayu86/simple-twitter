@@ -1,0 +1,165 @@
+.UserInfo {
+  position: absolute;
+  width: 639px;
+  height: 378px;
+
+  border: 1px solid grey;
+}
+.bgImg {
+  border: 1px solid grey;
+  position: absolute;
+  width: 639px;
+  height: 200px;
+  left: 0px;
+  top: 0px;
+}
+
+.avatar {
+  box-sizing: border-box;
+  position: absolute;
+  left: 2.52%;
+  right: 75.39%;
+  top: 32.8%;
+  bottom: 30.16%;
+  border: 4px solid #ffffff;
+  background-color: black;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nameandaccount {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+
+  position: absolute;
+  width: 95px;
+  height: 48px;
+  left: 16px;
+  top: 272px;
+}
+
+.username {
+  /* Figma 要求 H5，但這樣會讓名字往下一行 */
+  width: 99px;
+  height: 26px;
+  font-family: "Noto Sans TC";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 26px;
+  color: #171725;
+}
+
+.account {
+  width: 98px;
+  height: 22px;
+  font-family: "Noto Sans TC";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.userActions {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0px;
+  gap: 16px;
+
+  position: absolute;
+  width: 208px;
+  height: 40px;
+  right: 16px;
+  top: 216px;
+}
+
+.editMyProfile {
+}
+
+.followButton {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 16px;
+  background: #ff6600;
+  border-radius: 50px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.Msg {
+  box-sizing: border-box;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  left: 0px;
+  top: 0px;
+}
+.Noti1,
+.Noti0 {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: 64px;
+  top: 0px;
+  /* CSS 與 Figma有出入 */
+}
+
+.intro {
+  position: absolute;
+  left: 2.52%;
+  right: 2.84%;
+  top: 86.24%;
+  bottom: 7.94%;
+  font-family: "Noto Sans TC";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  text-align: left;
+}
+
+.followship {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 20px;
+
+  position: absolute;
+  left: 2.52%;
+  right: 69.24%;
+  top: 94.18%;
+  bottom: 0%;
+}
+
+.following {
+  width: 83px;
+  height: 22px;
+  font-family: "Noto Sans TC";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.follower {
+  width: 75px;
+  height: 22px;
+  font-family: "Noto Sans TC";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+}
