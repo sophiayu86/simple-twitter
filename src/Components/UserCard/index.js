@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import { ReactComponent as Noti0 } from "../../Assets/icon/noti0.svg";
 import { ReactComponent as Noti1 } from "../../Assets/icon/noti1.svg";
 import { ReactComponent as Msg } from "../../Assets/icon/msg.svg";
