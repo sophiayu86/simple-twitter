@@ -1,0 +1,99 @@
+/* .inputField {
+  margin: 8px 0;
+} */
+
+.inputContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  position: absolute;
+  left: 10px;
+  font-size: 14px;
+  line-height: 22px;
+  color: #696974;
+}
+
+/* -------- Default --------  */
+.inputDefault::-webkit-input-placeholder {
+  font-size: 16px;
+  color: #b5b5be;
+}
+.inputDefault {
+  appearance: none;
+  -webkit-appearance: none;
+  line-height: 26px;
+  padding: 24px 10px 2px 10px;
+  background-color: #f5f8fa;
+  border: none;
+  border-bottom: 2px solid #657786;
+  font-size: 16px;
+  border-radius: 2px;
+}
+
+/* -------- Focus -------- */
+.inputFocus {
+  appearance: none;
+  -webkit-appearance: none;
+  line-height: 26px;
+  padding: 24px 10px 2px 10px;
+  background-color: #f5f8fa;
+  border: none;
+  font-size: 16px;
+  border-radius: 2px;
+}
+.inputFocus:focus {
+  outline: none;
+  border-bottom: 2px solid #50b5ff;
+}
+.inputFocus::-webkit-input-placeholder {
+  font-size: 16px;
+  color: #b5b5be;
+}
+
+.focusMessage {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 20px;
+  margin: 4px 0 0 0;
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 500;
+  color: #696974;
+}
+
+/* -------- Error -------- */
+.inputError {
+  appearance: none;
+  -webkit-appearance: none;
+  line-height: 26px;
+  padding: 24px 10px 2px 10px;
+  background-color: #f5f8fa;
+  border: none;
+  border-bottom: 2px solid #fc5a5a;
+  font-size: 16px;
+  border-radius: 2px;
+}
+
+.inputError::-webkit-input-placeholder {
+  font-size: 16px;
+  color: #b5b5be;
+}
+
+.inputError:focus {
+  outline: none;
+}
+
+.errorMessage {
+  display: flex;
+  align-items: center;
+  height: 20px;
+  margin: 4px 0 0 0;
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 500;
+  color: #fc5a5a;
+}
