@@ -1,7 +1,5 @@
 .popularItem {
-  width: 273px;
   height: 74px;
-  padding-left: 64px;
   padding-top: 24px;
   text-align: left;
   display: flex;
@@ -11,27 +9,30 @@
   font-style: normal;
 }
 
-.popularItem div {
+.popularItem > div {
   display: flex;
   flex-direction: column;
-  align-items: left;
 }
-.popularItem p {
+
+.textBlock {
+  padding: 0 8px;
+}
+
+.name {
   font-weight: bold;
-  margin-left: 19px;
-margin-bottom: 1px;
-  font-size: 28px;
+  font-size: 18px;
 }
-.popularItem span {
+
+.tag {
   color: #6c757d;
-  margin-left: 19px;
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .ACIcon {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
 }
+
 .activeButton {
   width: 96px;
   height: 40px;
@@ -40,11 +41,12 @@ margin-bottom: 1px;
   padding: 8px 16px;
   border-radius: 50px;
 }
+
 .button {
   width: 96px;
   height: 40px;
-  background-color:#ffffff;
-  color:  #ff6600;
+  background-color: #ffffff;
+  color: #ff6600;
   padding: 8px 16px;
   border-radius: 50px;
 }

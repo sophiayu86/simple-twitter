@@ -6,9 +6,9 @@ const PopularItem = ({ name, tag, following }) => {
   return (
     <div className={styles.popularItem}>
       <ACIcon className={styles.ACIcon} />
-      <div>
-        <p>{name}</p>
-        <span>{tag}</span>
+      <div className={styles.textBlock}>
+        <div className={styles.name}>{name}</div>
+        <div className={styles.tag}>{tag}</div>
         
       </div>
       {following?<button className={styles.activeButton}>正在跟隨</button>:<button className={styles.button}>跟隨</button>}
