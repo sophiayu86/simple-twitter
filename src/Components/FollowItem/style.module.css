@@ -1,0 +1,57 @@
+.card{
+  width: 639px;
+  height: 116px;
+}
+.followItem {
+  
+  
+  text-align: left;
+  
+  display: flex;
+  align-items: center;
+  color: #1c1c1c;
+  font-family: "Noto Sans TC";
+  font-style: normal;
+  
+}
+
+.followItem p {
+  font-weight: bold;
+  margin-top: 0px;
+  margin-left: 8px;
+margin-bottom: 1px;
+  font-size: 16px;
+  flex-grow: 1;
+  line-height: 26px;
+}
+
+
+.ACIcon {
+  width: 50px;
+  height: 50px;
+  
+}
+.activeButton {
+  
+  width: 96px;
+  height: 40px;
+  background-color: #ff6600;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 50px;
+}
+.button {
+  
+  width: 96px;
+  height: 40px;
+  background-color:#ffffff;
+  color:  #ff6600;
+  padding: 8px 16px;
+  border-radius: 50px;
+}
+.content {
+  color: #6c757d;
+  margin-left: 60px;
+  font-size: 13px;
+  text-align: left;
+}

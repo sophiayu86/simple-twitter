@@ -5,7 +5,7 @@ import styles from './style.module.css';
 const UserFollowerPage=()=>{
     return(
     <div className={styles.followerpage}>
-        <FollowshipLayout />
+        <FollowshipLayout followers={true}/>
     </div>
     )
 }

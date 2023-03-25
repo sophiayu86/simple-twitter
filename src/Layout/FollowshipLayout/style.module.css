@@ -1,3 +1,4 @@
 .userpage{
     display: flex;
+    position: relative;
 }
