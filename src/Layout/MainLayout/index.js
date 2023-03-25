@@ -7,7 +7,7 @@ import styles from './style.module.css';
 const MainLayout=({header, tab})=>{
     return(
     <div className={styles.userpage}>
-        <SideNav />
+        <SideNav currentPage="main" />
         <div className={styles.mainContent}>
             <Header text={header}/>
             <div className={styles.contentList}>
