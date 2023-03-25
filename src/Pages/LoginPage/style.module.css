@@ -1,14 +1,63 @@
-.loginpage {
-  box-sizing: border-box;
+.loginPage {
+  width: 100vw;
+  height: 600px;
+  position: relative;
+  padding-top: 64px;
+}
 
-  /* position: relative; */
-  width: 1400px;
-  height: 1200px;
-  overflow-x: scroll;
+.notification {
+  position: absolute;
+  z-index: 999;
+  right: 40px;
+  text-align: right;
+}
+.pageTitle {
+  margin: 24px 0 40px 0;
+  font-size: 28px;
+  line-height: 26px;
+  font-weight: bold;
+}
 
-  background: #ffffff;
-  /* grayscale/dark-50 */
+.inputSection,
+.signinControlloer {
+  width: 356px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
 
-  border: 1px solid #d5d5dc;
-  border-radius: 4px;
+.inputSection {
+  gap: 8px;
+}
+
+.signinControlloer {
+  margin-top: 16px;
+  gap: 16px;
+}
+
+.signinButton {
+  width: 100%;
+  padding: 8px;
+  font-size: 20px;
+  line-height: 30px;
+  border: none;
+  border-radius: 100px;
+  color: #fff;
+  background-color: #ff6600;
+  cursor: pointer;
+}
+
+.links {
+  text-align: right;
+}
+
+.signupLink,
+.adminLogin {
+  /* width: fit-content; */
+  padding: 6px 12px;
+  font-size: 16px;
+  line-height: 28px;
+  height: 24px;
+  border: none;
+  color: #0062ff;
 }
