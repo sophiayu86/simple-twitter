@@ -9,10 +9,10 @@ const MainLayout=({header, tab})=>{
     return(
     <div className={styles.userpage}>
         <SideNav />
-        <div>
-        <Header text={header}/>
-        {tab==="tweets"&& <TweetList/>}
-        {tab==="replies"&& <ReplyList/>}
+        <div className={styles.mainContent}>
+            <Header text={header}/>
+            {tab==="tweets"&& <TweetList/>}
+            {tab==="replies"&& <ReplyList/>}
         </div>
         <PopularList/>
 

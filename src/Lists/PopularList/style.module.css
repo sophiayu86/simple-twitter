@@ -1,7 +1,6 @@
 .popularList {
   border: 1px dashed black;
   width: 273px;
-  height: 731px;
   display: flex;
   flex-direction: column;
   align-items: center;

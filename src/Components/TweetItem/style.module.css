@@ -1,9 +1,8 @@
 .card {
-  /* width: 639px; */
+  padding: 16px;
 }
 .tweetItem {
   text-align: left;
-
   display: flex;
   align-items: center;
   color: #1c1c1c;
