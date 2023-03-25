@@ -17,35 +17,29 @@ const SideNav = ({ currentPage }) => {
       <div className={styles.ACIconBlock}>
         <ACIcon />
       </div>
-      <div className={styles.sideNavItem}>
-        <div className={styles.navItem}>
-          {currentPage === "main" ? (
-            <IndexIcon1 className={styles.selected} />
-          ) : (
-            <IndexIcon0 onClick={() => navigate("/main")} />
-          )}
-          <span>首頁</span>
-        </div>
+      <div onClick={() => navigate("/main")} className={styles.navItem}>
+        {currentPage === "main" ? (
+          <IndexIcon1 className={styles.selected} />
+        ) : (
+          <IndexIcon0 />
+        )}
+        <span>首頁</span>
       </div>
-      <div className={styles.sideNavItem}>
-        <div className={styles.navItem}>
-          {currentPage === "user" ? (
-            <UserIcon1 className={styles.selected} />
-          ) : (
-            <UserIcon0 />
-          )}
-          <span onClick={() => navigate("/user")}>個人資料</span>
-        </div>
+      <div onClick={() => navigate("/user")} className={styles.navItem}>
+        {currentPage === "user" ? (
+          <UserIcon1 className={styles.selected} />
+        ) : (
+          <UserIcon0 />
+        )}
+        <span>個人資料</span>
       </div>
-      <div className={styles.sideNavItem}>
-        <div className={styles.navItem}>
-          {currentPage === "user" ? (
-            <SettingIcon1 className={styles.selected} />
-          ) : (
-            <SettingIcon0 />
-          )}
-          <span onClick={() => navigate("/user/setting")}>設定</span>
-        </div>
+      <div onClick={() => navigate("/user/setting")} className={styles.navItem}>
+        {currentPage === "userSetting" ? (
+          <SettingIcon1 className={styles.selected} />
+        ) : (
+          <SettingIcon0 />
+        )}
+        <span>設定</span>
       </div>
       <TweetButton text="推文" />
       <div className={styles.logout}>
