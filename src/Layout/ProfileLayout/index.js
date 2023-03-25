@@ -14,7 +14,7 @@ import styles from "./style.module.css";
 const ProfileLayout = ({ tab }) => {
   return (
     <div className={styles.userpage}>
-      <SideNav />
+      <SideNav currentPage="user" />
       <div className={styles.mainContent}>
         <ProfileHeader text="John" num="25" />
         <div className={styles.contentList}>

@@ -14,6 +14,7 @@
   display: flex;
   padding: 8px 0px 8px 24px;
   margin: 12px 0;
+  cursor: pointer;
 }
 
 .navItem span {
@@ -22,33 +23,16 @@
   font-weight: 700;
 }
 
+.navItem:hover {
+  background-color: #E6ECF0;
+}
+
 .selected path {
   fill: #ff6600;
 }
 
 .unselected path {
   fill: #ffffff;
-}
-
-.makeTweet {
-  border: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 8px 24px;
-
-  width: 178px;
-  height: 46px;
-
-  /* color/brand/main */
-
-  background: #ff6600;
-  border-radius: 50px;
-}
-
-.makeTweet:hover {
-  cursor: pointer;
 }
 
 .logout {

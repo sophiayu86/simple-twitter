@@ -5,7 +5,7 @@ import styles from './style.module.css';
 const SettingPage=()=>{
     return(
         <div className={styles.settingpage}>
-        <SideNav />
+        <SideNav currentPage="userSetting" />
         <div className={styles.mainContent}>
         <Header text="帳戶設定" />
         </div>
