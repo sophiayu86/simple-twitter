@@ -1,7 +1,9 @@
 import React from "react";
+// import { useState } from "react";
 import { ReactComponent as Noti0 } from "../../Assets/icon/noti0.svg";
 import { ReactComponent as Noti1 } from "../../Assets/icon/noti1.svg";
 import { ReactComponent as Msg } from "../../Assets/icon/msg.svg";
+import { Link } from "react-router-dom";
 import styles from "./style.module.css";
 
 const UserCard = ({
@@ -12,6 +14,7 @@ const UserCard = ({
   follower,
   isMe,
   noti,
+  isFollowing,
 }) => {
   return (
     <div className={styles.UserInfo}>
@@ -20,7 +23,9 @@ const UserCard = ({
 
       <div className={styles.userActions}>
         {isMe ? (
-          <button className={styles.editMyProfile}>編輯個人資料</button>
+          <Link to="user/setting">
+            <button className={styles.editMyProfile}>編輯個人資料</button>
+          </Link>
         ) : (
           <section>
             <Msg className={styles.Msg} />
@@ -29,7 +34,11 @@ const UserCard = ({
             ) : (
               <Noti0 className={styles.Noti0} />
             )}
-            <div className={styles.followButton}>正在跟隨</div>
+            {isFollowing ? (
+              <button className={styles.isFollowingButton}>正在跟隨</button>
+            ) : (
+              <button className={styles.followButton}>追蹤</button>
+            )}
           </section>
         )}
       </div>
