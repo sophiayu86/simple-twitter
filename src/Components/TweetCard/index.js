@@ -8,7 +8,7 @@ const TweetCard = () => {
       <ACIcon />
       <textarea className={styles.msgBlock} rows={6} placeholder="有什麼新鮮事" />
       <div className={styles.button}>
-        <TweetButton text="回覆" />
+        <TweetButton text="推文" />
       </div>
     </div>
   );

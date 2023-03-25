@@ -7,9 +7,11 @@ const AdminMainPage = () => {
   return (
     <div className={styles.AdminMainPage}>
       <AdminNav />
-      <div>
+      <div className={styles.mainContent}>
       <Header text="推文清單" />
+      <div className={styles.contentList}>
       <AdminTweetList />
+      </div>
       </div>
     </div>
   );

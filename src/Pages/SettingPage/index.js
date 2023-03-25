@@ -6,7 +6,9 @@ const SettingPage=()=>{
     return(
         <div className={styles.settingpage}>
         <SideNav />
+        <div className={styles.mainContent}>
         <Header text="帳戶設定" />
+        </div>
     </div>
     )
 }
