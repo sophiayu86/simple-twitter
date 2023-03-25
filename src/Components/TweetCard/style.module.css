@@ -1,0 +1,17 @@
+.tweetCard {
+  display: flex;
+  padding: 22px 16px 50px 16px;
+  position: relative;
+}
+
+.msgBlock {
+  flex: 1;
+  margin-left: 12px;
+  border: none;
+}
+
+.button {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+}
