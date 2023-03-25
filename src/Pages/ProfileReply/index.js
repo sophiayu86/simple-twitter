@@ -5,7 +5,7 @@ import ProfileLayout from '../../Layout/ProfileLayout';
 const ProfileReply=()=>{
     return(
     <div>
-        <ProfileLayout />
+        <ProfileLayout tab="replies" />
     </div>
     )
 }

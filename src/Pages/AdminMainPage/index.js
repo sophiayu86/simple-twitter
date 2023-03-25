@@ -1,12 +1,16 @@
 import React from "react";
-import { AdminNav } from "../../Components";
+import { AdminNav,Header } from "../../Components";
+import AdminTweetList from "../../Lists/AdminTweetList";
 import styles from './style.module.css';
 
 const AdminMainPage = () => {
   return (
     <div className={styles.AdminMainPage}>
       <AdminNav />
-      <div className={styles.middle}>AdminMainPage</div>
+      <div>
+      <Header text="推文清單" />
+      <AdminTweetList />
+      </div>
     </div>
   );
 };

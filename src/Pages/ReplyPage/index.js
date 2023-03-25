@@ -5,7 +5,7 @@ import styles from './style.module.css';
 const ReplyPage=()=>{
     return(
         <div className={styles.replypage}>
-        <MainLayout header="推文" />
+        <MainLayout header="推文" tab="replies" />
     </div>
     )
 }

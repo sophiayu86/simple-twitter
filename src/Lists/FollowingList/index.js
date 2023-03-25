@@ -1,20 +1,26 @@
 import React from "react";
 import styles from "./style.module.css";
-import { PopularItem } from "../../Components";
+import { FollowItem } from "../../Components";
 
-const PopularList = () => {
+const FollowingList = () => {
   
   return (
-    <div className={styles.popularList}>
-      <span className={styles.pageTitle}>
-        推薦跟蹤
-      </span>
-      <section>
-        <PopularItem name= "Pizza"  tag="@pizzahut" following={true}/>
-        <PopularItem name= "Pizza"  tag="@pizzahut" following={false}/>
-        </section>
+    <div className={styles.followingList}>
+        <FollowItem name= "Pizza"  content="Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. " following={true}/>
+        <FollowItem name= "Pizza"  content="Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. " following={false}/>
+        <FollowItem name= "Pizza"  content="Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. " following={true}/>
+        <FollowItem name= "Pizza"  content="Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. " following={false}/>
+        <FollowItem name= "Pizza"  content="Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. " following={true}/>
+        <FollowItem name= "Pizza"  content="Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. " following={false}/>
+        <FollowItem name= "Pizza"  content="Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. " following={true}/>
+        <FollowItem name= "Pizza"  content="Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. " following={false}/>
+        <FollowItem name= "Pizza"  content="Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. " following={true}/>
+        <FollowItem name= "Pizza"  content="Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. " following={false}/>
+        <FollowItem name= "Pizza"  content="Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. " following={false}/>
+        <FollowItem name= "Pizza"  content="Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. " following={false}/>
+
       
     </div>
   );
 };
-export default PopularList;
+export default FollowingList;

@@ -1,20 +1,22 @@
 import React from "react";
 import styles from "./style.module.css";
-import { PopularItem } from "../../Components";
+import { TweetItem } from "../../Components";
 
-const PopularList = () => {
+const UserLikeList = () => {
   
   return (
-    <div className={styles.popularList}>
-      <span className={styles.pageTitle}>
-        推薦跟蹤
-      </span>
-      <section>
-        <PopularItem name= "Pizza"  tag="@pizzahut" following={true}/>
-        <PopularItem name= "Pizza"  tag="@pizzahut" following={false}/>
-        </section>
+    <div className={styles.tweetList}>
+ 
+        <TweetItem liked ="true" name= "Pizza"  tag="@pizzahut" time="3小時" content="Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. "/>
+        <TweetItem liked ="true" name= "Pizza"  tag="@pizzahut" time="3小時" content="Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. "/>
+        <TweetItem liked ="true" name= "Pizza"  tag="@pizzahut" time="3小時" content="Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. "/>
+        <TweetItem liked ="true" name= "Pizza"  tag="@pizzahut" time="3小時" content="Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. "/>
+        <TweetItem liked ="true" name= "Pizza"  tag="@pizzahut" time="3小時" content="Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. "/>
+        <TweetItem liked ="true" name= "Pizza"  tag="@pizzahut" time="3小時" content="Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. "/>
+
+
       
     </div>
   );
 };
-export default PopularList;
+export default UserLikeList;
