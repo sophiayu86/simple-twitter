@@ -98,6 +98,10 @@
   top: 0;
 }
 
+.followButton:hover {
+  cursor: pointer;
+}
+
 .Msg {
   box-sizing: border-box;
   position: absolute;
