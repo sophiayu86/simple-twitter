@@ -1,22 +1,5 @@
-.popularList {
-  border: 1px dashed black;
-  width: 273px;
-  height: 731px;
+.followingList {
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow-y:auto;
 }
-
-
-.pageTitle {
-  width: 185px;
-  height: 26px;
-  font-family: "Noto Sans TC";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 28px;
-  line-height: 26px;
-  color: #1c1c1c;
-}
-
