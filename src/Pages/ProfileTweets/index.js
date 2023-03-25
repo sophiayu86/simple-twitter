@@ -6,7 +6,7 @@ import ProfileLayout from '../../Layout/ProfileLayout';
 
 const ProfileTweets=()=>{
     return(
-    <ProfileLayout/>
+    <ProfileLayout tab="tweets"/>
     )
 }
 export default ProfileTweets;

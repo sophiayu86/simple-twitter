@@ -5,7 +5,7 @@ import ProfileLayout from '../../Layout/ProfileLayout';
 const ProfileLikes=()=>{
     return(
     <div>
-        <ProfileLayout />
+        <ProfileLayout tab="likes" />
     </div>
     )
 }

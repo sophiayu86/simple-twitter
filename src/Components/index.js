@@ -12,3 +12,4 @@ export { default as PopularItem } from './PopularItem';
 export { default as NotificationCard } from './NotificationCard';
 export { default as FollowItem } from './FollowItem';
 export { default as AdminUserCard } from "./AdminUserCard";
+export { default as TweetItem } from './TweetItem';
