@@ -18,3 +18,24 @@
   width: 178px;
   height: 58px;
 }
+
+.makeTweet {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 24px;
+
+  width: 178px;
+  height: 46px;
+
+  /* color/brand/main */
+
+  background: #ff6600;
+  border-radius: 50px;
+}
+
+.makeTweet:hover {
+  cursor: pointer;
+}
