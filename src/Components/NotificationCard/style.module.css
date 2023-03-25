@@ -1,7 +1,5 @@
 .notiCard {
-  position: absolute;
   width: 394px;
-  height: 96px;
   display: flex;
   align-items: center;
   padding: 20px 24px;
