@@ -1,20 +1,22 @@
 .popularList {
-  border: 1px dashed black;
+  border: 1px solid #E6ECF0;
   width: 273px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 
 .pageTitle {
-  width: 185px;
   height: 26px;
+  text-align: left;
+  padding: 12px 0px 12px 12px;
   font-family: "Noto Sans TC";
   font-style: normal;
   font-weight: 700;
   font-size: 28px;
   line-height: 26px;
   color: #1c1c1c;
+  border-bottom: 1px solid #E6ECF0;
 }
 
+.followList {
+  padding: 8px 8px 0px 8px;
+}
