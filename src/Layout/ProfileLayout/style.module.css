@@ -1,3 +1,17 @@
 .userpage{
     display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.mainContent {
+    position: relative;
+    height: 100%;
+    flex: 1;
+}
+
+.contentList {
+    margin-top: 66px;
+    overflow: auto;
+    max-height: calc(100vh - 67px);
 }

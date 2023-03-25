@@ -1,15 +1,18 @@
 import React from "react";
-import { AdminNav, AdminUserCard } from "../../Components";
-import styles from "./style.module.css";
+import { AdminNav,Header, AdminUserCard } from "../../Components";
+import styles from './style.module.css';
 
-const AdminUsersPage = () => {
+const AdminUserPage = () => {
   return (
-    <div className={styles.AdminUsersPage}>
+    <div className={styles.AdminMainPage}>
       <AdminNav />
-      <div className={styles.AllAdminUserCards}>
-        <AdminUserCard />
+      <div className={styles.mainContent}>
+      <Header text="使用者列表" />
+      <div className={styles.contentList}>
+      <AdminUserCard />
+      </div>
       </div>
     </div>
   );
 };
-export default AdminUsersPage;
+export default AdminUserPage;

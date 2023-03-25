@@ -10,9 +10,9 @@ const Header = ({ text }) => {
   };
   return (
     <div className={styles.header}>
-      {text !== "首頁" && text !== "帳戶設定" && (
+      {text !== "首頁" && text !== "帳戶設定" && text !== "推文清單"&& text !== "使用者列表"&& (
         
-          <Back onClick={handleBack}/>
+          <Back className={styles.icon} onClick={handleBack}/>
        
       )}
       <span>{text}</span>

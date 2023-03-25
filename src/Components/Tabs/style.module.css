@@ -1,6 +1,8 @@
 .tabs{
     display: flex;
     height: 53px;
+    position: absolute;
+    top:80px;
 }
 .tabs div{
     width: 130px;

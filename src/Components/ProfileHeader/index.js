@@ -10,13 +10,13 @@ const ProfileHeader = ({ text, num }) => {
   };
   return (
     <div className={styles.profileheader}>
-      <Back onClick={handleBack}/>
+      <Back className={styles.icon} onClick={handleBack}/>
       <div>
       <p>{text}</p>
       <span>{num}推文</span>
       </div>
-      
     </div>
+
   );
 };
 export default ProfileHeader;
