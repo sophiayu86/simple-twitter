@@ -23,7 +23,7 @@ const UserCard = ({
   intro,
   following,
   follower,
-  isMe,
+  isMe=true,
   noti,
   isFollowing,
 }) => {

@@ -10,6 +10,10 @@ import styles from "./style.module.css";
 
 const AdminNav = ({ currentPage }) => {
   const navigate = useNavigate();
+  const handleLogout = () => {
+    localStorage.removeItem('authToken');
+    navigate('/admin_login');
+  };
   return (
     <div className={styles.sideNav}>
       <div className={styles.ACIconBlock}>
@@ -31,8 +35,8 @@ const AdminNav = ({ currentPage }) => {
         )}
         <span>使用者列表</span>
       </div>
-      <div className={styles.logout}>
-        <LogoutIcon style={{ marginRight: "8px" }} />
+      <div className={styles.logout} onClick={handleLogout}>
+        <LogoutIcon style={{ marginRight: "8px" }}/>
         <span className={styles.navItemText}>登出</span>
       </div>
     </div>

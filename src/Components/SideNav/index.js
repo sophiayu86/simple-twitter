@@ -12,6 +12,10 @@ import styles from "./style.module.css";
 import { TweetButton } from "../../Components";
 const SideNav = ({ currentPage }) => {
   const navigate = useNavigate();
+  const handleLogout = () => {
+    localStorage.removeItem('authToken');
+    navigate('/login');
+  };
   return (
     <div className={styles.sideNav}>
       <div className={styles.ACIconBlock}>
@@ -25,7 +29,7 @@ const SideNav = ({ currentPage }) => {
         )}
         <span>首頁</span>
       </div>
-      <div onClick={() => navigate("/user")} className={styles.navItem}>
+      <div onClick={() => navigate("/profile")} className={styles.navItem}>
         {currentPage === "user" ? (
           <UserIcon1 className={styles.selected} />
         ) : (
@@ -42,7 +46,7 @@ const SideNav = ({ currentPage }) => {
         <span>設定</span>
       </div>
       <TweetButton text="推文" />
-      <div className={styles.logout}>
+      <div className={styles.logout} onClick={handleLogout}>
         <LogoutIcon style={{ marginRight: "8px" }}/>
         <span className={styles.navItemText}>登出</span>
       </div>
