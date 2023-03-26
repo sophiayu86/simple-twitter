@@ -18,7 +18,7 @@ const ProfileLayout = ({ tab }) => {
       <div className={styles.mainContent}>
         <ProfileHeader text="John" num="25" />
         <div className={styles.contentList}>
-          <UserCard />
+          <UserCard follower={124} following={999} />
           <ProfileTabs tab={tab} />
           {tab === "tweets" && <UserTweetList />}
           {tab === "replies" && <UserReplyList />}
