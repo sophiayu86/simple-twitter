@@ -62,9 +62,11 @@
   width: 13px;
   height: 13px;
   margin-right: 9px;
+  stroke-width: 6%;
 }
 .liked path{
   fill: #FC5A5A;
+  stroke-width: 0;
 }
 .unliked path{
   fill: #ffffff;
