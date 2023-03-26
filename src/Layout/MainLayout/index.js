@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Header, ReplyCard, SideNav, TweetCard } from "../../Components";
 import PopularList from "../../Lists/PopularList";
 import TweetList from "../../Lists/TweetList";
 import ReplyList from "../../Lists/ReplyList";
 import styles from "./style.module.css";
+import { getAllTweets } from "../../API/auth.js";
 const MainLayout = ({ header, tab }) => {
+  const [tweetsData, setTweetsData] = useState([]);
+  const getData = async () => {
+    const res = await getAllTweets();
+    setTweetsData(res.data);
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <div className={styles.userpage}>
       <SideNav currentPage="main" />
@@ -13,7 +24,8 @@ const MainLayout = ({ header, tab }) => {
         <div className={styles.contentList}>
           {tab === "tweets" && (
             <div>
-              <TweetCard /> <TweetList />
+              <TweetCard />
+              <TweetList data={tweetsData} />
             </div>
           )}
           {tab === "replies" && (

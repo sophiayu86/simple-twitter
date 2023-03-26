@@ -1,7 +1,7 @@
 .card {
   padding: 16px;
-  border-top: 1px solid #E6ECF0;
-  border-bottom: 1px solid #E6ECF0;
+  border-top: 1px solid #e6ecf0;
+  border-bottom: 1px solid #e6ecf0;
 }
 .tweetItem {
   text-align: left;
@@ -41,9 +41,10 @@
   margin-left: 2px;
   font-size: 14px;
 }
-.ACIcon {
+.authorImg {
   width: 50px;
   height: 50px;
+  border-radius: 50%;
 }
 .deleteIcon {
   width: 15px;
@@ -57,6 +58,7 @@
   font-size: 16px;
   line-height: 26px;
   text-align: left;
+  min-height: 30px;
 }
 .icon {
   width: 13px;
@@ -64,11 +66,11 @@
   margin-right: 9px;
   stroke-width: 6%;
 }
-.liked path{
-  fill: #FC5A5A;
+.liked path {
+  fill: #fc5a5a;
   stroke-width: 0;
 }
-.unliked path{
+.unliked path {
   fill: #ffffff;
 }
 .interact {
@@ -77,9 +79,8 @@
   font-size: 14px;
   line-height: 14px;
   text-align: left;
-  color:#6C757D;
+  color: #6c757d;
 }
 .interact span {
   margin-right: 41px;
- 
 }

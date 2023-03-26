@@ -1,16 +1,36 @@
 import axios from "axios";
+let jwtToken = ""
+const axiosInstance = axios.create({
+  baseURL: "https://ac-twitter-12345.herokuapp.com/api",
+  headers: { 
+    "Content-Type": "application/json",
+    "Authorization": `Bearer ${jwtToken}`
+   },
+  timeout: 20000,
+});
 
-const authURL = "https://ac-twitter-12345.herokuapp.com/api";
+axiosInstance.interceptors.request.use(
+  function (config) {
+    if(jwtToken === "") {
+      config.headers["Authorization"] = `Bearer ${localStorage.getItem("jwt-token")}`
+    }
+    return config;
+  },
+  function (error) {
+    // Do something with request error
+    return Promise.reject(error);
+  }
+);
 
 export const login = async ({ account, password }) => {
   try {
-    const { status, data } = await axios.post(`${authURL}/user/signin`, {
+    const { status, data } = await axiosInstance.post("/user/signin", {
       account,
       password,
     });
     const { token } = data;
     if (status === 200 && token)
-      return { status: "success", message: "登入成功，正在前往首頁..." };
+      return { status: "success", message: "登入成功，正在前往首頁...", data: data };
   } catch (error) {
     const { status } = error.response;
     const { message } = error.response.data;
@@ -22,7 +42,7 @@ export const login = async ({ account, password }) => {
 
 export const adminLogin = async ({ account, password }) => {
   try {
-    const { status, data } = await axios.post(`${authURL}/admin/signin`, {
+    const { status, data } = await axiosInstance.post("/admin/signin", {
       account,
       password,
     });
@@ -47,7 +67,7 @@ export const register = async ({
   checkPassword,
 }) => {
   try {
-    const { status } = await axios.post(`${authURL}/users`, {
+    const { status } = await axiosInstance.post("/users", {
       account,
       name,
       email,
@@ -65,3 +85,15 @@ export const register = async ({
   }
 };
 
+export const getAllTweets = async () => {
+  try {
+    const res = await axiosInstance.get("/tweets");
+    return res;
+  } catch (error) {
+    const { status } = error.response;
+    const { message } = error.response.data;
+    if (status === 404) return { status: "error", message };
+    if (status === 500)
+      return { status: "error", message: "伺服器錯誤，連線中斷" };
+  }
+};
