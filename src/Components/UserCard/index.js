@@ -56,7 +56,7 @@ const UserCard = ({
         {intro}"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
       </div>
       <div className={styles.followship}>
-        <Link to="/following">
+        <Link to="/followers">
           <span className={styles.following}>{following} 個</span>
           <span style={{ color: "#929292" }}>跟隨中</span>
         </Link>

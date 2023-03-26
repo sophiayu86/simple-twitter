@@ -4,7 +4,6 @@ export { default as SideNav } from './SideNav';
 export { default as AdminNav } from './AdminNav';
 export { default as UserEditModel } from './UserEditModal';
 export { default as UserCard } from './UserCard';
-export { default as Tabs } from './Tabs';
 export { default as ProfileTabs } from './ProfileTabs';
 export { default as Header } from './Header';
 export { default as ProfileHeader } from './ProfileHeader';
