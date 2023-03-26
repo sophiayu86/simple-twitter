@@ -11,6 +11,12 @@ import UserReplyList from "../../Lists/UserReplyList";
 import UserLikeList from "../../Lists/UserLikeList";
 import styles from "./style.module.css";
 
+const tabsList = [
+  { label: "推文", value: "tweets" },
+  { label: "回覆", value: "replies" },
+  { label: "喜歡的內容", value: "likes" },
+];
+
 const ProfileLayout = () => {
   const [tab, setTab] = useState("tweets");
   return (
@@ -20,7 +26,7 @@ const ProfileLayout = () => {
         <ProfileHeader text="John" num="25" />
         <div className={styles.contentList}>
           <UserCard follower={124} following={999} />
-          <ProfileTabs currentTab={tab} changeTab={setTab} />
+          <ProfileTabs data={tabsList} currentTab={tab} changeTab={setTab} />
           {tab === "tweets" && <UserTweetList />}
           {tab === "replies" && <UserReplyList />}
           {tab === "likes" && <UserLikeList />}

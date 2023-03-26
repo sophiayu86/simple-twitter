@@ -10,7 +10,6 @@ import {
   AdminUsersPage,
   ProfilePage,
   UserFollowerPage,
-  UserFollowingPage,
   SettingPage,
   ReplyPage,
   HomePage,
@@ -36,7 +35,6 @@ export default function App() {
                 element={<UserFollowerPage />}
               /> */}
           <Route path="followers" element={<UserFollowerPage />} />
-          <Route path="following" element={<UserFollowingPage />} />
           <Route path="user/setting" element={<SettingPage />} />
           {/* <Route path="tweet/:TweetId/replies" element={<ReplyPage />} /> */}
           <Route path="replies" element={<ReplyPage />} />
