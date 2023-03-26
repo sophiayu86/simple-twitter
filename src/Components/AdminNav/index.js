@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { ReactComponent as ACIcon } from "../../Assets/icon/acIcon.svg";
 import { ReactComponent as IndexIcon0 } from "../../Assets/icon/indexIcon0.svg";
 import { ReactComponent as IndexIcon1 } from "../../Assets/icon/indexIcon1.svg";
@@ -8,39 +9,30 @@ import { ReactComponent as LogoutIcon } from "../../Assets/icon/logoutIcon.svg";
 import styles from "./style.module.css";
 
 const AdminNav = ({ currentPage }) => {
+  const navigate = useNavigate();
   return (
-    // 每個 div 都要依照所屬頁面將 icon 與 span 文字變色。切換頁面時，變動 useState 的頁面，再以 props
-    <div className={styles.AdminNav}>
-      <ACIcon className={styles.ACIcon} />
-      <div className={styles.sideNavItem}>
-        {currentPage === "AdminMainPage" ? (
-          <div className={styles.navItem}>
-            <IndexIcon1 className={styles.smIcon} />
-            <span className={styles.navItemText1}>推文清單</span>
-          </div>
-        ) : (
-          <div className={styles.navItem}>
-            <IndexIcon0 className={styles.smIcon} />
-            <span className={styles.navItemText0}>推文清單</span>
-          </div>
-        )}
+    <div className={styles.sideNav}>
+      <div className={styles.ACIconBlock}>
+        <ACIcon />
       </div>
-      <div className={styles.sideNavItem}>
-        {currentPage === "AdminUserPage" ? (
-          <div className={styles.navItem}>
-            <UserIcon1 className={styles.smIcon} />
-            <span className={styles.navItemText1}>使用者列表</span>
-          </div>
+      <div onClick={() => navigate("/admin_main")} className={styles.navItem}>
+        {currentPage === "admin_main" ? (
+          <IndexIcon1 className={styles.selected} />
         ) : (
-          <div className={styles.navItem}>
-            <UserIcon0 className={styles.smIcon} />
-            <span className={styles.navItemText0}>使用者列表</span>
-          </div>
+          <IndexIcon0 />
         )}
+        <span>推文清單</span>
       </div>
-
-      <div className={styles.sideNavItem}>
-        <LogoutIcon className={styles.smIcon} />
+      <div onClick={() => navigate("/admin_users")} className={styles.navItem}>
+        {currentPage === "admin_users" ? (
+          <UserIcon1 className={styles.selected} />
+        ) : (
+          <UserIcon0 />
+        )}
+        <span>使用者列表</span>
+      </div>
+      <div className={styles.logout}>
+        <LogoutIcon />
         <span className={styles.navItemText}>登出</span>
       </div>
     </div>

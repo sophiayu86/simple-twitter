@@ -1,18 +1,44 @@
-.AdminNav {
-  border: 1px solid black;
-  width: 178px;
+.sideNav {
+  border-right: 1px solid #E6ECF0;
+  width: 228px;
+  padding: 0 10px;
+  position: relative;
 }
 
-.ACIcon {
-  /* position: absolute; */
-
-  left: 10%;
-  right: 22.92%;
-  top: 10%;
-  bottom: 36.21%;
+.ACIconBlock {
+  text-align: left;
+  padding: 8px 0px 8px 24px;
 }
 
-.sideNavItem {
-  width: 178px;
-  height: 58px;
+.navItem {
+  display: flex;
+  padding: 8px 0px 8px 24px;
+  margin: 12px 0;
+  cursor: pointer;
+}
+
+.navItem span {
+  font-size: 18px;
+  margin-left: 12px;
+  font-weight: 700;
+}
+
+.navItem:hover {
+  background-color: #E6ECF0;
+}
+
+.selected path {
+  fill: #ff6600;
+}
+
+.unselected path {
+  fill: #ffffff;
+}
+
+.logout {
+  position: absolute;
+  bottom: 12px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
 }
