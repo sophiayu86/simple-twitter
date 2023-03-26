@@ -6,13 +6,11 @@
 
 .replyCardHeader {
   display: flex;
- 
 }
-.replyCardFooter{
+.replyCardFooter {
   padding-bottom: 8px;
   font-size: 14px;
   text-align: left;
-
 }
 .headerTitle {
   font-weight: bold;
@@ -26,7 +24,7 @@
   margin-left: 8px;
   font-size: 13px;
 }
-.icon{
+.icon {
   width: 50px;
   height: 50px;
 }
@@ -38,22 +36,23 @@
   color: #171725;
   font-size: 24px;
 }
-.interact{
+.interact {
   padding: 22px 16px;
   text-align: left;
-  border-top: 1px solid #E6ECF0;
-  border-bottom: 1px solid #E6ECF0;
+  border-top: 1px solid #e6ecf0;
+  border-bottom: 1px solid #e6ecf0;
 }
 .interactIcon {
   width: 25px;
   height: 25px;
   margin-right: 133px;
- 
+  stroke-width: 6%;
 }
-.liked path{
-  fill: #FC5A5A;
+.liked path {
+  fill: #fc5a5a;
+  stroke-width: 0;
 }
-.unliked path{
+.unliked path {
   fill: #ffffff;
 }
 .bar {
@@ -61,9 +60,9 @@
   font-size: 19px;
   line-height: 27.5px;
   text-align: left;
-  color:#6C757D;
-  border-top: 1px solid #E6ECF0;
-  border-bottom: 1px solid #E6ECF0;
+  color: #6c757d;
+  border-top: 1px solid #e6ecf0;
+  border-bottom: 1px solid #e6ecf0;
 }
 .bar span {
   color: #171725;

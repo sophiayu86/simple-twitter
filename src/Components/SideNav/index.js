@@ -43,7 +43,7 @@ const SideNav = ({ currentPage }) => {
       </div>
       <TweetButton text="推文" />
       <div className={styles.logout}>
-        <LogoutIcon />
+        <LogoutIcon style={{ marginRight: "8px" }}/>
         <span className={styles.navItemText}>登出</span>
       </div>
     </div>
