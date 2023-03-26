@@ -1,5 +1,7 @@
 .card {
   padding: 16px;
+  border-top: 1px solid #E6ECF0;
+  border-bottom: 1px solid #E6ECF0;
 }
 .tweetItem {
   text-align: left;
