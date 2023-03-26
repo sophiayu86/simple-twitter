@@ -1,7 +1,17 @@
 .tabs{
     display: flex;
     height: 53px;
+    margin-top: 12px;
 }
 .tabs div{
     width: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.active {
+    color: #ff6600;
+    border-bottom: 5px solid #ff6600;
 }

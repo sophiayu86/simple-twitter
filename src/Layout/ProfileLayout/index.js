@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   ProfileHeader,
   ProfileTabs,
@@ -11,7 +11,8 @@ import UserReplyList from "../../Lists/UserReplyList";
 import UserLikeList from "../../Lists/UserLikeList";
 import styles from "./style.module.css";
 
-const ProfileLayout = ({ tab }) => {
+const ProfileLayout = () => {
+  const [tab, setTab] = useState("tweets");
   return (
     <div className={styles.userpage}>
       <SideNav currentPage="user" />
@@ -19,7 +20,7 @@ const ProfileLayout = ({ tab }) => {
         <ProfileHeader text="John" num="25" />
         <div className={styles.contentList}>
           <UserCard follower={124} following={999} />
-          <ProfileTabs tab={tab} />
+          <ProfileTabs currentTab={tab} changeTab={setTab} />
           {tab === "tweets" && <UserTweetList />}
           {tab === "replies" && <UserReplyList />}
           {tab === "likes" && <UserLikeList />}

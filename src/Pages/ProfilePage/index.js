@@ -2,11 +2,11 @@ import React from 'react';
 import ProfileLayout from '../../Layout/ProfileLayout';
 // import styles from './style.module.css';
 
-const ProfileReply=()=>{
+const ProfilePage=()=>{
     return(
     <div>
-        <ProfileLayout tab="replies" />
+        <ProfileLayout />
     </div>
     )
 }
-export default ProfileReply;
+export default ProfilePage;
