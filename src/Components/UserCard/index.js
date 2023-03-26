@@ -54,8 +54,12 @@ const UserCard = ({
         {intro}"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
       </div>
       <div className={styles.followship}>
+      <Link to="/following">
         <span className={styles.following}>{following} 個跟隨中</span>
+        </Link>
+        <Link to="/followers">
         <span className={styles.follower}>{follower} 位跟隨者</span>
+        </Link>
       </div>
     </div>
   );
