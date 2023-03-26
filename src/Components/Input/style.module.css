@@ -1,6 +1,10 @@
 /* .inputField {
   margin: 8px 0;
 } */
+input,
+textarea {
+  font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
 
 .inputContainer {
   position: relative;
