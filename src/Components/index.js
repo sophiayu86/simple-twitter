@@ -1,4 +1,3 @@
-export { default as Nav } from './Nav';
 export { default as Input } from './Input';
 export { default as SideNav } from './SideNav';
 export { default as AdminNav } from './AdminNav';

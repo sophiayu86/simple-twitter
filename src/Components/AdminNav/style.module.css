@@ -39,7 +39,10 @@
   position: absolute;
   bottom: 12px;
   display: flex;
-  width: 100%;
+  width: 228px;
   justify-content: center;
   align-items: center;
+}
+.logout:hover{
+  background-color: #E6ECF0;
 }
