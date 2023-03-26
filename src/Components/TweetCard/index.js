@@ -5,7 +5,7 @@ import { TweetButton } from '../../Components'
 const TweetCard = () => {
   return (
     <div className={styles.tweetCard}>
-      <ACIcon />
+      <ACIcon className={styles.icon}/>
       <textarea className={styles.msgBlock} rows={6} placeholder="有什麼新鮮事" />
       <div className={styles.button}>
         <TweetButton text="推文" />

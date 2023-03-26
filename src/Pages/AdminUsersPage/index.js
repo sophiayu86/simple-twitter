@@ -4,6 +4,7 @@ import { AdminNav, Header, AdminUserCard } from "../../Components";
 import styles from "./style.module.css";
 import {getAdminUserCard} from "../../API/AdminUserCardAPI.js";
 
+
 const AdminUserPage = () => {
   const [userData, setUserData] = useState([]);
 
@@ -25,11 +26,13 @@ const AdminUserPage = () => {
 
   return (
     <div className={styles.AdminMainPage}>
-      <AdminNav />
+      <AdminNav currentPage="admin_users" />
       <div className={styles.mainContent}>
         <Header text="使用者列表" />
         <div className={styles.contentList}>
+
           {displayAllCards}
+
         </div>
       </div>
     </div>

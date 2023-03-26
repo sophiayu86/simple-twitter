@@ -10,8 +10,17 @@
     flex: 1;
 }
 
+.fixedTabs {
+    position: absolute;
+    top: 88px;
+}
+
 .contentList {
-    margin-top: 120px;
+    margin-top: 153px;
     overflow: auto;
+    padding-top: 24px;
     max-height: calc(100vh - 67px);
 }
+.contentList::-webkit-scrollbar {
+    display: none;
+  }

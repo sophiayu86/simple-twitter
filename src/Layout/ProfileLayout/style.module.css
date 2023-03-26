@@ -11,7 +11,10 @@
 }
 
 .contentList {
-    margin-top: 66px;
+    margin-top: 80px;
     overflow: auto;
     max-height: calc(100vh - 67px);
 }
+.contentList::-webkit-scrollbar {
+    display: none;
+  }

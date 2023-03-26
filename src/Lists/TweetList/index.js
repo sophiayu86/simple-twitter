@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./style.module.css";
 import { TweetItem } from "../../Components";
 
-const ReplyList = () => {
+const TweetList = () => {
   
   return (
     <div className={styles.tweetList}>
@@ -19,4 +19,4 @@ const ReplyList = () => {
     </div>
   );
 };
-export default ReplyList;
+export default TweetList;
