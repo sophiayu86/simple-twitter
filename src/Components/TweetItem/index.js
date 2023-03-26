@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import { ReactComponent as ACIcon } from "../../Assets/icon/acIcon.svg";
 import { ReactComponent as Delete } from "../../Assets/icon/delete.svg";
 import { ReactComponent as Talk } from "../../Assets/icon/talk.svg";
 import { ReactComponent as Liked } from "../../Assets/icon/liked.svg";
 import styles from "./style.module.css";
 
-const TweetItem = ({ name, tag, content, time, admin, reply, liked }) => {
+const TweetItem = ({ authorImg, name, tag, content, time, admin, reply, liked, msgCount, likesCount }) => {
   const [likeState, setLikeStatus] = useState(liked);
   function handleLikeStateChange() {
     setLikeStatus(!likeState);
@@ -13,8 +12,7 @@ const TweetItem = ({ name, tag, content, time, admin, reply, liked }) => {
   return (
     <div className={styles.card}>
       <div className={styles.tweetItem}>
-        <ACIcon className={styles.ACIcon} />
-
+        <img alt="author-img" src={authorImg} className={styles.authorImg} />
         <p>{name}</p>
         <span>{tag}</span>
         <span>{time}</span>
@@ -34,7 +32,7 @@ const TweetItem = ({ name, tag, content, time, admin, reply, liked }) => {
       {!admin && !reply && (
         <div className={styles.interact}>
           <Talk className={styles.icon} />
-          <span>13</span>
+          <span>{msgCount}</span>
           <Liked
             className={`${styles.icon} ${
               likeState ? styles.liked : styles.unliked
@@ -42,7 +40,7 @@ const TweetItem = ({ name, tag, content, time, admin, reply, liked }) => {
             stroke="#6C757D"
             onClick={handleLikeStateChange}
           />
-          <span>13</span>
+          <span>{likesCount}</span>
         </div>
       )}
     </div>
