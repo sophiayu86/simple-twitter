@@ -5,7 +5,7 @@ import { postReply } from '../../../API/postReply.js';
 import NotificationCard from '../../NotificationCard';
 
 export default function ModalContent({ tweetInfo, signinUserAvatar, onClose }) {
-  const { tweetId, name, account, avatar, createdAt, description } = tweetInfo;
+  const { tweetId, name, account, avatar, updatedAt, description } = tweetInfo;
   const initialComment = { status: 'default', message: '', value: '' };
   const [comment, setComment] = useState(initialComment);
   const [postResult, setPostResult] = useState(null);
@@ -58,7 +58,7 @@ export default function ModalContent({ tweetInfo, signinUserAvatar, onClose }) {
             <div className={styles.title}>
               <span className={styles.name}>{name}</span>
               <span className={styles.subInfo}>
-                @{account}・{createdAt}
+                @{account}・{updatedAt}
               </span>
             </div>
             <p className={styles.description}>{description}</p>

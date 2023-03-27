@@ -2,28 +2,33 @@ import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
 import ModalContent from './ModalContent/index';
 import { ReactComponent as Talk } from '../../Assets/icon/talk.svg';
-// import styles from "./style.module.css";
+import { getOneTweet } from '../../API/getOneTweet';
 
 export default function PostReplyModal({ className, tweetId }) {
-  //要回覆的貼文的資料
-  const tweetInfo = {
-    tweetId: '374', //------> 需要修正
-    name: 'Apple',
-    account: 'apple',
-    avatar: 'https://i.imgur.com/TGuHpHB.jpg',
-    createdAt: '3小時',
-    description: 'voluptatatur quaertur quaerat consequatur idvoluptate aspernatur quaerat c id'
-  };
-  const signinUserAvatar = 'https://i.imgur.com/QljR8Ap.png';
+  const [tweetInfo, setTweetInfo] = useState({});
+  const signinUserAvatar = '' || 'https://i.imgur.com/TGuHpHB.jpg'; //之後換成 Context
   const [showModal, setShowModal] = useState(false);
+  const handleOnClick = async e => {
+    e.stopPropagation();
+    const data = await getOneTweet({ tweetId });
+    if (data) {
+      const { User, id, description, updatedAt } = data;
+      setTweetInfo({
+        tweetId: id,
+        name: User.name,
+        account: User.account,
+        avatar: User.avatar,
+        updatedAt: updatedAt,
+        description: description
+      });
+      setShowModal(true);
+    }
+  };
 
   return (
     <>
       <Talk
-        onClick={e => {
-          e.stopPropagation();
-          setShowModal(true);
-        }}
+        onClick={e => handleOnClick(e)}
         className={className}
         style={{ cursor: 'pointer' }}
       />
