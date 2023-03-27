@@ -12,16 +12,11 @@ const TweetItem = ({ authorImg, name, tag, content, time, admin, reply, liked, m
   return (
     <div className={styles.card}>
       <div className={styles.tweetItem}>
-        <img alt="author-img" src={authorImg} className={styles.authorImg} />
+        <img alt='author-img' src={authorImg ? authorImg : "https://i.imgur.com/TGuHpHB.jpg"} className={styles.authorImg} />
         <p>{name}</p>
         <span>{tag}</span>
         <span>{time}</span>
-        {admin && (
-          <Delete
-            className={styles.deleteIcon}
-            onClick={() => console.log("delete this")}
-          />
-        )}
+        {admin && <Delete className={styles.deleteIcon} onClick={() => console.log("delete this")} />}
       </div>
       {reply && (
         <div className={styles.reply}>
@@ -34,10 +29,8 @@ const TweetItem = ({ authorImg, name, tag, content, time, admin, reply, liked, m
           <Talk className={styles.icon} />
           <span>{msgCount}</span>
           <Liked
-            className={`${styles.icon} ${
-              likeState ? styles.liked : styles.unliked
-            }`}
-            stroke="#6C757D"
+            className={`${styles.icon} ${likeState ? styles.liked : styles.unliked}`}
+            stroke='#6C757D'
             onClick={handleLikeStateChange}
           />
           <span>{likesCount}</span>
