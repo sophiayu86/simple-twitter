@@ -1,0 +1,177 @@
+.backDrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #00000056;
+}
+
+.card {
+  position: absolute;
+  top: 56px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 634px;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid #e6ecf0;
+}
+.closeBtn {
+  appearance: none;
+  border: none;
+  margin-right: 32px;
+  cursor: pointer;
+}
+
+/* ------ 推文資訊區 -------  */
+.tweetInfo {
+  display: flex;
+  gap: 8px;
+  padding: 0 24px;
+  margin-top: 16px;
+}
+.tweetInfo p {
+  margin: 0;
+}
+
+.leftPart {
+  position: relative;
+}
+
+.connectLine {
+  display: block;
+  width: 2px;
+  position: absolute;
+  left: 50%;
+  top: 66px;
+  bottom: 0;
+  background-color: #b5b5be;
+}
+
+.avatar {
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.rightPart {
+  flex: 1;
+  display: grid;
+  gap: 8px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.name,
+.description {
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.name {
+  font-weight: 700;
+}
+
+.subInfo {
+  font-size: 14px;
+  line-height: 22px;
+  color: #6c757d;
+}
+
+/* ------ 回覆區 -------  */
+.input {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 0 24px;
+}
+
+.textarea {
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  padding: 0;
+  flex: 1px;
+  margin-top: 12px;
+  resize: none;
+  font-size: 16px;
+  line-height: 26px;
+  width: 100%;
+  height: 143px;
+}
+
+.textarea::placeholder {
+  color: #b5b5be;
+}
+
+.textarea:focus {
+  outline: none;
+}
+
+/* footer */
+.footer {
+  display: flex;
+  gap: 20px;
+  padding: 16px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.message {
+  display: none;
+  margin: 0;
+  text-align: right;
+}
+
+.errorMessage {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+  text-align: right;
+  color: #fc5a5a;
+}
+
+.submitBtn {
+  font-size: 16px;
+  line-height: 24px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 100px;
+  background-color: #ff6600;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.notification {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.notiContent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.notiBackdrop {
+  width: 100%;
+  height: 100%;
+  background-color: #00000084;
+}

@@ -1,9 +1,10 @@
-import React, { useState } from "react";
-import { ReactComponent as ACIcon } from "../../Assets/icon/acIcon.svg";
-import styles from "./style.module.css";
-import { ReactComponent as Talk } from "../../Assets/icon/talk.svg";
-import { ReactComponent as Liked } from "../../Assets/icon/liked.svg";
-const ReplyCard = ({ name, tag, content, time, liked }) => {
+import React, { useState } from 'react';
+import { ReactComponent as ACIcon } from '../../Assets/icon/acIcon.svg';
+import styles from './style.module.css';
+import { ReactComponent as Liked } from '../../Assets/icon/liked.svg';
+import PostReplyModal from '../PostReplyModal';
+
+const ReplyCard = ({ id, name, tag, content, time, liked }) => {
   const [likeState, setLikeStatus] = useState(liked);
   function handleLikeStateChange() {
     setLikeStatus(!likeState);
@@ -26,13 +27,13 @@ const ReplyCard = ({ name, tag, content, time, liked }) => {
         <span>13</span>喜歡次數
       </div>
       <div className={styles.interact}>
-        <Talk className={styles.interactIcon} />
-
+        <PostReplyModal
+          className={styles.interactIcon}
+          tweetId={id}
+        />
         <Liked
-          className={`${styles.interactIcon} ${
-            likeState ? styles.liked : styles.unliked
-          }`}
-          stroke="#6C757D"
+          className={`${styles.interactIcon} ${likeState ? styles.liked : styles.unliked}`}
+          stroke='#6C757D'
           onClick={handleLikeStateChange}
         />
       </div>

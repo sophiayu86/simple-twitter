@@ -3,6 +3,7 @@ export { default as SideNav } from './SideNav';
 export { default as AdminNav } from './AdminNav';
 export { default as UserEditModel } from './UserEditModal';
 export { default as PostTweetModal } from './PostTweetModal';
+export { default as PostReplyModal } from './PostReplyModal';
 export { default as UserCard } from './UserCard';
 export { default as ProfileTabs } from './ProfileTabs';
 export { default as Header } from './Header';
