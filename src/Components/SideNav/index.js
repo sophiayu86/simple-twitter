@@ -13,7 +13,7 @@ import { PostTweetModal } from '../../Components';
 const SideNav = ({ currentPage }) => {
   const navigate = useNavigate();
   const handleLogout = () => {
-    localStorage.removeItem('authToken');
+    localStorage.removeItem('jwt-token');
     navigate('/login');
   };
   return (

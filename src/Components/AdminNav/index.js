@@ -11,7 +11,7 @@ import styles from './style.module.css';
 const AdminNav = ({ currentPage }) => {
   const navigate = useNavigate();
   const handleLogout = () => {
-    localStorage.removeItem('authToken');
+    localStorage.removeItem('jwt-token');
     navigate('/admin_login');
   };
   return (
@@ -22,21 +22,13 @@ const AdminNav = ({ currentPage }) => {
       <div
         onClick={() => navigate('/admin_main')}
         className={styles.navItem}>
-        {currentPage === 'admin_main' ? (
-          <IndexIcon1 className={styles.selected} />
-        ) : (
-          <IndexIcon0 />
-        )}
+        {currentPage === 'admin_main' ? <IndexIcon1 className={styles.selected} /> : <IndexIcon0 />}
         <span>推文清單</span>
       </div>
       <div
         onClick={() => navigate('/admin_users')}
         className={styles.navItem}>
-        {currentPage === 'admin_users' ? (
-          <UserIcon1 className={styles.selected} />
-        ) : (
-          <UserIcon0 />
-        )}
+        {currentPage === 'admin_users' ? <UserIcon1 className={styles.selected} /> : <UserIcon0 />}
         <span>使用者列表</span>
       </div>
       <div
