@@ -10,11 +10,7 @@ const FollowItem = ({ name, content, following }) => {
 
         <p>{name}</p>
 
-        {following ? (
-          <button className={styles.activeButton}>正在跟隨</button>
-        ) : (
-          <button className={styles.button}>跟隨</button>
-        )}
+        {following ? <button className={styles.activeButton}>正在跟隨</button> : <button className={styles.button}>跟隨</button>}
       </div>
       <div className={styles.content}>{content}</div>
     </div>

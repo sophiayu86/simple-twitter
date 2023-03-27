@@ -1,12 +1,13 @@
 .AdminMainPage {
   display: flex;
+  /* border: 2px dashed green; */
+  /* min-height:300px */
+  
 }
 
-
-
-.contentList{
-  position:absolute;
-  top:75px;
-  display:flex;
+.contentList {
+  position: absolute;
+  top: 75px;
+  display: flex;
   flex-wrap: wrap;
 }

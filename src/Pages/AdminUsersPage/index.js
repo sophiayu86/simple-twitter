@@ -19,7 +19,7 @@ const AdminUserPage = () => {
     getUserDataAsync();
   }, []);
 
-  const displayAllCards = userData.map(user => (
+  const displayAllCards = userData?.map(user => (
     <AdminUserCard
       key={user.id}
       userData={user}
