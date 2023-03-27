@@ -1,18 +1,26 @@
-import React from "react";
-import styles from "./style.module.css";
-import { ReactComponent as Reply } from "../../Assets/icon/reply.svg";
-import { ReactComponent as Like } from "../../Assets/icon/like.svg";
+import React from 'react';
+import styles from './style.module.css';
+import { ReactComponent as Reply } from '../../Assets/icon/reply.svg';
+import { ReactComponent as Like } from '../../Assets/icon/like.svg';
 
 const AdminUserCard = ({ userData }) => {
   return (
     <div className={styles.AdminUserCard}>
       <div className={styles.cover}>
-        <img src={userData.cover} className={styles.coverImg} alt="coverImg" />
+        <img
+          src={userData.cover}
+          className={styles.coverImg}
+          alt='coverImg'
+        />
       </div>
       {
         <div className={styles.nameAndPhoto}>
           <div className={styles.avatar}>
-            <img src={userData.avatar} className={styles.avatarImg} alt="avatarImg" />
+            <img
+              src={userData.avatar}
+              className={styles.avatarImg}
+              alt='avatarImg'
+            />
           </div>
           <div className={styles.nameAndId}>
             <span className={styles.name}>{userData.name}</span>

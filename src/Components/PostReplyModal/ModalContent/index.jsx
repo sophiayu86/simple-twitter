@@ -32,9 +32,7 @@ export default function ModalContent({ tweetInfo, signinUserAvatar, onClose }) {
   };
   const handleOnChange = value => {
     setComment(prev => {
-      return value.length > 140
-        ? { ...prev, status: 'error', message: '回覆不可超過140字', value }
-        : { ...prev, status: 'default', message: '', value };
+      return value.length > 140 ? { ...prev, status: 'error', message: '回覆不可超過140字', value } : { ...prev, status: 'default', message: '', value };
     });
   };
 

@@ -12,11 +12,17 @@ export default function UserEditModel({ userData }) {
         onClick={e => {
           e.stopPropagation();
           setShowModal(true);
-        }}
-      >
+        }}>
         編輯個人資料
       </button>
-      {showModal && createPortal(<ModalContent userData={userData} onClose={() => setShowModal(false)} />, document.body)}
+      {showModal &&
+        createPortal(
+          <ModalContent
+            userData={userData}
+            onClose={() => setShowModal(false)}
+          />,
+          document.body
+        )}
     </>
   );
 }

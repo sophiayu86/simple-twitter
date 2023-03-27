@@ -21,20 +21,28 @@ const SideNav = ({ currentPage }) => {
       <div className={styles.ACIconBlock}>
         <ACIcon />
       </div>
-      <div onClick={() => navigate('/main')} className={styles.navItem}>
+      <div
+        onClick={() => navigate('/main')}
+        className={styles.navItem}>
         {currentPage === 'main' ? <IndexIcon1 className={styles.selected} /> : <IndexIcon0 />}
         <span>首頁</span>
       </div>
-      <div onClick={() => navigate('/profile')} className={styles.navItem}>
+      <div
+        onClick={() => navigate('/profile')}
+        className={styles.navItem}>
         {currentPage === 'user' ? <UserIcon1 className={styles.selected} /> : <UserIcon0 />}
         <span>個人資料</span>
       </div>
-      <div onClick={() => navigate('/user/setting')} className={styles.navItem}>
+      <div
+        onClick={() => navigate('/user/setting')}
+        className={styles.navItem}>
         {currentPage === 'userSetting' ? <SettingIcon1 className={styles.selected} /> : <SettingIcon0 />}
         <span>設定</span>
       </div>
       <PostTweetModal mode={'button'} />
-      <div className={styles.logout} onClick={handleLogout}>
+      <div
+        className={styles.logout}
+        onClick={handleLogout}>
         <LogoutIcon style={{ marginRight: '8px' }} />
         <span className={styles.navItemText}>登出</span>
       </div>
