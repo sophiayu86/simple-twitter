@@ -1,4 +1,5 @@
 import axios from 'axios';
+import HttpStatus from 'http-status-codes';
 let jwtToken = '';
 const axiosInstance = axios.create({
   baseURL: 'https://ac-twitter-12345.herokuapp.com/api',
@@ -21,5 +22,16 @@ axiosInstance.interceptors.request.use(
     return Promise.reject(error);
   }
 );
+axiosInstance.interceptors.response.use(
+  response => {
+    return response
+  },
+  error => {
+    if (error.response && error.response.status === HttpStatus.UNAUTHORIZED) {
+      window.location.href = window.location.origin + "/simple-twitter/login"
+    }
 
+    return Promise.reject(error)
+  }
+)
 export default axiosInstance;

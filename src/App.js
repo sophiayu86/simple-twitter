@@ -1,14 +1,14 @@
 import './App.css';
-// import { LoginInput, RegisterInput, Nav,SideNav } from './Components';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { SignUpPage, LoginPage, MainPage, AdminLoginPage, AdminMainPage, AdminUsersPage, ProfilePage, UserFollowerPage, SettingPage, ReplyPage, HomePage } from './Pages';
-
+import { AuthProvider } from './Context/AuthContext';
 const basename = process.env.PUBLIC_URL;
 
 export default function App() {
   return (
     <div className='App'>
       <BrowserRouter basename={basename}>
+        <AuthProvider>
         <Routes>
           <Route
             path='signup'
@@ -61,6 +61,7 @@ export default function App() {
             element={<HomePage />}
           />
         </Routes>
+        </AuthProvider>
       </BrowserRouter>
     </div>
   );
