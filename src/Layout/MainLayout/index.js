@@ -6,7 +6,7 @@ import ReplyList from '../../Lists/ReplyList';
 import styles from './style.module.css';
 import { getAllTweets } from '../../API/auth.js';
 
-const MainLayout = ({ header, tab }) => {
+const MainLayout = ({ header, tab, currentMember }) => {
   const [tweetsData, setTweetsData] = useState([]);
   const getData = async () => {
     const res = await getAllTweets();
@@ -24,7 +24,7 @@ const MainLayout = ({ header, tab }) => {
         <div className={styles.contentList}>
           {tab === 'tweets' && (
             <div>
-              <PostTweetModal mode={'block'} />
+              <PostTweetModal mode={'block'} currentMember={currentMember} />
               <TweetList data={tweetsData} />
             </div>
           )}

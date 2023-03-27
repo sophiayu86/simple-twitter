@@ -1,15 +1,20 @@
 import React from 'react';
-// import { Header, SideNav, UserCard } from "../../Components";
 import styles from './style.module.css';
-// import PopularList from "../../Lists/PopularList";
 import MainLayout from '../../Layout/MainLayout';
 
+import { useAuth } from '../../Context/AuthContext';
+
+
 const MainPage = () => {
+  const { currentMember } = useAuth();
+ 
+ 
   return (
     <div className={styles.mainpage}>
       <MainLayout
         header='首頁'
         tab='tweets'
+        currentMember={currentMember}
       />
     </div>
   );
