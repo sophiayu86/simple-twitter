@@ -1,9 +1,9 @@
 import axiosInstance from './getToken/json';
 
-export const postTweet = async ({ description }) => {
+export const postReply = async ({ tweetId, comment }) => {
   try {
-    const { status } = await axiosInstance.post('/tweets', { description });
-    if (status === 200) return { status: 'success', message: '推文成功' };
+    const { status } = await axiosInstance.post(`/tweets/${tweetId}/replies`, { comment });
+    if (status === 200) return { status: 'success', message: '回覆成功' };
   } catch (error) {
     const { status } = error.response;
     const { message } = error.response.data;

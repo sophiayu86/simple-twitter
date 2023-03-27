@@ -35,9 +35,7 @@ export default function ModalContent({ avatar, onClose }) {
   };
   const handleOnChange = value => {
     setDescription(prev => {
-      return value.length > 140
-        ? { ...prev, status: 'error', message: '不可超過140字', value }
-        : { ...prev, status: 'default', message: '', value };
+      return value.length > 140 ? { ...prev, status: 'error', message: '不可超過140字', value } : { ...prev, status: 'default', message: '', value };
     });
   };
 
@@ -45,10 +43,18 @@ export default function ModalContent({ avatar, onClose }) {
     <div className={styles.backDrop}>
       <div className={styles.card}>
         <div className={styles.header}>
-          <Cross className={styles.closeBtn} onClick={handleClose} />
+          <Cross
+            className={styles.closeBtn}
+            onClick={handleClose}
+          />
         </div>
         <div className={styles.input}>
-          <img src={avatar} className={styles.avatar} alt='' />
+          <img
+            src={avatar}
+            className={styles.avatar}
+            alt=''
+            onError={e => (e.target.src = 'https://i.imgur.com/TGuHpHB.jpg')}
+          />
           <textarea
             name='description'
             id='description'
@@ -60,7 +66,9 @@ export default function ModalContent({ avatar, onClose }) {
         </div>
         <div className={styles.footer}>
           <p className={description.status === 'error' ? styles.errorMessage : styles.message}>{description.message}</p>
-          <button className={styles.submitBtn} onClick={handleSubmit}>
+          <button
+            className={styles.submitBtn}
+            onClick={handleSubmit}>
             推文
           </button>
         </div>
@@ -68,7 +76,10 @@ export default function ModalContent({ avatar, onClose }) {
           <div className={styles.notification}>
             <div className={styles.notiBackdrop}></div>
             <div className={styles.notiContent}>
-              <NotificationCard status={postResult?.status} message={postResult?.message} />
+              <NotificationCard
+                status={postResult?.status}
+                message={postResult?.message}
+              />
             </div>
           </div>
         )}

@@ -1,14 +1,14 @@
-import React from "react";
-import { AdminNav, Header } from "../../Components";
-import AdminTweetList from "../../Lists/AdminTweetList";
-import styles from "./style.module.css";
+import React from 'react';
+import { AdminNav, Header } from '../../Components';
+import AdminTweetList from '../../Lists/AdminTweetList';
+import styles from './style.module.css';
 
 const AdminMainPage = () => {
   return (
     <div className={styles.AdminMainPage}>
-      <AdminNav currentPage="admin_main" />
+      <AdminNav currentPage='admin_main' />
       <div className={styles.mainContent}>
-        <Header text="推文清單" />
+        <Header text='推文清單' />
         <div className={styles.contentList}>
           <AdminTweetList />
         </div>

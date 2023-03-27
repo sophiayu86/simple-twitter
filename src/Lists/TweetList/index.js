@@ -6,6 +6,7 @@ const TweetList = ({ data }) => {
   const renderData = data?.map(item => (
     <TweetItem
       key={item.id}
+      id={item.id}
       liked={item.isLike}
       name={item.User.name}
       tag={item.User.account}

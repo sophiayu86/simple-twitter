@@ -85,29 +85,64 @@ export default function ModalContent({ userData, onClose }) {
     <div className={style.backDrop}>
       <div className={style.card}>
         <div className={style.header}>
-          <Cross className={style.closeBtn} onClick={handleClose} />
+          <Cross
+            className={style.closeBtn}
+            onClick={handleClose}
+          />
           <h5 className={style.title}>編輯個人資料</h5>
-          <button className={style.submitBtn} onClick={e => handleSubmit(id, e)}>
+          <button
+            className={style.submitBtn}
+            onClick={e => handleSubmit(id, e)}>
             儲存
           </button>
         </div>
         <div className={style.images}>
-          <label htmlFor='cover' className={style.cover}>
-            <input type='file' name='cover' id='cover' onChange={e => handleImageChange(e, setImagePrev, setImageFile)} />
+          <label
+            htmlFor='cover'
+            className={style.cover}>
+            <input
+              type='file'
+              name='cover'
+              id='cover'
+              onChange={e => handleImageChange(e, setImagePrev, setImageFile)}
+            />
             <div className={style.coverBackDrop}></div>
-            <img src={imagePrev.cover} onError={e => (e.target.src = 'https://i.imgur.com/vzIPCvD.png')} alt='' />
+            <img
+              src={imagePrev.cover}
+              onError={e => (e.target.src = 'https://i.imgur.com/vzIPCvD.png')}
+              alt=''
+            />
             <CoverEdit className={style.editIcon} />
           </label>
-          <label htmlFor='avatar' className={style.avatar}>
-            <input type='file' name='avatar' id='avatar' onChange={e => handleImageChange(e, setImagePrev, setImageFile)} />
+          <label
+            htmlFor='avatar'
+            className={style.avatar}>
+            <input
+              type='file'
+              name='avatar'
+              id='avatar'
+              onChange={e => handleImageChange(e, setImagePrev, setImageFile)}
+            />
             <div className={style.avatarBackDrop}></div>
-            <img src={imagePrev.avatar} onError={e => (e.target.src = 'https://i.imgur.com/QljR8Ap.png')} alt='' />
+            <img
+              src={imagePrev.avatar}
+              onError={e => (e.target.src = 'https://i.imgur.com/QljR8Ap.png')}
+              alt=''
+            />
             <div className={style.ring}></div>
             <AvatarEdit className={style.editIcon} />
           </label>
         </div>
         <div className={style.inputs}>
-          <Input name={'name'} label={'名稱'} placeholder={'輸入你的暱稱'} status={inputInfo.name.status} message={inputInfo.name.message} value={inputInfo.name.value} onHandlers={onHandlers} />
+          <Input
+            name={'name'}
+            label={'名稱'}
+            placeholder={'輸入你的暱稱'}
+            status={inputInfo.name.status}
+            message={inputInfo.name.message}
+            value={inputInfo.name.value}
+            onHandlers={onHandlers}
+          />
           <Input
             name={'introduction'}
             label={'自我介紹'}
@@ -122,7 +157,10 @@ export default function ModalContent({ userData, onClose }) {
           <div className={style.notification}>
             <div className={style.notiBackdrop}></div>
             <div className={style.notiContent}>
-              <NotificationCard status={updateResult.status} message={updateResult.message} />
+              <NotificationCard
+                status={updateResult.status}
+                message={updateResult.message}
+              />
             </div>
           </div>
         )}

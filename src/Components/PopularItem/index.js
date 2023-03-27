@@ -1,6 +1,6 @@
-import React from "react";
-import { ReactComponent as ACIcon } from "../../Assets/icon/acIcon.svg";
-import styles from "./style.module.css";
+import React from 'react';
+import { ReactComponent as ACIcon } from '../../Assets/icon/acIcon.svg';
+import styles from './style.module.css';
 
 const PopularItem = ({ name, tag, following }) => {
   return (
@@ -9,9 +9,8 @@ const PopularItem = ({ name, tag, following }) => {
       <div className={styles.textBlock}>
         <div className={styles.name}>{name}</div>
         <div className={styles.tag}>{tag}</div>
-        
       </div>
-      {following?<button className={styles.activeButton}>正在跟隨</button>:<button className={styles.button}>跟隨</button>}
+      {following ? <button className={styles.activeButton}>正在跟隨</button> : <button className={styles.button}>跟隨</button>}
     </div>
   );
 };

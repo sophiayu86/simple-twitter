@@ -1,30 +1,35 @@
 .sideNav {
-  border-right: 1px solid #E6ECF0;
-  width: 228px;
-  padding: 0 10px;
+  border-right: 1px solid #e6ecf0;
+  width: 178px;
+  padding: 0 24px 0 130px;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .ACIconBlock {
   text-align: left;
-  padding: 8px 0px 8px 24px;
+  padding: 5px;
+  margin: 8px;
 }
 
 .navItem {
   display: flex;
-  padding: 8px 0px 8px 24px;
-  margin: 12px 0;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 8px;
+  padding: 16px;
   cursor: pointer;
 }
 
 .navItem span {
   font-size: 18px;
-  margin-left: 12px;
   font-weight: 700;
 }
 
 .navItem:hover {
-  background-color: #E6ECF0;
+  background-color: #ff660020;
+  border-radius: 90px;
 }
 
 .selected path {
@@ -36,13 +41,11 @@
 }
 
 .logout {
-  position: absolute;
-  bottom: 12px;
   display: flex;
-  width: 228px;
-  justify-content: center;
   align-items: center;
-}
-.logout:hover{
-  background-color: #E6ECF0;
+  padding: 16px;
+  text-align: left;
+  margin-top: auto;
+  border-radius: 99px;
+  cursor: pointer;
 }
