@@ -42,11 +42,11 @@ const AdminUserCard = ({ userData }) => {
 
       <div className={styles.follow}>
         <div className={styles.follower}>
-          <span className={styles.numberText}>{userData.followings}個</span>
+          <span className={styles.numberText}>{userData.followings} 個</span>
           <span className={styles.followText}>跟隨中</span>
         </div>
         <div className={styles.following}>
-          <span className={styles.numberText}>{userData.followers}個</span>
+          <span className={styles.numberText}>{userData.followers} 個</span>
           <span className={styles.followText}>跟隨者</span>
         </div>
       </div>

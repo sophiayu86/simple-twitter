@@ -9,7 +9,8 @@
   border-radius: 10px;
   display: flex;
   justify-content: center;
-  border: 1px solid black;
+  margin-top: 12px;
+  margin-left: 12px;
   /* margin-left:10px; */
   /* margin-top:10px; */
 }
@@ -58,9 +59,8 @@
   color: #171725;
   width: 100px;
   height: 26px;
-  left: 0px;
-  top: 108px;
-  font-family: "Noto Sans TC";
+
+  font-family: 'Noto Sans TC';
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
@@ -69,11 +69,10 @@
 
 .account {
   color: #6c757d;
-  width: 90.54px;
+  max-width: 90.54px;
   height: 22px;
-  left: 1.35px;
-  top: 132px;
-  font-family: "Noto Sans TC";
+
+  font-family: 'Noto Sans TC';
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -84,12 +83,12 @@
   position: absolute;
   display: flex;
   top: 234px;
-  width: 139px;
-  height: 26px;
-  justify-content: center;
-  align-items: center;
+  /* width: 139px;
+  height: 26px; */
+  /* justify-content: center;
+  align-items: center; */
   padding: 0px;
-  gap: 16px;
+  gap: 17.95px;
   /* border: 1px solid brown; */
 }
 
@@ -100,10 +99,9 @@
   align-items: center;
   padding: 0px;
   gap: 8px;
-  width: 61px;
-  height: 24px;
+  max-width: 61px;
+  max-height: 24px;
   top: 1px;
-  gap: 8px;
   /* border: 1px solid green; */
 }
 
@@ -114,14 +112,14 @@
   align-items: center;
   padding: 0px;
   gap: 8px;
-  width: 62px;
-  height: 26px;
+  max-width: 62px;
+  max-height: 26px;
   /* border: 1px solid green; */
 }
 
 .cardIconReply {
-  width: 23.87px;
-  height: 21.6px;
+  width: 24px;
+  height: 24px;
   color: #696974;
   /* border: 1px solid blue; */
 }
@@ -134,25 +132,24 @@
 }
 
 .actionNumberReply {
-  width: 29px;
-  size: 15px;
+  max-width: 29px;
   height: 15px;
-  font-family: "Montserrat";
-  font-style: normal;
-  font-weight: 500;
+  font-family: 'Montserrat';
+  text-align: left;
+  font-weight: 700;
   font-size: 16px;
   line-height: 15px;
   color: #1c1c1c;
-  /* border: 1px solid red; */
 }
 
 .actionNumberLike {
-  width: 30px;
-  height: 26px;
+  max-width: 30px;
+  max-height: 26px;
   left: 32px;
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   font-style: normal;
-  font-weight: 500;
+  font-weight: 700;
+  text-align: left;
   font-size: 16px;
   line-height: 26px;
   color: #171725;
@@ -182,7 +179,7 @@
 .following {
   width: 75px;
   height: 22px;
-  font-family: "Noto Sans TC";
+  font-family: 'Noto Sans TC';
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -193,7 +190,7 @@
 .follower {
   width: 75px;
   height: 22px;
-  font-family: "Noto Sans TC";
+  font-family: 'Noto Sans TC';
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
