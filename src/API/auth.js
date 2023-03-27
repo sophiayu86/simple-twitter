@@ -24,7 +24,7 @@ export const adminLogin = async ({ account, password }) => {
     });
     const { token } = data;
     if (status === 200 && token) {
-      return { status: 'success', message: '登入成功，正在前往後台首頁...' };
+      return { status: 'success', message: '登入成功，正在前往後台首頁...', data };
     }
   } catch (error) {
     const { status } = error.response;
