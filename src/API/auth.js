@@ -4,7 +4,7 @@ export const login = async ({ account, password }) => {
   try {
     const { status, data } = await axiosInstance.post('/user/signin', {
       account,
-      password
+      password,
     });
     const { token } = data;
     if (status === 200 && token) return { status: 'success', message: '登入成功，正在前往首頁...', data: data };
@@ -20,11 +20,11 @@ export const adminLogin = async ({ account, password }) => {
   try {
     const { status, data } = await axiosInstance.post('/admin/signin', {
       account,
-      password
+      password,
     });
     const { token } = data;
     if (status === 200 && token) {
-      return { status: 'success', message: '登入成功，正在前往後台首頁...' };
+      return { status: 'success', message: '登入成功，正在前往後台首頁...', data };
     }
   } catch (error) {
     const { status } = error.response;
@@ -41,7 +41,7 @@ export const register = async ({ account, name, email, password, checkPassword }
       name,
       email,
       password,
-      checkPassword
+      checkPassword,
     });
     if (status === 200) return { status: 'success', message: '註冊成功，正在導向登入頁...' };
   } catch (error) {
