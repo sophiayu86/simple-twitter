@@ -6,7 +6,7 @@ import ReplyList from '../../Lists/ReplyList';
 import styles from './style.module.css';
 // import { getAllTweets } from '../../API/auth.js';
 
-const MainLayout = ({ header, tab , data, user, reply}) => {
+const MainLayout = ({ header, tab, data, user, reply }) => {
   const replyTarget = reply?.User?.account;
   return (
     <div className={styles.userpage}>
@@ -16,16 +16,20 @@ const MainLayout = ({ header, tab , data, user, reply}) => {
         <div className={styles.contentList}>
           {tab === 'tweets' && (
             <div>
-              <PostTweetModal mode={'block'} user={user} />
+              <PostTweetModal
+                mode={'block'}
+                user={user}
+              />
               <TweetList data={data} />
             </div>
           )}
           {tab === 'replies' && (
             <div>
-              <ReplyCard
-                reply={reply}
+              <ReplyCard reply={reply} />
+              <ReplyList
+                data={data}
+                replyTarget={replyTarget}
               />
-              <ReplyList data={data} replyTarget={replyTarget}/>
             </div>
           )}
         </div>

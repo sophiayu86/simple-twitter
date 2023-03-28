@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 // import { Header, SideNav, UserCard } from "../../Components";
-import styles from "./style.module.css";
+import styles from './style.module.css';
 import { getAllTweets, getUser } from '../../API/auth.js';
 import { useEffect, useState } from 'react';
-import MainLayout from "../../Layout/MainLayout";
+import MainLayout from '../../Layout/MainLayout';
 
 const MainPage = () => {
   const [tweetsData, setTweetsData] = useState([]);
@@ -12,16 +12,19 @@ const MainPage = () => {
     const [res, user] = await Promise.all([getAllTweets(), getUser(14)]);
     setTweetsData(res.data);
     setUserData(user.data);
-    
   };
   useEffect(() => {
     getData();
   }, []);
 
-
   return (
     <div className={styles.mainpage}>
-      <MainLayout header="首頁" tab="tweets" data={tweetsData} user={userData}/>
+      <MainLayout
+        header='首頁'
+        tab='tweets'
+        data={tweetsData}
+        user={userData}
+      />
     </div>
   );
 };

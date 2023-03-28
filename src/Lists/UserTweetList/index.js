@@ -1,12 +1,10 @@
-import React from "react";
-import styles from "./style.module.css";
-import { TweetItem } from "../../Components";
+import React from 'react';
+import styles from './style.module.css';
+import { TweetItem } from '../../Components';
 // import { useEffect, useState } from 'react';
 // import { getUserTweets } from '../../API/auth.js';
 const UserTweetList = ({ data }) => {
-  
-    console.log("oh",data);
-  
+  console.log('oh', data);
 
   const renderData = data?.map(item => (
     <TweetItem
@@ -24,6 +22,6 @@ const UserTweetList = ({ data }) => {
     />
   ));
 
-    return <div className={styles.tweetList}>{renderData}</div>;
+  return <div className={styles.tweetList}>{renderData}</div>;
 };
 export default UserTweetList;
