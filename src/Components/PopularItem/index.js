@@ -1,13 +1,18 @@
 import React from 'react';
+import { addFollow, removeFollow } from '../../API/Followship';
 import styles from './style.module.css';
 
-const PopularItem = ({ id, name, tag, avatar, following }) => {
-  const handleAddFollow = e => {
-    //送出追蹤
+const PopularItem = ({ id, name, tag, avatar, following, handleRender }) => {
+  const handleAddFollow = async e => {
+    const { id } = e.target;
+    const { status } = await addFollow(id);
+    if (status === 'success') return handleRender();
   };
 
-  const handleRemoveFollow = e => {
-    //移除追蹤
+  const handleRemoveFollow = async e => {
+    const { id } = e.target;
+    const { status } = await removeFollow(id);
+    if (status === 'success') return handleRender();
   };
 
   return (
