@@ -1,22 +1,20 @@
 .popularList {
-  border: 1px solid #E6ECF0;
-  width: 323px;
+  border-left: 1px solid #e6ecf0;
 }
 
+.container {
+  margin: 16px 130px auto 24px;
+  /* border: 1px solid #000; */
+  background-color: #fafafb;
+  border-radius: 16px;
+}
 
 .pageTitle {
-  height: 26px;
+  padding: 24px;
   text-align: left;
-  padding: 12px 0px 12px 12px;
-  font-family: "Noto Sans TC";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 28px;
+  font-size: 24px;
   line-height: 26px;
+  font-weight: 700;
   color: #1c1c1c;
-  border-bottom: 1px solid #E6ECF0;
-}
-
-.followList {
-  padding: 8px 8px 0px 8px;
+  border-bottom: 1px solid #e6ecf0;
 }
