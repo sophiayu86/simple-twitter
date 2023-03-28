@@ -1,16 +1,51 @@
 import React from 'react';
-import { ReactComponent as ACIcon } from '../../Assets/icon/acIcon.svg';
+import { addFollow, removeFollow } from '../../API/Followship';
 import styles from './style.module.css';
 
-const PopularItem = ({ name, tag, following }) => {
+const PopularItem = ({ id, name, tag, avatar, following, handleRender }) => {
+  const handleAddFollow = async e => {
+    const { id } = e.target;
+    const { status } = await addFollow(id);
+    if (status === 'success') return handleRender();
+  };
+
+  const handleRemoveFollow = async e => {
+    const { id } = e.target;
+    const { status } = await removeFollow(id);
+    if (status === 'success') return handleRender();
+  };
+
   return (
     <div className={styles.popularItem}>
-      <ACIcon className={styles.ACIcon} />
-      <div className={styles.textBlock}>
-        <div className={styles.name}>{name}</div>
-        <div className={styles.tag}>{tag}</div>
+      <div className={styles.info}>
+        <div className={styles.avatar}>
+          <img
+            src={avatar ? avatar : 'https://i.imgur.com/TGuHpHB.jpg'}
+            alt=''
+          />
+        </div>
+        <div className={styles.textBlock}>
+          <div className={styles.name}>{name}</div>
+          <div className={styles.tag}>{tag}</div>
+        </div>
       </div>
-      {following ? <button className={styles.activeButton}>正在跟隨</button> : <button className={styles.button}>跟隨</button>}
+      <div className={styles.buttonFiled}>
+        {following ? (
+          <button
+            id={id}
+            className={styles.activeButton}
+            onClick={e => handleRemoveFollow(e)}>
+            正在跟隨
+          </button>
+        ) : (
+          <button
+            id={id}
+            className={styles.button}
+            onClick={e => handleAddFollow(e)}>
+            跟隨
+          </button>
+        )}
+      </div>
     </div>
   );
 };

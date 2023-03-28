@@ -24,14 +24,14 @@ axiosInstance.interceptors.request.use(
 );
 axiosInstance.interceptors.response.use(
   response => {
-    return response
+    return response;
   },
   error => {
     if (error.response && error.response.status === HttpStatus.UNAUTHORIZED) {
-      window.location.href = window.location.origin + "/simple-twitter/login"
+      window.location.href = window.location.origin + '/simple-twitter/login';
     }
 
-    return Promise.reject(error)
+    return Promise.reject(error);
   }
-)
+);
 export default axiosInstance;
