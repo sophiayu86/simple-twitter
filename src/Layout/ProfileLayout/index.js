@@ -6,6 +6,7 @@ import UserReplyList from '../../Lists/UserReplyList';
 import UserLikeList from '../../Lists/UserLikeList';
 import styles from './style.module.css';
 import { getOneUser } from '../../API/getOneUser';
+import { useAuth } from '../../Context/AuthContext';
 
 const tabsList = [
   { label: '推文', value: 'tweets' },
@@ -14,18 +15,19 @@ const tabsList = [
 ];
 
 const ProfileLayout = () => {
+  const userId = useAuth().currentMember.id;
   const [tab, setTab] = useState('tweets');
   const [userData, setUserData] = useState({});
   const [count, setCount] = useState(0);
 
-  const getUserData = async () => {
-    const data = await getOneUser(); // 從context 拿 id\
-    setUserData(data);
-  };
-
   useEffect(() => {
+    const getUserData = async () => {
+      const data = await getOneUser(userId); // 從context 拿 id
+      setUserData(data);
+      setCount(prev => (prev += 1));
+    };
     getUserData();
-  }, [count]);
+  }, [count, userId]);
 
   const handleRender = () => {
     setCount(prev => (prev += 1));

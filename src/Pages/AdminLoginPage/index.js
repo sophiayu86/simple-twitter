@@ -9,7 +9,7 @@ const AdminLoginPage = () => {
   const navigate = useNavigate();
   const initialInputInfo = {
     account: { status: 'default', message: '', value: '' },
-    password: { status: 'default', message: '', value: '' },
+    password: { status: 'default', message: '', value: '' }
   };
   const [inputInfo, setInputInfo] = useState(initialInputInfo);
   const [loginResult, setLoginResult] = useState('');
@@ -29,7 +29,7 @@ const AdminLoginPage = () => {
         if (!value?.trim()) return { ...prev, [inputName]: { status: 'error', message: '內容不可為空白', value } };
         return { ...prev, [inputName]: { status: 'default', message: '', value } };
       });
-    },
+    }
   };
   const handleSubmit = async () => {
     for (const [key, eachInput] of Object.entries(inputInfo)) {
@@ -41,8 +41,9 @@ const AdminLoginPage = () => {
 
     const result = await adminLogin({
       account: accountValue,
-      password: passwordValue,
+      password: passwordValue
     });
+    localStorage.setItem('user-id', result.data?.user.id);
     localStorage.setItem('jwt-token', result.data?.token);
     setLoginResult(result);
     if (result.status === 'success') {
