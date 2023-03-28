@@ -4,7 +4,7 @@ import PopularList from '../../Lists/PopularList';
 import TweetList from '../../Lists/TweetList';
 import ReplyList from '../../Lists/ReplyList';
 import styles from './style.module.css';
-import { getAllTweets } from '../../API/auth.js';
+import { getAllTweets } from '../../API/getAllTweets';
 import { getOneUser } from '../../API/getOneUser';
 import { useAuth } from '../../Context/AuthContext';
 import { userContext } from '../../Context/UserContext';
