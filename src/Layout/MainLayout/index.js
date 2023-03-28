@@ -36,8 +36,8 @@ const MainLayout = ({ header, tab }) => {
       />
       <div className={styles.mainContent}>
         <Header text={header} />
-        <userContext.Provider value={{ signinUser: userData, handleRender }}>
-          <div className={styles.contentList}>
+        <div className={styles.contentList}>
+          <userContext.Provider value={{ signinUser: userData, handleRender }}>
             {tab === 'tweets' && (
               <div>
                 <PostTweetModal
@@ -46,26 +46,29 @@ const MainLayout = ({ header, tab }) => {
                   handleRender={handleRender}
                 />
                 {/* 裡面有post reply，需共用user context avatar | handle change 用首頁的 */}
-                <TweetList data={tweetsData} />
-              </div>
-            )}
-
-            {tab === 'replies' && (
-              <div>
-                {/* 裡面有post reply， handle change 用reply頁的，id 要更改*/}
-                <ReplyCard
-                  id={14}
-                  name='Apple'
-                  tag='@apple'
-                  content='Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt.'
-                  time='上午 10:05・2021年11月10日'
+                <TweetList
+                  data={tweetsData}
                   signinUser={userData}
+                  handleRender={handleRender}
                 />
-                <ReplyList />
               </div>
             )}
-          </div>
-        </userContext.Provider>
+          </userContext.Provider>
+          {tab === 'replies' && (
+            <div>
+              {/* 裡面有post reply， handle change 用reply頁的，id 要更改*/}
+              <ReplyCard
+                id={14}
+                name='Apple'
+                tag='@apple'
+                content='Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt.'
+                time='上午 10:05・2021年11月10日'
+                signinUser={userData}
+              />
+              <ReplyList signinUser={userData} />
+            </div>
+          )}
+        </div>
       </div>
       <PopularList />
     </div>
