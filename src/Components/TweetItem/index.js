@@ -12,10 +12,10 @@ const TweetItem = ({ id, authorImg, name, tag, content, time, admin, reply, like
   }
 
   const handleDelete = async id => {
+    console.log('id:', id);
     try {
       await deleteTweet(id);
-
-      // setTodos(prevTodos => prevTodos.filter(todo => todo.id !== id));
+      handleRender();
     } catch (error) {
       console.error(error);
     }
@@ -35,7 +35,7 @@ const TweetItem = ({ id, authorImg, name, tag, content, time, admin, reply, like
         {admin && (
           <Delete
             className={styles.deleteIcon}
-            onClick={id => {
+            onClick={() => {
               handleDelete(id);
             }}
           />
