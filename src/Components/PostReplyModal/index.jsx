@@ -4,7 +4,7 @@ import ModalContent from './ModalContent/index';
 import { ReactComponent as Talk } from '../../Assets/icon/talk.svg';
 import { getOneTweet } from '../../API/getOneTweet';
 
-export default function PostReplyModal({ className, tweetId, signinUser, handelRender }) {
+export default function PostReplyModal({ className, tweetId, signinUser, handleRender }) {
   const [tweetInfo, setTweetInfo] = useState({});
   const [showModal, setShowModal] = useState(false);
   const handleOnClick = async e => {
@@ -37,7 +37,7 @@ export default function PostReplyModal({ className, tweetId, signinUser, handelR
             tweetInfo={tweetInfo}
             onClose={() => setShowModal(false)}
             signinUser={signinUser}
-            handelRender={handelRender}
+            handleRender={handleRender}
           />,
           document.body
         )}

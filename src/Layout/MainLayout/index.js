@@ -14,7 +14,7 @@ const MainLayout = ({ header, tab }) => {
   const [tweetsData, setTweetsData] = useState([]);
   const [userData, setUserData] = useState({});
   const [render, setRender] = useState(0);
-  const handelRender = () => {
+  const handleRender = () => {
     setRender(prev => (prev += 1));
   };
   useEffect(() => {
@@ -32,18 +32,18 @@ const MainLayout = ({ header, tab }) => {
       <SideNav
         currentPage='main'
         avatar={userData.avatar}
-        handelRender={handelRender}
+        handleRender={handleRender}
       />
       <div className={styles.mainContent}>
         <Header text={header} />
-        <userContext.Provider value={{ signinUser: userData, handelRender }}>
+        <userContext.Provider value={{ signinUser: userData, handleRender }}>
           <div className={styles.contentList}>
             {tab === 'tweets' && (
               <div>
                 <PostTweetModal
                   mode={'block'}
                   avatar={userData.avatar}
-                  handelRender={handelRender}
+                  handleRender={handleRender}
                 />
                 {/* 裡面有post reply，需共用user context avatar | handle change 用首頁的 */}
                 <TweetList data={tweetsData} />

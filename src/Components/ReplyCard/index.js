@@ -10,7 +10,7 @@ const ReplyCard = ({ id, name, tag, content, time, liked, signinUser }) => {
     setLikeStatus(!likeState);
   }
   const [render, setRender] = useState(0);
-  const handelRender = () => {
+  const handleRender = () => {
     setRender(prev => (prev += 1));
   };
   useEffect(() => {
@@ -40,7 +40,7 @@ const ReplyCard = ({ id, name, tag, content, time, liked, signinUser }) => {
           className={styles.interactIcon}
           tweetId={id}
           signinUser={signinUser}
-          handelRender={handelRender}
+          handleRender={handleRender}
         />
         <Liked
           className={`${styles.interactIcon} ${likeState ? styles.liked : styles.unliked}`}

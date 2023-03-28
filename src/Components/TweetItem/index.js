@@ -6,7 +6,7 @@ import PostReplyModal from '../PostReplyModal';
 import { useUserContext } from '../../Context/UserContext';
 
 const TweetItem = ({ id, authorImg, name, tag, content, time, admin, reply, liked, msgCount, likesCount }) => {
-  const { signinUser, handelRender } = useUserContext();
+  const { signinUser, handleRender } = useUserContext();
   const [likeState, setLikeStatus] = useState(liked);
   function handleLikeStateChange() {
     setLikeStatus(!likeState);
@@ -41,7 +41,7 @@ const TweetItem = ({ id, authorImg, name, tag, content, time, admin, reply, like
             className={styles.icon}
             tweetId={id}
             signinUser={signinUser}
-            handelRender={handelRender}
+            handleRender={handleRender}
           />
           <span>{msgCount}</span>
           <Liked

@@ -3,7 +3,7 @@ import styles from './style.module.css';
 import { createPortal } from 'react-dom';
 import ModalContent from './ModalContent/index';
 
-export default function PostTweetModal({ mode, avatar, handelRender }) {
+export default function PostTweetModal({ mode, avatar, handleRender }) {
   const [showModal, setShowModal] = useState(false);
 
   return mode === 'button' ? (
@@ -21,7 +21,7 @@ export default function PostTweetModal({ mode, avatar, handelRender }) {
           <ModalContent
             avatar={avatar}
             onClose={() => setShowModal(false)}
-            handelRender={handelRender}
+            handleRender={handleRender}
           />,
           document.body
         )}
@@ -53,7 +53,7 @@ export default function PostTweetModal({ mode, avatar, handelRender }) {
           <ModalContent
             avatar={avatar}
             onClose={() => setShowModal(false)}
-            handelRender={handelRender}
+            handleRender={handleRender}
           />,
           document.body
         )}

@@ -4,7 +4,7 @@ import { ReactComponent as Cross } from '../../../Assets/icon/cross.svg';
 import { postReply } from '../../../API/postReply.js';
 import NotificationCard from '../../NotificationCard';
 
-export default function ModalContent({ tweetInfo, onClose, signinUser, handelRender }) {
+export default function ModalContent({ tweetInfo, onClose, signinUser, handleRender }) {
   const { tweetId, name, account, avatar, updatedAt, description } = tweetInfo;
   const initialComment = { status: 'default', message: '', value: '' };
   const [comment, setComment] = useState(initialComment);
@@ -19,7 +19,7 @@ export default function ModalContent({ tweetInfo, onClose, signinUser, handelRen
     if (result) {
       setPostResult(result);
       if (result?.status === 'success') {
-        handelRender();
+        handleRender();
         setTimeout(() => {
           onClose();
         }, 1500);
