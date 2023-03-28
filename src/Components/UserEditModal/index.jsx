@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom';
 import ModalContent from './ModelContent';
 import style from './style.module.css';
 
-export default function UserEditModel({ userData }) {
+export default function UserEditModel(props) {
   const [showModal, setShowModal] = useState(false);
   return (
     <>
@@ -18,7 +18,7 @@ export default function UserEditModel({ userData }) {
       {showModal &&
         createPortal(
           <ModalContent
-            userData={userData}
+            {...props}
             onClose={() => setShowModal(false)}
           />,
           document.body
