@@ -24,7 +24,6 @@ const ProfileLayout = () => {
     const getUserData = async () => {
       const data = await getOneUser(userId); // 從context 拿 id
       setUserData(data);
-      setCount(prev => (prev += 1));
     };
     getUserData();
   }, [count, userId]);

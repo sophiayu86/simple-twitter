@@ -20,7 +20,7 @@ const MainLayout = ({ header, tab }) => {
 
   useEffect(() => {
     getData();
-  });
+  }, []);
 
   return (
     <div className={styles.userpage}>
