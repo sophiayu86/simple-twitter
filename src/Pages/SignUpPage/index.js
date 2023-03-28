@@ -119,7 +119,7 @@ const SignUpPage = () => {
           label={'帳號'}
           name={'account'}
           type='text'
-          placeholder={'請輸入使用者名稱'}
+          placeholder={'請輸入帳號'}
           onHandlers={onHandlers}
           status={inputInfo.account.status}
           message={inputInfo.account.message}
