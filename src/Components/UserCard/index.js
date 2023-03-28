@@ -18,6 +18,7 @@ const userData = {
 };
 
 const UserCard = ({
+  user,
   username,
   account,
   intro,
@@ -29,11 +30,11 @@ const UserCard = ({
 }) => {
   return (
     <div className={styles.UserInfo}>
-      <div className={styles.bgImg}>背景</div>
+      <div className={styles.bgImg}>背景{user?.cover}</div>
       <div className={styles.userActions}>
-        <div className={styles.avatar}></div>
-        {isMe ? (
-          <UserEditModel userData={userData} /> // userData 要帶入資料
+        <div className={styles.avatar}>{user?.avatar}</div>
+        {user?.isMyself ? (
+          <UserEditModel userData={user} /> // userData 要帶入資料
         ) : (
           <>
             <Msg style={{ marginRight: "8px" }} />
@@ -50,18 +51,18 @@ const UserCard = ({
           </>
         )}
       </div>
-      <div className={styles.username}>{username ? username : "Jane Cathy"}</div>
-      <div className={styles.account}>{account}@cath1999</div>
+      <div className={styles.username}>{user?.name}</div>
+      <div className={styles.account}>@{user?.account}</div>
       <div className={styles.intro}>
-        {intro}"Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        {user?.introduction}
       </div>
       <div className={styles.followship}>
-        <Link to="/followers">
-          <span className={styles.following}>{following} 個</span>
+        <Link to={`/followers/${user?.id}`}>
+          <span className={styles.following}>{user?.followings} 個</span>
           <span style={{ color: "#929292" }}>跟隨中</span>
         </Link>
-        <Link to="/followers">
-          <span className={styles.follower}>{follower} 位</span>
+        <Link to={`/followers/${user?.id}`}>
+          <span className={styles.follower}>{user?.followers} 位</span>
           <span style={{ color: "#929292" }}>跟隨者</span>
         </Link>
       </div>

@@ -1,21 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Header, SideNav, ReplyCard, PostTweetModal } from '../../Components';
 import PopularList from '../../Lists/PopularList';
 import TweetList from '../../Lists/TweetList';
 import ReplyList from '../../Lists/ReplyList';
 import styles from './style.module.css';
-import { getAllTweets } from '../../API/auth.js';
+// import { getAllTweets } from '../../API/auth.js';
 
-const MainLayout = ({ header, tab }) => {
-  const [tweetsData, setTweetsData] = useState([]);
-  const getData = async () => {
-    const res = await getAllTweets();
-    setTweetsData(res.data);
-  };
-  useEffect(() => {
-    getData();
-  }, []);
-
+const MainLayout = ({ header, tab , data, user, reply}) => {
+  const replyTarget = reply?.User?.account;
   return (
     <div className={styles.userpage}>
       <SideNav currentPage='main' />
@@ -24,19 +16,16 @@ const MainLayout = ({ header, tab }) => {
         <div className={styles.contentList}>
           {tab === 'tweets' && (
             <div>
-              <PostTweetModal mode={'block'} />
-              <TweetList data={tweetsData} />
+              <PostTweetModal mode={'block'} user={user} />
+              <TweetList data={data} />
             </div>
           )}
           {tab === 'replies' && (
             <div>
               <ReplyCard
-                name='Apple'
-                tag='@apple'
-                content='Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt.'
-                time='上午 10:05・2021年11月10日'
+                reply={reply}
               />
-              <ReplyList />
+              <ReplyList data={data} replyTarget={replyTarget}/>
             </div>
           )}
         </div>

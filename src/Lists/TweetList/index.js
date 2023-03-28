@@ -14,6 +14,8 @@ const TweetList = ({ data }) => {
       msgCount={item.replies}
       likesCount={item.likes}
       authorImg={item.User.avatar}
+      userID={item.User.id}
+      tweetID={item.id}
     />
   ));
   return <div className={styles.tweetList}>{renderData}</div>;

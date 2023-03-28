@@ -1,22 +1,35 @@
 import React from "react";
 import styles from "./style.module.css";
 import { TweetItem } from "../../Components";
-
-const UserTweetList = () => {
+import { useEffect, useState } from 'react';
+import { getUserTweets } from '../../API/auth.js';
+const UserTweetList = (id) => {
   
-  return (
-    <div className={styles.tweetList}>
- 
-        <TweetItem name= "Pizza"  tag="@pizzahut" time="3小時" content="Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. "/>
-        <TweetItem liked ="true" name= "Pizza"  tag="@pizzahut" time="3小時" content="Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. "/>
-        <TweetItem liked ="true" name= "Pizza"  tag="@pizzahut" time="3小時" content="Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. "/>
-        <TweetItem liked ="true" name= "Pizza"  tag="@pizzahut" time="3小時" content="Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. "/>
-        <TweetItem liked ="true" name= "Pizza"  tag="@pizzahut" time="3小時" content="Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. "/>
-        <TweetItem liked ="true" name= "Pizza"  tag="@pizzahut" time="3小時" content="Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. "/>
+  const [tweetsData, setTweetsData] = useState([]);
+  const getData = async () => {
+    const res = await getUserTweets(id);
+    setTweetsData(res.data);
+    console.log("f",tweetsData);
+  };
+  useEffect(() => {
+    getData();
+  }, []);
 
+  const renderData = tweetsData?.map(item => (
+    <TweetItem
+      key={item.id}
+      liked={item.isLike}
+      name={item.User.name}
+      tag={item.User.account}
+      time='3小時'
+      content={item.description}
+      msgCount={item.replies}
+      likesCount={item.likes}
+      authorImg={item.User.avatar}
+      userID={item.User.id}
+      tweetID={item.id}
+    />));
 
-      
-    </div>
-  );
+    return <div className={styles.tweetList}>{renderData}</div>;
 };
 export default UserTweetList;

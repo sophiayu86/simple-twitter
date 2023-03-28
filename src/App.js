@@ -29,15 +29,15 @@ export default function App() {
           <Route path="admin_main" element={<AdminMainPage />} />
           <Route path="admin_users" element={<AdminUsersPage />} />
           {/* <Route path="user/:UserId/tweet" element={<ProfileTweets />} /> */}
-          <Route path="profile" element={<ProfilePage />} />
+          <Route path="profile/:userID" element={<ProfilePage />} />
           {/* <Route
                 path="user/:UserId/followers"
                 element={<UserFollowerPage />}
               /> */}
-          <Route path="followers" element={<UserFollowerPage />} />
+          <Route path="followers/:userID" element={<UserFollowerPage />} />
           <Route path="user/setting" element={<SettingPage />} />
-          {/* <Route path="tweet/:TweetId/replies" element={<ReplyPage />} /> */}
-          <Route path="replies" element={<ReplyPage />} />
+          <Route path="tweet/:tweetID/replies" element={<ReplyPage />} />
+          {/* <Route path="replies" element={<ReplyPage />} /> */}
           <Route path="*" element={<HomePage />} />
         </Routes>
       </BrowserRouter>
