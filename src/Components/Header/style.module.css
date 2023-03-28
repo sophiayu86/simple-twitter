@@ -1,16 +1,16 @@
 .header {
-    width: 100%;
-    font-size: 24px;
-    padding: 16px 0px;
-    background-color: white;
-    text-align: left;
-    border-bottom: 1px solid #E6ECF0;
-    position: absolute;
-  }
-.header span {
-    font-weight: bold;
-    margin-left: 19px;
+  width: 100%;
+  font-size: 24px;
+  padding: 16px 0px;
+  background-color: white;
+  text-align: left;
+  border-bottom: 1px solid #e6ecf0;
+  position: absolute;
 }
-.icon{
-  margin-left:28px;
+.header span {
+  font-weight: bold;
+  margin-left: 19px;
+}
+.icon {
+  margin-left: 28px;
 }

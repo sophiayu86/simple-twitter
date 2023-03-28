@@ -1,12 +1,19 @@
-.AdminMainPage {
+.AdminUsersPage {
   display: flex;
-  /* border: 2px dashed green; */
-  /* min-height:300px */
+  min-height: 100%;
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* 新增的 flex 屬性 */
+}
+.header {
+  display: block;
 }
 
 .contentList {
-  position: absolute;
-  top: 70px;
   display: flex;
   flex-wrap: wrap;
+  margin-top: 66px;
 }
