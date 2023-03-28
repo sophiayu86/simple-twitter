@@ -22,7 +22,7 @@ export default function ModalContent({ avatar, onClose, handleRender }) {
     if (result) {
       setPostResult(result);
       if (result?.status === 'success') {
-        handleRender();
+        handleRender?.();
         setTimeout(() => {
           onClose();
         }, 1500);
@@ -51,7 +51,7 @@ export default function ModalContent({ avatar, onClose, handleRender }) {
         </div>
         <div className={styles.input}>
           <img
-            src={avatar}
+            src={avatar ? avatar : 'https://i.imgur.com/TGuHpHB.jpg'}
             className={styles.avatar}
             alt=''
             onError={e => (e.target.src = 'https://i.imgur.com/TGuHpHB.jpg')}

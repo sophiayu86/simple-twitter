@@ -3,10 +3,8 @@ import { ReactComponent as Delete } from '../../Assets/icon/delete.svg';
 import { ReactComponent as Liked } from '../../Assets/icon/liked.svg';
 import styles from './style.module.css';
 import PostReplyModal from '../PostReplyModal';
-import { useUserContext } from '../../Context/UserContext';
 
-const TweetItem = ({ id, authorImg, name, tag, content, time, admin, reply, liked, msgCount, likesCount }) => {
-  const { signinUser, handleRender } = useUserContext();
+const TweetItem = ({ id, authorImg, name, tag, content, time, admin, reply, liked, msgCount, likesCount, signinUser, handleRender }) => {
   const [likeState, setLikeStatus] = useState(liked);
   function handleLikeStateChange() {
     setLikeStatus(!likeState);

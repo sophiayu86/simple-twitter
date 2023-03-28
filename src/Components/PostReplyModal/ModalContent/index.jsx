@@ -19,7 +19,7 @@ export default function ModalContent({ tweetInfo, onClose, signinUser, handleRen
     if (result) {
       setPostResult(result);
       if (result?.status === 'success') {
-        handleRender();
+        handleRender?.();
         setTimeout(() => {
           onClose();
         }, 1500);
