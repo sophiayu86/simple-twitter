@@ -10,9 +10,10 @@ import { ReactComponent as SettingIcon1 } from '../../Assets/icon/settingIcon1.s
 import { ReactComponent as LogoutIcon } from '../../Assets/icon/logoutIcon.svg';
 import styles from './style.module.css';
 import { PostTweetModal } from '../../Components';
-const SideNav = ({ currentPage }) => {
+const SideNav = ({ currentPage, avatar }) => {
   const navigate = useNavigate();
   const handleLogout = () => {
+    localStorage.removeItem('user-id');
     localStorage.removeItem('jwt-token');
     navigate('/login');
   };
@@ -39,7 +40,10 @@ const SideNav = ({ currentPage }) => {
         {currentPage === 'userSetting' ? <SettingIcon1 className={styles.selected} /> : <SettingIcon0 />}
         <span>設定</span>
       </div>
-      <PostTweetModal mode={'button'} />
+      <PostTweetModal
+        mode={'button'}
+        avatar={avatar}
+      />
       <div
         className={styles.logout}
         onClick={handleLogout}>

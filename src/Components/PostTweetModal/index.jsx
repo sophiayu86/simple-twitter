@@ -3,9 +3,7 @@ import styles from './style.module.css';
 import { createPortal } from 'react-dom';
 import ModalContent from './ModalContent/index';
 
-export default function PostTweetModal({ mode, currentMember }) {
-  const avatar = currentMember?.avatar; //從Context拿資料
-  console.log(avatar);
+export default function PostTweetModal({ mode, avatar }) {
   const [showModal, setShowModal] = useState(false);
 
   return mode === 'button' ? (

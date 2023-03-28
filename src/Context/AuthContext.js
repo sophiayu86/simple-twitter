@@ -1,40 +1,34 @@
 // import { login, register } from '../apitest/auth';
 import { createContext, useState, useEffect } from 'react';
-import jwt_decode from 'jwt-decode'
+import jwt_decode from 'jwt-decode';
 // import { useLocation } from 'react-router-dom';
 import { useContext } from 'react';
 
 const defaultAuthContext = {
   isAuthenticated: false,
-  currentMember: null,
+  currentMember: null
 };
 
 const AuthContext = createContext(defaultAuthContext);
 export const useAuth = () => useContext(AuthContext);
 export const AuthProvider = ({ children }) => {
+  const id = Number(localStorage.getItem('user-id'));
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [payload, setPayload] = useState(null);
-//   const { pathname } = useLocation();
+  const [payload, setPayload] = useState({ id });
 
   useEffect(() => {
-    console.log("authToken");
     const checkTokenIsValid = async () => {
       const authToken = localStorage.getItem('jwt-token');
-      console.log(authToken);
       if (authToken) {
-       
         setIsAuthenticated(true);
         const tempPayload = jwt_decode(authToken);
-        console.log("b",tempPayload);
-        setPayload(tempPayload);
+        if (tempPayload) setPayload(tempPayload);
       } else {
         setIsAuthenticated(false);
         setPayload(null);
-        //倒去login
-        return;
+        return; //倒去login
       }
     };
-
     checkTokenIsValid();
   }, []);
 
@@ -54,10 +48,9 @@ export const AuthProvider = ({ children }) => {
           cover: payload.cover,
           introduction: payload.introduction,
           iat: payload.iat,
-          exp: payload.exp,
-        },
-      }}
-    >
+          exp: payload.exp
+        }
+      }}>
       {children}
     </AuthContext.Provider>
   );

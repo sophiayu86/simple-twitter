@@ -5,26 +5,38 @@ import TweetList from '../../Lists/TweetList';
 import ReplyList from '../../Lists/ReplyList';
 import styles from './style.module.css';
 import { getAllTweets } from '../../API/auth.js';
+import { getOneUser } from '../../API/getOneUser';
+import { useAuth } from '../../Context/AuthContext';
 
-const MainLayout = ({ header, tab, currentMember }) => {
+const MainLayout = ({ header, tab }) => {
+  const userId = useAuth().currentMember.id;
   const [tweetsData, setTweetsData] = useState([]);
+  const [userData, setUserData] = useState({});
   const getData = async () => {
-    const res = await getAllTweets();
+    const [res, user] = await Promise.all([getAllTweets(), getOneUser(userId)]);
     setTweetsData(res.data);
+    setUserData(prev => ({ ...prev, id: user.id, avatar: user.avatar }));
   };
+
   useEffect(() => {
     getData();
   }, []);
 
   return (
     <div className={styles.userpage}>
-      <SideNav currentPage='main' />
+      <SideNav
+        currentPage='main'
+        avatar={userData.avatar}
+      />
       <div className={styles.mainContent}>
         <Header text={header} />
         <div className={styles.contentList}>
           {tab === 'tweets' && (
             <div>
-              <PostTweetModal mode={'block'} currentMember={currentMember} />
+              <PostTweetModal
+                mode={'block'}
+                avatar={userData.avatar}
+              />
               <TweetList data={tweetsData} />
             </div>
           )}

@@ -64,10 +64,10 @@ const LoginPage = () => {
       account: accountValue,
       password: passwordValue
     });
+    localStorage.setItem('user-id', result.data?.user.id);
     localStorage.setItem('jwt-token', result.data?.token);
     setLoginResult(result);
-    if (result.status === 'success') {
-      console.log("result.data");
+    if (result?.status === 'success') {
       setTimeout(() => navigate('/main'), 2000);
     }
   };
