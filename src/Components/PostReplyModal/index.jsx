@@ -4,9 +4,8 @@ import ModalContent from './ModalContent/index';
 import { ReactComponent as Talk } from '../../Assets/icon/talk.svg';
 import { getOneTweet } from '../../API/getOneTweet';
 
-export default function PostReplyModal({ className, tweetId }) {
+export default function PostReplyModal({ className, tweetId, signinUser, handleRender }) {
   const [tweetInfo, setTweetInfo] = useState({});
-  const signinUserAvatar = '' || 'https://i.imgur.com/TGuHpHB.jpg'; //之後換成 Context
   const [showModal, setShowModal] = useState(false);
   const handleOnClick = async e => {
     e.stopPropagation();
@@ -36,8 +35,9 @@ export default function PostReplyModal({ className, tweetId }) {
         createPortal(
           <ModalContent
             tweetInfo={tweetInfo}
-            signinUserAvatar={signinUserAvatar}
             onClose={() => setShowModal(false)}
+            signinUser={signinUser}
+            handleRender={handleRender}
           />,
           document.body
         )}

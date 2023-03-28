@@ -10,7 +10,7 @@ import { ReactComponent as SettingIcon1 } from '../../Assets/icon/settingIcon1.s
 import { ReactComponent as LogoutIcon } from '../../Assets/icon/logoutIcon.svg';
 import styles from './style.module.css';
 import { PostTweetModal } from '../../Components';
-const SideNav = ({ currentPage, avatar }) => {
+const SideNav = ({ currentPage, avatar, handleRender }) => {
   const navigate = useNavigate();
   const handleLogout = () => {
     localStorage.removeItem('user-id');
@@ -43,6 +43,7 @@ const SideNav = ({ currentPage, avatar }) => {
       <PostTweetModal
         mode={'button'}
         avatar={avatar}
+        handleRender={handleRender}
       />
       <div
         className={styles.logout}

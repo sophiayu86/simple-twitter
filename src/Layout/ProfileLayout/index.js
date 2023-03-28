@@ -7,6 +7,7 @@ import UserLikeList from '../../Lists/UserLikeList';
 import styles from './style.module.css';
 import { getOneUser } from '../../API/getOneUser';
 import { useAuth } from '../../Context/AuthContext';
+import { userContext } from '../../Context/UserContext';
 
 const tabsList = [
   { label: '推文', value: 'tweets' },
@@ -18,18 +19,21 @@ const ProfileLayout = () => {
   const userId = useAuth().currentMember.id;
   const [tab, setTab] = useState('tweets');
   const [userData, setUserData] = useState({});
-  const [count, setCount] = useState(0);
-
+  const [signinUserData, setSigninUserData] = useState({});
+  const [render, setRender] = useState(0);
   useEffect(() => {
-    const getUserData = async () => {
-      const data = await getOneUser(userId); // 從context 拿 id
-      setUserData(data);
+    const getData = async () => {
+      const [profileUser, signinUser] = await Promise.all([getOneUser(userId), getOneUser(userId)]);
+      setUserData(profileUser);
+      setSigninUserData(prev => ({ ...prev, id: signinUser.id, avatar: signinUser.avatar }));
     };
-    getUserData();
-  }, [count, userId]);
+    getData();
+    console.log('Profile Render', render);
+    getData();
+  }, [render, userId]);
 
   const handleRender = () => {
-    setCount(prev => (prev += 1));
+    setRender(prev => (prev += 1));
   };
 
   return (
@@ -50,9 +54,11 @@ const ProfileLayout = () => {
             currentTab={tab}
             changeTab={setTab}
           />
-          {tab === 'tweets' && <UserTweetList />}
-          {tab === 'replies' && <UserReplyList />}
-          {tab === 'likes' && <UserLikeList />}
+          <userContext.Provider value={{ signinUser: signinUserData, handleRender }}>
+            {tab === 'tweets' && <UserTweetList />}
+            {tab === 'replies' && <UserReplyList />}
+            {tab === 'likes' && <UserLikeList />}
+          </userContext.Provider>
         </div>
       </div>
       <PopularList />

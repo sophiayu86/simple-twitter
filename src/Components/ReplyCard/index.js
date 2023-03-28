@@ -1,14 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ReactComponent as ACIcon } from '../../Assets/icon/acIcon.svg';
 import styles from './style.module.css';
 import { ReactComponent as Liked } from '../../Assets/icon/liked.svg';
 import PostReplyModal from '../PostReplyModal';
 
-const ReplyCard = ({ id, name, tag, content, time, liked }) => {
+const ReplyCard = ({ id, name, tag, content, time, liked, signinUser }) => {
   const [likeState, setLikeStatus] = useState(liked);
   function handleLikeStateChange() {
     setLikeStatus(!likeState);
   }
+  const [render, setRender] = useState(0);
+  const handleRender = () => {
+    setRender(prev => (prev += 1));
+  };
+  useEffect(() => {
+    // const getData = async () => {};
+    // getData();
+    console.log('ReplyCard Render', render);
+  }, [render]);
   return (
     <div className={styles.replyBlock}>
       <div className={styles.replyCard}>
@@ -30,6 +39,8 @@ const ReplyCard = ({ id, name, tag, content, time, liked }) => {
         <PostReplyModal
           className={styles.interactIcon}
           tweetId={id}
+          signinUser={signinUser}
+          handleRender={handleRender}
         />
         <Liked
           className={`${styles.interactIcon} ${likeState ? styles.liked : styles.unliked}`}
