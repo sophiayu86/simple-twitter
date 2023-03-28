@@ -7,6 +7,7 @@ import styles from './style.module.css';
 import { getAllTweets } from '../../API/auth.js';
 import { getOneUser } from '../../API/getOneUser';
 import { useAuth } from '../../Context/AuthContext';
+import { userContext } from '../../Context/UserContext';
 
 const MainLayout = ({ header, tab }) => {
   const userId = useAuth().currentMember.id;
@@ -35,31 +36,36 @@ const MainLayout = ({ header, tab }) => {
       />
       <div className={styles.mainContent}>
         <Header text={header} />
-        <div className={styles.contentList}>
-          {tab === 'tweets' && (
-            <div>
-              <PostTweetModal
-                mode={'block'}
-                avatar={userData.avatar}
-                handelRender={handelRender}
-              />
-              {/* 裡面有post reply，需共用user context avatar | handle change 用首頁的 */}
-              <TweetList data={tweetsData} />
-            </div>
-          )}
-          {tab === 'replies' && (
-            <div>
-              {/* 裡面有post reply，需共用user context avatar | handle change 用reply頁的*/}
-              <ReplyCard
-                name='Apple'
-                tag='@apple'
-                content='Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt.'
-                time='上午 10:05・2021年11月10日'
-              />
-              <ReplyList />
-            </div>
-          )}
-        </div>
+        <userContext.Provider value={{ signinUser: userData, handelRender }}>
+          <div className={styles.contentList}>
+            {tab === 'tweets' && (
+              <div>
+                <PostTweetModal
+                  mode={'block'}
+                  avatar={userData.avatar}
+                  handelRender={handelRender}
+                />
+                {/* 裡面有post reply，需共用user context avatar | handle change 用首頁的 */}
+                <TweetList data={tweetsData} />
+              </div>
+            )}
+
+            {tab === 'replies' && (
+              <div>
+                {/* 裡面有post reply， handle change 用reply頁的，id 要更改*/}
+                <ReplyCard
+                  id={14}
+                  name='Apple'
+                  tag='@apple'
+                  content='Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt.'
+                  time='上午 10:05・2021年11月10日'
+                  signinUser={userData}
+                />
+                <ReplyList />
+              </div>
+            )}
+          </div>
+        </userContext.Provider>
       </div>
       <PopularList />
     </div>

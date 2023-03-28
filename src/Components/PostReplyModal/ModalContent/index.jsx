@@ -4,7 +4,7 @@ import { ReactComponent as Cross } from '../../../Assets/icon/cross.svg';
 import { postReply } from '../../../API/postReply.js';
 import NotificationCard from '../../NotificationCard';
 
-export default function ModalContent({ tweetInfo, signinUserAvatar, onClose }) {
+export default function ModalContent({ tweetInfo, onClose, signinUser, handelRender }) {
   const { tweetId, name, account, avatar, updatedAt, description } = tweetInfo;
   const initialComment = { status: 'default', message: '', value: '' };
   const [comment, setComment] = useState(initialComment);
@@ -19,6 +19,7 @@ export default function ModalContent({ tweetInfo, signinUserAvatar, onClose }) {
     if (result) {
       setPostResult(result);
       if (result?.status === 'success') {
+        handelRender();
         setTimeout(() => {
           onClose();
         }, 1500);
@@ -69,7 +70,7 @@ export default function ModalContent({ tweetInfo, signinUserAvatar, onClose }) {
         </div>
         <div className={styles.input}>
           <img
-            src={signinUserAvatar ? signinUserAvatar : 'https://i.imgur.com/TGuHpHB.jpg'}
+            src={signinUser.avatar ? signinUser.avatar : 'https://i.imgur.com/TGuHpHB.jpg'}
             className={styles.avatar}
             alt=''
           />
