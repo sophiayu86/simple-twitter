@@ -98,7 +98,6 @@ const SettingPage = () => {
     }
 
     const { account, name, email, password, checkPassword } = inputInfo;
-    // data 之後需要更新到userContext or localstorage？？？
     const { data, ...result } = await editUserAccoount({
       id: contextData.id,
       account: account.value,

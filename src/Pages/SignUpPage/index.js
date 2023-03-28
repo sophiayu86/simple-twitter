@@ -85,7 +85,10 @@ const SignUpPage = () => {
       if (!info.value.trim()) setInputInfo(prev => ({ ...prev, [key]: { status: 'error', message: '所有欄位皆不可為空白', value: '' } }));
     }
     const { account, name, email, password, checkPassword } = inputInfo;
-    if (!account.value || !name.value || !email.value || !password.value || !checkPassword.value) return setSignupResult({ status: 'error', message: '欄位空白無法送出' });
+    if (!account.value || !name.value || !email.value || !password.value || !checkPassword.value) {
+      setSignupResult({ status: 'error', message: '欄位空白無法送出' });
+      return setTimeout(() => setSignupResult(''), 1500);
+    }
 
     const result = await register({
       account: account.value,
@@ -94,24 +97,25 @@ const SignUpPage = () => {
       password: password.value,
       checkPassword: checkPassword.value
     });
+
     setSignupResult(result);
     if (result.status === 'success') {
       setTimeout(() => navigate('/login'), 2000);
+    } else {
+      setTimeout(() => setSignupResult(''), 1500);
     }
   };
 
   return (
     <div className={styles.signupPage}>
-      <div className={styles.notification}>
-        {signupResult.status ? (
+      {signupResult && (
+        <div className={styles.notification}>
           <NotificationCard
             status={signupResult.status}
             message={signupResult.message}
           />
-        ) : (
-          ''
-        )}
-      </div>
+        </div>
+      )}
       <ACIcon className={styles.ACIcon} />
       <h3 className={styles.pageTitle}>建立你的帳號</h3>
       <section className={styles.inputSection}>
