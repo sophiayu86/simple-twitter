@@ -5,26 +5,32 @@ import { ReactComponent as Msg } from '../../Assets/icon/msg.svg';
 import styles from './style.module.css';
 import UserEditModel from '../UserEditModal';
 import { Link } from 'react-router-dom';
-// import { useState } from "react";
 import { TweetButton } from '../../Components';
 
-//測試User edit model：打開後會帶入這邊的資料，之後需換成從API拿到的User資料
-const userData = {
-  id: 14,
-  name: 'TestQQQ',
-  introduction: 'Testtest',
-  avatar: 'https://loremflickr.com/360/360/cats?lock=76519',
-  cover: 'https://loremflickr.com/639/378/animals?lock=84580'
-};
-
-const UserCard = ({ username, account, intro, following, follower, isMe = true, noti, isFollowing }) => {
+const UserCard = props => {
+  const { handleRender, userData } = props;
+  const { id, name, account, avatar, cover, introduction, followings, followers, isFollowing, isMyself, noti } = userData;
+  const userModalData = { id, name, introduction, avatar, cover };
   return (
     <div className={styles.UserInfo}>
-      <div className={styles.bgImg}>背景</div>
+      <div className={styles.bgImg}>
+        <img
+          src={cover || 'https://i.imgur.com/vzIPCvD.png'}
+          alt=''
+        />
+      </div>
       <div className={styles.userActions}>
-        <div className={styles.avatar}></div>
-        {isMe ? (
-          <UserEditModel userData={userData} /> // userData 要帶入資料
+        <div className={styles.avatar}>
+          <img
+            src={avatar || 'https://i.imgur.com/TGuHpHB.jpg'}
+            alt=''
+          />
+        </div>
+        {isMyself ? (
+          <UserEditModel
+            userData={userModalData}
+            handleRender={handleRender}
+          />
         ) : (
           <>
             <Msg style={{ marginRight: '8px' }} />
@@ -33,16 +39,16 @@ const UserCard = ({ username, account, intro, following, follower, isMe = true, 
           </>
         )}
       </div>
-      <div className={styles.username}>{username ? username : 'Jane Cathy'}</div>
-      <div className={styles.account}>{account}@cath1999</div>
-      <div className={styles.intro}>{intro}"Lorem ipsum dolor sit amet, consectetur adipiscing elit."</div>
+      <div className={styles.username}>{name ? name : 'Jane Cathy'}</div>
+      <div className={styles.account}>@{account}</div>
+      <div className={styles.intro}>{introduction}</div>
       <div className={styles.followship}>
         <Link to='/followers'>
-          <span className={styles.following}>{following} 個</span>
+          <span className={styles.following}>{followings} 個</span>
           <span style={{ color: '#929292' }}>跟隨中</span>
         </Link>
         <Link to='/followers'>
-          <span className={styles.follower}>{follower} 位</span>
+          <span className={styles.follower}>{followers} 位</span>
           <span style={{ color: '#929292' }}>跟隨者</span>
         </Link>
       </div>

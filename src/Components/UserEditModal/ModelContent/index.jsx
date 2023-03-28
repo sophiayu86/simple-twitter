@@ -6,7 +6,7 @@ import { ReactComponent as AvatarEdit } from '../../../Assets/icon/avatarEdit.sv
 import { useState } from 'react';
 import { editUserProfile } from '../../../API/editUserProfile.js';
 
-export default function ModalContent({ userData, onClose }) {
+export default function ModalContent({ userData, handleRender, onClose }) {
   const { id, name, introduction, avatar, cover } = userData;
   const initialInputInfo = {
     name: { status: 'default', message: `${name?.length}/50`, value: name },
@@ -27,13 +27,13 @@ export default function ModalContent({ userData, onClose }) {
     formData.append('introduction', inputInfo.introduction.value);
     formData.append('cover', imageFile.cover);
     formData.append('avatar', imageFile.avatar);
-    const result = await editUserProfile({ id, formData }); //回傳值：{status: 'success', message: '檔案更新成功'}
+    const { data, ...result } = await editUserProfile({ id, formData }); //回傳值：{status: 'success', message: '檔案更新成功'}
 
     if (result) {
       setUpdateResult(result);
       if (result.status === 'success') {
+        handleRender();
         setTimeout(() => onClose(), 1500);
-      } else {
       }
     }
   };
@@ -108,8 +108,7 @@ export default function ModalContent({ userData, onClose }) {
             />
             <div className={style.coverBackDrop}></div>
             <img
-              src={imagePrev.cover}
-              onError={e => (e.target.src = 'https://i.imgur.com/vzIPCvD.png')}
+              src={imagePrev.cover || 'https://i.imgur.com/vzIPCvD.png'}
               alt=''
             />
             <CoverEdit className={style.editIcon} />
@@ -125,8 +124,7 @@ export default function ModalContent({ userData, onClose }) {
             />
             <div className={style.avatarBackDrop}></div>
             <img
-              src={imagePrev.avatar}
-              onError={e => (e.target.src = 'https://i.imgur.com/QljR8Ap.png')}
+              src={imagePrev.avatar || 'https://i.imgur.com/TGuHpHB.jpg'}
               alt=''
             />
             <div className={style.ring}></div>

@@ -2,8 +2,8 @@ import axiosInstance from './getToken/multipart';
 
 export const editUserProfile = async ({ id, formData }) => {
   try {
-    const data = await axiosInstance.put(`/users/${id}`, formData);
-    if (data?.status === 200) return { status: 'success', message: '檔案更新成功' };
+    const { status, data } = await axiosInstance.put(`/users/${id}`, formData);
+    if (status === 200) return { status: 'success', message: '檔案更新成功', data };
   } catch (error) {
     const { status } = error?.response;
     const { message } = error?.response?.data;

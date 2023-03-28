@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ProfileHeader, ProfileTabs, SideNav, UserCard } from '../../Components';
 import PopularList from '../../Lists/PopularList';
 import UserTweetList from '../../Lists/UserTweetList';
 import UserReplyList from '../../Lists/UserReplyList';
 import UserLikeList from '../../Lists/UserLikeList';
 import styles from './style.module.css';
+import { getOneUser } from '../../API/getOneUser';
 
 const tabsList = [
   { label: '推文', value: 'tweets' },
@@ -14,18 +15,34 @@ const tabsList = [
 
 const ProfileLayout = () => {
   const [tab, setTab] = useState('tweets');
+  const [userData, setUserData] = useState({});
+  const [count, setCount] = useState(0);
+
+  const getUserData = async () => {
+    const data = await getOneUser(); // 從context 拿 id\
+    setUserData(data);
+  };
+
+  useEffect(() => {
+    getUserData();
+  }, [count]);
+
+  const handleRender = () => {
+    setCount(prev => (prev += 1));
+  };
+
   return (
     <div className={styles.userpage}>
       <SideNav currentPage='user' />
       <div className={styles.mainContent}>
         <ProfileHeader
-          text='John'
+          text={userData?.name}
           num='25'
         />
         <div className={styles.contentList}>
           <UserCard
-            follower={124}
-            following={999}
+            handleRender={handleRender}
+            userData={userData}
           />
           <ProfileTabs
             data={tabsList}
