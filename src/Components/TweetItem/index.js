@@ -3,12 +3,24 @@ import { ReactComponent as Delete } from '../../Assets/icon/delete.svg';
 import { ReactComponent as Liked } from '../../Assets/icon/liked.svg';
 import styles from './style.module.css';
 import PostReplyModal from '../PostReplyModal';
+import { deleteTweet } from '../../API/deleteTweet';
 
 const TweetItem = ({ id, authorImg, name, tag, content, time, admin, reply, liked, msgCount, likesCount, signinUser, handleRender }) => {
   const [likeState, setLikeStatus] = useState(liked);
   function handleLikeStateChange() {
     setLikeStatus(!likeState);
   }
+
+  const handleDelete = async id => {
+    try {
+      await deleteTweet(id);
+
+      // setTodos(prevTodos => prevTodos.filter(todo => todo.id !== id));
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div className={styles.card}>
       <div className={styles.tweetItem}>
@@ -23,7 +35,9 @@ const TweetItem = ({ id, authorImg, name, tag, content, time, admin, reply, like
         {admin && (
           <Delete
             className={styles.deleteIcon}
-            onClick={() => console.log('delete this')}
+            onClick={id => {
+              handleDelete(id);
+            }}
           />
         )}
       </div>
