@@ -8,9 +8,16 @@
   position: relative;
   height: 100%;
   flex: 1;
+  margin-right: 130px;
+  border-right: 1px solid #e6ecf0;
 }
+
 .contentList {
   margin-top: 66px;
   overflow: auto;
   max-height: calc(100vh - 67px);
+}
+
+.contentList::-webkit-scrollbar {
+  display: none;
 }

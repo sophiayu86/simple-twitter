@@ -7,7 +7,6 @@
 .mainContent {
   position: relative;
   height: 100%;
-  min-width: 639px;
   flex: 1;
 }
 
@@ -18,4 +17,8 @@
 }
 .contentList::-webkit-scrollbar {
   display: none;
+}
+
+.container {
+  width: auto;
 }
