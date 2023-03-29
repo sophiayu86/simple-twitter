@@ -1,6 +1,6 @@
 .sideNav {
   border-right: 1px solid #e6ecf0;
-  width: 178px;
+  min-width: 178px;
   padding: 0 24px 0 130px;
   position: relative;
   display: flex;

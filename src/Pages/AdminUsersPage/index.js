@@ -28,11 +28,9 @@ const AdminUserPage = () => {
 
   return (
     <div className={styles.AdminUsersPage}>
-      <div className={styles.adminNav}>
-        <AdminNav currentPage='admin_users' />
-      </div>
+      <AdminNav currentPage='admin_users' />
       <div className={styles.mainContent}>
-        {<div className={styles.header}>{<Header text='使用者列表' />}</div>}
+        <Header text='使用者列表' />
         <div className={styles.contentList}>{displayAllCards}</div>
       </div>
     </div>
