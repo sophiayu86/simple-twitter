@@ -14,6 +14,7 @@ const tabsList = [
 
 const ProfileLayout = ({ user, tweets, replies, likes, handleRender }) => {
   const [tab, setTab] = useState('tweets');
+  //handle popular list render
 
   return (
     <div className={styles.userpage}>
@@ -24,10 +25,13 @@ const ProfileLayout = ({ user, tweets, replies, likes, handleRender }) => {
           num={user?.tweets}
         />
         <div className={styles.contentList}>
-          <UserCard
-            user={user}
-            handleRender={handleRender}
-          />
+          {user && (
+            <UserCard
+              user={user}
+              isFollowing={user.isFollowing}
+              handleRender={handleRender}
+            />
+          )}
           <ProfileTabs
             data={tabsList}
             currentTab={tab}

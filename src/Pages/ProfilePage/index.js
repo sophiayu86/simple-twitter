@@ -8,7 +8,7 @@ import { useParams } from 'react-router-dom';
 
 const ProfilePage = () => {
   const { userID } = useParams();
-  const [userData, setUserData] = useState({});
+  const [userData, setUserData] = useState(null);
   const [tweetsData, setTweetsData] = useState([]);
   const [repliesData, setRepliesData] = useState([]);
   const [likesData, setLikesData] = useState([]);
