@@ -46,41 +46,42 @@ const LoginPage = () => {
   };
   const handleSubmit = async () => {
     for (const [key, eachInput] of Object.entries(inputInfo)) {
-      if (!eachInput.value.trim())
+      if (!eachInput.value.trim()) {
         setInputInfo(prev => ({
           ...prev,
           [key]: { status: 'error', message: '內容不可為空白', value: '' }
         }));
+      }
     }
     const accountValue = inputInfo.account.value;
     const passwordValue = inputInfo.password.value;
-    if (!accountValue.trim() || !passwordValue.trim())
-      return setLoginResult({
-        status: 'error',
-        message: '帳號及密碼不可為空白'
-      });
+    if (!accountValue.trim() || !passwordValue.trim()) {
+      setLoginResult({ status: 'error', message: '帳號及密碼不可為空白' });
+      return setTimeout(() => setLoginResult(''), 1500);
+    }
 
     const result = await login({
       account: accountValue,
       password: passwordValue
     });
-    localStorage.setItem('user-id', result.data?.user.id);
-    localStorage.setItem('jwt-token', result.data?.token);
+
     setLoginResult(result);
     if (result?.status === 'success') {
+      localStorage.setItem('user-id', result.data?.user.id);
+      localStorage.setItem('jwt-token', result.data?.token);
       setTimeout(() => navigate('/main'), 2000);
+    } else {
+      setTimeout(() => setLoginResult(''), 1500);
     }
   };
   return (
     <div className={styles.loginPage}>
       <div className={styles.notification}>
-        {loginResult.status ? (
+        {loginResult && (
           <NotificationCard
             status={loginResult.status}
             message={loginResult.message}
           />
-        ) : (
-          ''
         )}
       </div>
       <ACIcon className={styles.ACIcon} />

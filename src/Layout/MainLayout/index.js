@@ -10,7 +10,7 @@ import { useAuth } from '../../Context/AuthContext';
 import { userContext } from '../../Context/UserContext';
 
 const MainLayout = ({ header, tab }) => {
-  const userId = useAuth().currentMember.id;
+  const userId = useAuth().currentMember.id || Number(localStorage.getItem('user-id'));
   const [tweetsData, setTweetsData] = useState([]);
   const [userData, setUserData] = useState({});
   const [render, setRender] = useState(0);
