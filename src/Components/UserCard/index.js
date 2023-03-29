@@ -12,17 +12,17 @@ const UserCard = ({ user, noti, handleRender }) => {
     <div className={styles.UserInfo}>
       <div className={styles.bgImg}>
         <img
-          src={user.cover}
+          src={user?.cover}
           alt=''
         />
-      </div>
-      <div className={styles.userActions}>
         <div className={styles.avatar}>
           <img
             src={user?.avatar}
             alt=''
           />
         </div>
+      </div>
+      <div className={styles.userActions}>
         {user?.isMyself ? (
           <UserEditModel
             userData={user}
@@ -30,9 +30,23 @@ const UserCard = ({ user, noti, handleRender }) => {
           />
         ) : (
           <>
-            <Msg style={{ marginRight: '8px' }} />
-            <div style={{ marginRight: '8px' }}>{noti ? <Noti1 /> : <Noti0 />}</div>
-            <div style={{ marginRight: '8px' }}>{user?.isFollowing ? <TweetButton text='正在跟隨' /> : <TweetButton text='追蹤' />}</div>
+            <Msg />
+            {noti ? <Noti1 /> : <Noti0 />}
+            <div>
+              {user?.isFollowing ? (
+                <TweetButton
+                  text='正在跟隨'
+                  userId={user?.id}
+                  handleRender={handleRender}
+                />
+              ) : (
+                <TweetButton
+                  text='跟隨'
+                  userId={user?.id}
+                  handleRender={handleRender}
+                />
+              )}
+            </div>
           </>
         )}
       </div>

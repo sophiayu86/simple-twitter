@@ -1,7 +1,5 @@
-// import { login, register } from '../apitest/auth';
 import { createContext, useState, useEffect } from 'react';
 import jwt_decode from 'jwt-decode';
-// import { useLocation } from 'react-router-dom';
 import { useContext } from 'react';
 
 const id = Number(localStorage.getItem('user-id'));

@@ -7,7 +7,7 @@ import MainLayout from '../../Layout/MainLayout';
 import { useAuth } from '../../Context/AuthContext';
 
 const MainPage = () => {
-  const { id } = useAuth().currentMember;
+  const id = useAuth().currentMember?.id;
   const [tweetsData, setTweetsData] = useState([]);
   const [userData, setUserData] = useState({});
   const [render, setRender] = useState(0);

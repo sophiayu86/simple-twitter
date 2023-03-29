@@ -13,6 +13,5 @@ export { default as NotificationCard } from './NotificationCard';
 export { default as FollowItem } from './FollowItem';
 export { default as AdminUserCard } from './AdminUserCard';
 export { default as TweetItem } from './TweetItem';
-export { default as TweetCard } from './TweetCard';
 export { default as TweetButton } from './TweetButton';
 export { default as ReplyCard } from './ReplyCard';
