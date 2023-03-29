@@ -4,12 +4,40 @@ import { ReactComponent as Liked } from '../../Assets/icon/liked.svg';
 import { Link } from 'react-router-dom';
 import styles from './style.module.css';
 import PostReplyModal from '../PostReplyModal';
+import { deleteTweet } from '../../API/deleteTweet';
 
-const TweetItem = ({ replyTarget, tweetID, userID, authorImg, name, tag, content, time, admin, reply, liked, msgCount, likesCount, handleRender }) => {
+const TweetItem = ({
+  id,
+  replyTarget,
+  tweetID,
+  userID,
+  authorImg,
+  name,
+  tag,
+  content,
+  time,
+  admin,
+  reply,
+  liked,
+  msgCount,
+  likesCount,
+  handleRender
+}) => {
   const [likeState, setLikeStatus] = useState(liked);
   function handleLikeStateChange() {
     setLikeStatus(!likeState);
   }
+
+  const handleDelete = async id => {
+    console.log('id:', id);
+    try {
+      await deleteTweet(id);
+      handleRender();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div className={styles.card}>
       <div className={styles.tweetItem}>
@@ -27,7 +55,9 @@ const TweetItem = ({ replyTarget, tweetID, userID, authorImg, name, tag, content
         {admin && (
           <Delete
             className={styles.deleteIcon}
-            onClick={() => console.log('delete this')}
+            onClick={() => {
+              handleDelete(id);
+            }}
           />
         )}
       </div>
