@@ -14,6 +14,7 @@ const tabsList = [
 
 const ProfileLayout = ({ user, tweets, replies, likes, handleRender }) => {
   const [tab, setTab] = useState('tweets');
+  console.log(user);
 
   return (
     <div className={styles.userpage}>
@@ -33,8 +34,18 @@ const ProfileLayout = ({ user, tweets, replies, likes, handleRender }) => {
             currentTab={tab}
             changeTab={setTab}
           />
-          {tab === 'tweets' && <UserTweetList data={tweets} />}
-          {tab === 'replies' && <UserReplyList data={replies} />}
+          {tab === 'tweets' && (
+            <UserTweetList
+              data={tweets}
+              user={user}
+            />
+          )}
+          {tab === 'replies' && (
+            <UserReplyList
+              data={replies}
+              user={user}
+            />
+          )}
           {tab === 'likes' && <UserLikeList data={likes} />}
         </div>
       </div>
