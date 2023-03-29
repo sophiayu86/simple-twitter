@@ -12,9 +12,8 @@ const tabsList = [
   { label: '喜歡的內容', value: 'likes' }
 ];
 
-const ProfileLayout = ({ user, tweets, replies, likes }) => {
+const ProfileLayout = ({ user, tweets, replies, likes, handleRender }) => {
   const [tab, setTab] = useState('tweets');
-  // const userID = user?.id;
 
   return (
     <div className={styles.userpage}>
@@ -25,7 +24,10 @@ const ProfileLayout = ({ user, tweets, replies, likes }) => {
           num={user?.tweets}
         />
         <div className={styles.contentList}>
-          <UserCard user={user} />
+          <UserCard
+            user={user}
+            handleRender={handleRender}
+          />
           <ProfileTabs
             data={tabsList}
             currentTab={tab}

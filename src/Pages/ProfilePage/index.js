@@ -11,17 +11,20 @@ const ProfilePage = () => {
   const [tweetsData, setTweetsData] = useState([]);
   const [repliesData, setRepliesData] = useState([]);
   const [likesData, setLikesData] = useState([]);
-  const getData = async () => {
-    const [tweets, replies, likes, user] = await Promise.all([getUserTweets(userID), getUserReplies(userID), getUserLikes(userID), getUser(userID)]);
-    setTweetsData(tweets.data);
-    setRepliesData(replies.data);
-    setLikesData(likes.data);
-    setUserData(user.data);
+  const [render, setRender] = useState(0);
+  const handleRender = () => {
+    setRender(prev => (prev += 1));
   };
-
   useEffect(() => {
+    const getData = async () => {
+      const [tweets, replies, likes, user] = await Promise.all([getUserTweets(userID), getUserReplies(userID), getUserLikes(userID), getUser(userID)]);
+      setTweetsData(tweets.data);
+      setRepliesData(replies.data);
+      setLikesData(likes.data);
+      setUserData(user.data);
+    };
     getData();
-  }, []);
+  }, [render, userID]);
   return (
     <div>
       <ProfileLayout
@@ -29,6 +32,7 @@ const ProfilePage = () => {
         tweets={tweetsData}
         replies={repliesData}
         likes={likesData}
+        handleRender={handleRender}
       />
     </div>
   );
