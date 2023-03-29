@@ -10,6 +10,7 @@ import { ReactComponent as SettingIcon1 } from '../../Assets/icon/settingIcon1.s
 import { ReactComponent as LogoutIcon } from '../../Assets/icon/logoutIcon.svg';
 import styles from './style.module.css';
 import { PostTweetModal } from '../../Components';
+import { useParams } from'react-router-dom';
 const SideNav = ({ currentPage, avatar, handleRender }) => {
   const navigate = useNavigate();
   const handleLogout = () => {
@@ -29,7 +30,7 @@ const SideNav = ({ currentPage, avatar, handleRender }) => {
         <span>首頁</span>
       </div>
       <div
-        onClick={() => navigate('/profile')}
+        onClick={() => navigate("/profile")}
         className={styles.navItem}>
         {currentPage === 'user' ? <UserIcon1 className={styles.selected} /> : <UserIcon0 />}
         <span>個人資料</span>

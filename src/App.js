@@ -36,10 +36,7 @@ export default function App() {
               element={<AdminUsersPage />}
             />
             {/* <Route path="user/:UserId/tweet" element={<ProfileTweets />} /> */}
-            <Route
-              path='profile'
-              element={<ProfilePage />}
-            />
+            <Route path="profile/:userID" element={<ProfilePage />} />
             {/* <Route
                 path="user/:UserId/followers"
                 element={<UserFollowerPage />}
@@ -53,10 +50,7 @@ export default function App() {
               element={<SettingPage />}
             />
             {/* <Route path="tweet/:TweetId/replies" element={<ReplyPage />} /> */}
-            <Route
-              path='replies'
-              element={<ReplyPage />}
-            />
+            <Route path="tweet/:tweetID/replies" element={<ReplyPage />} />
             <Route
               path='*'
               element={<HomePage />}
