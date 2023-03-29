@@ -17,10 +17,10 @@ const tabsList = [
   { label: "喜歡的內容", value: "likes" },
 ];
 
-const ProfileLayout = ({user}) => {
+const ProfileLayout = ({user,tweets,replies,likes}) => {
   const [tab, setTab] = useState("tweets");
   const userID = user?.id;
-  console.log(userID);
+  console.log("t",tweets);
   return (
     <div className={styles.userpage}>
       <SideNav currentPage="user" />
@@ -29,9 +29,9 @@ const ProfileLayout = ({user}) => {
         <div className={styles.contentList}>
           <UserCard user={user} />
           <ProfileTabs data={tabsList} currentTab={tab} changeTab={setTab} />
-          {tab === "tweets" && <UserTweetList id={userID} />}
-          {tab === "replies" && <UserReplyList id={userID} />}
-          {tab === "likes" && <UserLikeList id={userID} />}
+          {tab === "tweets" && <UserTweetList data={tweets} />}
+          {tab === "replies" && <UserReplyList data={replies} />}
+          {tab === "likes" && <UserLikeList data={likes}/>}
         </div>
       </div>
       <PopularList />

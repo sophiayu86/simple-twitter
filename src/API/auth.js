@@ -109,6 +109,30 @@ export const getUserTweets = async (userID) => {
       return { status: "error", message: "伺服器錯誤，連線中斷" };
   }
 };
+export const getUserLikes = async (userID) => {
+  try {
+    const res = await axiosInstance.get(`/users/${userID}/likes`);
+    return res;
+  } catch (error) {
+    const { status } = error.response;
+    const { message } = error.response.data;
+    if (status === 404) return { status: "error", message };
+    if (status === 500)
+      return { status: "error", message: "伺服器錯誤，連線中斷" };
+  }
+};
+export const getUserReplies = async (userID) => {
+  try {
+    const res = await axiosInstance.get(`/users/${userID}/replied_tweets`);
+    return res;
+  } catch (error) {
+    const { status } = error.response;
+    const { message } = error.response.data;
+    if (status === 404) return { status: "error", message };
+    if (status === 500)
+      return { status: "error", message: "伺服器錯誤，連線中斷" };
+  }
+};
 export const getAllReplies = async (tweetID) => {
   try {
     const res = await axiosInstance.get(`tweets/${tweetID}/replies`);
