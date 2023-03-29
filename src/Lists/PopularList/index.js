@@ -5,17 +5,13 @@ import { getRecommend } from '../../API/getRecommend';
 
 const PopularList = () => {
   const [users, setUsers] = useState([]);
-  const [render, setRender] = useState(0);
-  const handleRender = () => {
-    setRender(prev => (prev += 1));
-  };
   const getData = async () => {
     const usersData = await getRecommend();
     setUsers(usersData);
   };
   useEffect(() => {
     getData();
-  }, [render]);
+  }, []);
 
   return (
     <div className={styles.popularList}>
@@ -31,7 +27,6 @@ const PopularList = () => {
                 avatar={user.avatar}
                 tag={'@' + user.account}
                 following={user.isFollowing}
-                handleRender={handleRender}
               />
             );
           })}
