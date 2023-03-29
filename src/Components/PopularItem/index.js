@@ -6,6 +6,7 @@ import styles from './style.module.css';
 const PopularItem = ({ id, name, tag, avatar, following }) => {
   const [followingStatus, setfollowingStatus] = useState(following);
   const handleFollow = async e => {
+    e.stopPropagation();
     const { id } = e.target;
     setfollowingStatus(!followingStatus);
     followingStatus ? await removeFollow(id) : await addFollow(id);

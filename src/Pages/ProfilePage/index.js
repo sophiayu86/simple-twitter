@@ -4,7 +4,6 @@ import { getOneUser } from '../../API/getOneUser';
 import { getUserTweets, getUserReplyTweets, getUserLikes } from '../../API/getUsersInfo';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-// import styles from './style.module.css';
 
 const ProfilePage = () => {
   const { userID } = useParams();
@@ -13,7 +12,7 @@ const ProfilePage = () => {
   const [repliesData, setRepliesData] = useState([]);
   const [likesData, setLikesData] = useState([]);
   const [render, setRender] = useState(0);
-  const handleRender = () => {
+  const handleProfileRender = () => {
     setRender(prev => (prev += 1));
   };
   useEffect(() => {
@@ -26,6 +25,7 @@ const ProfilePage = () => {
     };
     getData();
   }, [render, userID]);
+
   return (
     <div>
       <ProfileLayout
@@ -33,7 +33,7 @@ const ProfilePage = () => {
         tweets={tweetsData}
         replies={repliesData}
         likes={likesData}
-        handleRender={handleRender}
+        handleRender={handleProfileRender}
       />
     </div>
   );
