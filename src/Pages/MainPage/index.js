@@ -8,6 +8,10 @@ import MainLayout from '../../Layout/MainLayout';
 const MainPage = () => {
   const [tweetsData, setTweetsData] = useState([]);
   const [userData, setUserData] = useState({});
+  const [render, setRender] = useState(0);
+  const handleRender = () => {
+    setRender(prev => (prev += 1));
+  };
   const getData = async () => {
     const [res, user] = await Promise.all([getAllTweets(), getUser(14)]);
     setTweetsData(res.data);
@@ -15,7 +19,7 @@ const MainPage = () => {
   };
   useEffect(() => {
     getData();
-  }, []);
+  }, [render]);
 
   return (
     <div className={styles.mainpage}>
@@ -24,6 +28,7 @@ const MainPage = () => {
         tab='tweets'
         data={tweetsData}
         user={userData}
+        handleRender={handleRender}
       />
     </div>
   );
