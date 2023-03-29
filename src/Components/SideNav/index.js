@@ -10,10 +10,14 @@ import { ReactComponent as SettingIcon1 } from '../../Assets/icon/settingIcon1.s
 import { ReactComponent as LogoutIcon } from '../../Assets/icon/logoutIcon.svg';
 import styles from './style.module.css';
 import { PostTweetModal } from '../../Components';
-const SideNav = ({ currentPage }) => {
+import { useAuth } from '../../Context/AuthContext';
+
+const SideNav = ({ currentPage, avatar, handleRender }) => {
+  const { currentMember } = useAuth();
   const navigate = useNavigate();
   const handleLogout = () => {
-    localStorage.removeItem('authToken');
+    localStorage.removeItem('user-id');
+    localStorage.removeItem('jwt-token');
     navigate('/login');
   };
   return (
@@ -21,20 +25,32 @@ const SideNav = ({ currentPage }) => {
       <div className={styles.ACIconBlock}>
         <ACIcon />
       </div>
-      <div onClick={() => navigate('/main')} className={styles.navItem}>
+      <div
+        onClick={() => navigate('/main')}
+        className={styles.navItem}>
         {currentPage === 'main' ? <IndexIcon1 className={styles.selected} /> : <IndexIcon0 />}
         <span>首頁</span>
       </div>
-      <div onClick={() => navigate('/profile')} className={styles.navItem}>
+      <div
+        onClick={() => navigate(`/profile/${currentMember.id}`)}
+        className={styles.navItem}>
         {currentPage === 'user' ? <UserIcon1 className={styles.selected} /> : <UserIcon0 />}
         <span>個人資料</span>
       </div>
-      <div onClick={() => navigate('/user/setting')} className={styles.navItem}>
+      <div
+        onClick={() => navigate('/user/setting')}
+        className={styles.navItem}>
         {currentPage === 'userSetting' ? <SettingIcon1 className={styles.selected} /> : <SettingIcon0 />}
         <span>設定</span>
       </div>
-      <PostTweetModal mode={'button'} />
-      <div className={styles.logout} onClick={handleLogout}>
+      <PostTweetModal
+        mode={'button'}
+        avatar={avatar}
+        handleRender={handleRender}
+      />
+      <div
+        className={styles.logout}
+        onClick={handleLogout}>
         <LogoutIcon style={{ marginRight: '8px' }} />
         <span className={styles.navItemText}>登出</span>
       </div>

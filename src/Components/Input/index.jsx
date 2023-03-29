@@ -11,7 +11,9 @@ const Input = ({ label, name, type, placeholder, status, message, value, onHandl
   return (
     <div className={styles.inputField}>
       <div className={styles.inputContainer}>
-        <label className={styles.label} htmlFor={name}>
+        <label
+          className={styles.label}
+          htmlFor={name}>
           {label}
         </label>
         {type === 'textarea' ? (

@@ -1,22 +1,24 @@
-import React from "react";
-import styles from "./style.module.css";
-import { TweetItem } from "../../Components";
+import React from 'react';
+import styles from './style.module.css';
+import { TweetItem } from '../../Components';
 
-const UserLikeList = () => {
-  
-  return (
-    <div className={styles.tweetList}>
- 
-        <TweetItem liked ="true" name= "Pizza"  tag="@pizzahut" time="3小時" content="Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. "/>
-        <TweetItem liked ="true" name= "Pizza"  tag="@pizzahut" time="3小時" content="Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. "/>
-        <TweetItem liked ="true" name= "Pizza"  tag="@pizzahut" time="3小時" content="Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. "/>
-        <TweetItem liked ="true" name= "Pizza"  tag="@pizzahut" time="3小時" content="Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. "/>
-        <TweetItem liked ="true" name= "Pizza"  tag="@pizzahut" time="3小時" content="Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. "/>
-        <TweetItem liked ="true" name= "Pizza"  tag="@pizzahut" time="3小時" content="Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. "/>
+const UserLikeList = ({ data }) => {
+  const renderData = data?.map(item => (
+    <TweetItem
+      key={item.id}
+      tweetID={item.TweetId}
+      liked={item.isLike}
+      content={item.description}
+      msgCount={item.replies}
+      likesCount={item.likes}
+      name={item.name}
+      tag={item.account}
+      authorImg={item.avatar}
+      userID={item.tweeterId}
+      time={item.createdAt}
+    />
+  ));
 
-
-      
-    </div>
-  );
+  return <div className={styles.tweetList}>{renderData}</div>;
 };
 export default UserLikeList;

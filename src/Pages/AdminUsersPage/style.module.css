@@ -1,12 +1,22 @@
-.AdminMainPage {
+.AdminUsersPage {
   display: flex;
+  height: 100%;
 }
 
+.mainContent {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* 新增的 flex 屬性 */
+}
 
-
-.contentList{
-  position:absolute;
-  top:75px;
-  display:flex;
+.contentList {
+  display: flex;
   flex-wrap: wrap;
+  margin-top: 66px;
+  overflow: auto;
+}
+
+.contentList::-webkit-scrollbar {
+  display: none;
 }

@@ -45,8 +45,12 @@ const AdminLoginPage = () => {
     });
 
     setLoginResult(result);
-    if (result.status === 'success') {
+    if (result?.status === 'success') {
+      localStorage.setItem('user-id', result.data?.user.id);
+      localStorage.setItem('jwt-token', result.data?.token);
       setTimeout(() => navigate('/admin_main'), 1500);
+    } else {
+      setTimeout(() => setLoginResult(''), 1500);
     }
   };
   return (

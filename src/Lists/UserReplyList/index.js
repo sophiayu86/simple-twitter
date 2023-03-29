@@ -1,22 +1,22 @@
-import React from "react";
-import styles from "./style.module.css";
-import { TweetItem } from "../../Components";
+import React from 'react';
+import styles from './style.module.css';
+import { TweetItem } from '../../Components';
 
-const UserReplyList = () => {
-  
-  return (
-    <div className={styles.tweetList}>
- 
-        <TweetItem reply= "true" liked ="true" name= "Pizza"  tag="@pizzahut" time="3小時" content="Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. "/>
-        <TweetItem reply= "true" liked ="true" name= "Pizza"  tag="@pizzahut" time="3小時" content="Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. "/>
-        <TweetItem reply= "true" liked ="true" name= "Pizza"  tag="@pizzahut" time="3小時" content="Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. "/>
-        <TweetItem reply= "true" liked ="true" name= "Pizza"  tag="@pizzahut" time="3小時" content="Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. "/>
-        <TweetItem reply= "true" liked ="true" name= "Pizza"  tag="@pizzahut" time="3小時" content="Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. "/>
-        <TweetItem reply= "true" liked ="true" name= "Pizza"  tag="@pizzahut" time="3小時" content="Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. "/>
-        
+const UserReplyList = ({ data, user }) => {
+  const renderData = data?.map(item => (
+    <TweetItem
+      authorImg={user?.avatar}
+      name={user?.name}
+      tag={user?.account}
+      key={item.id}
+      time='3小時'
+      reply={true}
+      replyTarget={item.tweeterName}
+      content={item.comment}
+      tweetID={item.id}
+    />
+  ));
 
-      
-    </div>
-  );
+  return <div className={styles.tweetList}>{renderData}</div>;
 };
 export default UserReplyList;

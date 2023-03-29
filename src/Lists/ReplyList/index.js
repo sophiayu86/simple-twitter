@@ -1,13 +1,15 @@
-import React from "react";
-import styles from "./style.module.css";
-import { TweetItem } from "../../Components";
+import React from 'react';
+import styles from './style.module.css';
+import { TweetItem } from '../../Components';
 
-const ReplyList = ({data, replyTarget}) => {
-  console.log("data",replyTarget);
+
+const ReplyList = ({ data, tweet }) => {
+  const replyTarget = tweet?.User?.name;
   const renderData = data?.map(item => (
     <TweetItem
       key={item.id}
-      reply="true"
+      reply='true'
+
       liked={item.isLike}
       name={item.User.name}
       tag={item.User.account}

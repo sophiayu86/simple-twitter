@@ -16,9 +16,16 @@ const FollowshipLayout = () => {
     <div className={styles.userpage}>
       <SideNav />
       <div className={styles.mainContent}>
-        <ProfileHeader text='John' num='25' />
+        <ProfileHeader
+          text='John'
+          num='25'
+        />
         <div className={styles.fixedTabs}>
-          <ProfileTabs data={tabsList} currentTab={tab} changeTab={setTab} />
+          <ProfileTabs
+            data={tabsList}
+            currentTab={tab}
+            changeTab={setTab}
+          />
         </div>
         <div className={styles.contentList}>{tab === 'followers' ? <FollowerList /> : <FollowingList />}</div>
       </div>

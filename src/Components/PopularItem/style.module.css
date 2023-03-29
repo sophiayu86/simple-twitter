@@ -1,50 +1,81 @@
 .popularItem {
-  padding-top: 24px;
-  text-align: left;
+  padding: 12px 16px;
   display: flex;
-  color: #1c1c1c;
-  font-family: "Noto Sans TC";
-  font-style: normal;
 }
 
-.popularItem > div {
+.info {
   display: flex;
-  flex-direction: column;
+  gap: 8px;
+  width: 142px;
 }
 
 .textBlock {
-  padding: 0 8px;
+  font: 1px;
+  text-align: left;
 }
-
 .name {
   font-weight: bold;
-  font-size: 18px;
+  font-size: 16px;
+  line-height: 26px;
 }
 
 .tag {
   color: #6c757d;
-  font-size: 12px;
+  font-size: 14px;
+  line-height: 22px;
 }
 
-.ACIcon {
-  width: 40px;
-  height: 40px;
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.avatar img {
+  object-fit: cover;
+}
+
+.buttonFiled {
+  width: 96px;
+  margin-left: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.activeButton,
+.button {
+  margin-left: auto;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 8px 16px;
+  border-radius: 99px;
+  border: none;
+  cursor: pointer;
 }
 
 .activeButton {
-  width: 96px;
-  height: 40px;
   background-color: #ff6600;
   color: #ffffff;
-  padding: 8px 16px;
-  border-radius: 50px;
+}
+
+.activeButton:hover {
+  background-color: #ee6103;
 }
 
 .button {
-  width: 96px;
-  height: 40px;
   background-color: #ffffff;
   color: #ff6600;
-  padding: 8px 16px;
-  border-radius: 50px;
+  box-shadow: 0px 0px 0px 1px #ff6600;
+  -moz-box-shadow: 0px 0px 0px 1px #ff6600;
+  -webkit-box-shadow: 0px 0px 0px 1px #ff6600;
+}
+
+.button:hover {
+  background-color: #f4f4f4;
+  color: #ee6103;
+  box-shadow: 0px 0px 0px 1px #ee6103;
+  -moz-box-shadow: 0px 0px 0px 1px #ee6103;
+  -webkit-box-shadow: 0px 0px 0px 1px #ee6103;
 }
