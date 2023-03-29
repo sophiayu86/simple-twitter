@@ -44,7 +44,7 @@ export default function App() {
                 element={<UserFollowerPage />}
               /> */}
             <Route
-              path='followers'
+              path='followers/:userID'
               element={<UserFollowerPage />}
             />
             <Route
