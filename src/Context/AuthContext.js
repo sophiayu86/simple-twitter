@@ -24,6 +24,8 @@ export const AuthProvider = ({ children }) => {
       } else {
         setIsAuthenticated(false);
         setPayload(null);
+        localStorage.removeItem('user-id');
+        localStorage.removeItem('jwt-token');
         return; //倒去login
       }
     };
