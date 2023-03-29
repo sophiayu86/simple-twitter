@@ -12,7 +12,7 @@ const MainLayout = ({ header, tab, data, user, reply, handleRender }) => {
     <div className={styles.userpage}>
       <SideNav
         currentPage='main'
-        avatar={user.avatar}
+        avatar={user?.avatar}
         handleRender={handleRender}
       />
       <div className={styles.mainContent}>
@@ -22,7 +22,7 @@ const MainLayout = ({ header, tab, data, user, reply, handleRender }) => {
             <div>
               <PostTweetModal
                 mode={'block'}
-                avatar={user.avatar}
+                avatar={user?.avatar}
                 handleRender={handleRender}
               />
               <TweetList data={data} />
