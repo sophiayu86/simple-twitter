@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './style.module.css';
 import ProfileLayout from '../../Layout/ProfileLayout';
 import { getOneUser } from '../../API/getOneUser';
 import { getUserTweets, getUserReplyTweets, getUserLikes } from '../../API/getUsersInfo';
@@ -27,7 +28,7 @@ const ProfilePage = () => {
   }, [render, userID]);
 
   return (
-    <div>
+    <div className={styles.profilePage}>
       <ProfileLayout
         user={userData}
         tweets={tweetsData}

@@ -36,14 +36,14 @@ const FollowshipLayout = ({ userId }) => {
           text={user?.name}
           num={user?.tweets}
         />
-        <div className={styles.fixedTabs}>
+        <div className={styles.contentList}>
           <ProfileTabs
             data={tabsList}
             currentTab={tab}
             changeTab={setTab}
           />
+          <div className={styles.container}>{tab === 'followers' ? <FollowerList data={followers ? followers : []} /> : <FollowingList data={followings ? followings : []} />}</div>
         </div>
-        <div className={styles.contentList}>{tab === 'followers' ? <FollowerList data={followers ? followers : []} /> : <FollowingList data={followings ? followings : []} />}</div>
       </div>
       <PopularList />
     </div>

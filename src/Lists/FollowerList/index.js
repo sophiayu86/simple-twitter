@@ -9,6 +9,7 @@ const FollowerList = ({ data }) => {
         return (
           <FollowItem
             key={item.followerId}
+            id={item.followerId}
             name={item.name}
             avatar={item.avatar}
             content={item.introduction}
