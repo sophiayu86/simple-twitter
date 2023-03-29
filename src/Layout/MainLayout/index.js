@@ -4,7 +4,6 @@ import PopularList from '../../Lists/PopularList';
 import TweetList from '../../Lists/TweetList';
 import ReplyList from '../../Lists/ReplyList';
 import styles from './style.module.css';
-// import { getAllTweets } from '../../API/auth.js';
 
 const MainLayout = ({ header, tab, data, user, reply, handleRender }) => {
   const replyTarget = reply?.User?.account;

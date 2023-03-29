@@ -2,8 +2,8 @@ import axiosInstance from './getToken/json';
 
 export const getAllTweets = async () => {
   try {
-    const res = await axiosInstance.get('/tweets');
-    return res;
+    const { status, data } = await axiosInstance.get('/tweets');
+    if (status === 200) return data;
   } catch (error) {
     const { status } = error.response;
     const { message } = error.response.data;

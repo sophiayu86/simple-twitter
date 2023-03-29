@@ -9,7 +9,7 @@ export default function PostReplyModal({ className, tweetId, signinUser, handleR
   const [showModal, setShowModal] = useState(false);
   const handleOnClick = async e => {
     e.stopPropagation();
-    const data = await getOneTweet({ tweetId });
+    const data = await getOneTweet(tweetId);
     if (data) {
       const { User, id, description, updatedAt } = data;
       setTweetInfo({

@@ -14,7 +14,6 @@ const tabsList = [
 
 const ProfileLayout = ({ user, tweets, replies, likes, handleRender }) => {
   const [tab, setTab] = useState('tweets');
-  console.log(user);
 
   return (
     <div className={styles.userpage}>

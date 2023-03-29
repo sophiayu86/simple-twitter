@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from './style.module.css';
-import { getAllTweets, getUser } from '../../API/auth.js';
+import { getAllTweets } from '../../API/getAllTweets';
+import { getOneUser } from '../../API/getOneUser';
 import { useEffect, useState } from 'react';
 import MainLayout from '../../Layout/MainLayout';
 import { useAuth } from '../../Context/AuthContext';
-// import { Header, SideNav, UserCard } from "../../Components";
 
 const MainPage = () => {
   const { id } = useAuth().currentMember;
@@ -16,9 +16,9 @@ const MainPage = () => {
   };
   useEffect(() => {
     const getData = async () => {
-      const [res, user] = await Promise.all([getAllTweets(), getUser(id)]);
-      setTweetsData(res.data);
-      setUserData(user.data);
+      const [tweets, user] = await Promise.all([getAllTweets(), getOneUser(id)]);
+      setTweetsData(tweets);
+      setUserData(user);
     };
     getData();
   }, [render, id]);
