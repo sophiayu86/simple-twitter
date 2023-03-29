@@ -14,9 +14,8 @@ const tabsList = [
 
 const ProfileLayout = ({ user, tweets, replies, likes }) => {
   const [tab, setTab] = useState('tweets');
-  const userID = user?.id;
-  // console.log("t",tweets);
-  console.log(userID);
+  // const userID = user?.id;
+
   return (
     <div className={styles.userpage}>
       <SideNav currentPage='user' />

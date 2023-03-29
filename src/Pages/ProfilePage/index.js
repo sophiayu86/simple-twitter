@@ -17,7 +17,6 @@ const ProfilePage = () => {
     setRepliesData(replies.data);
     setLikesData(likes.data);
     setUserData(user.data);
-    console.log('g', user.data, tweets.data);
   };
 
   useEffect(() => {
