@@ -1,9 +1,8 @@
-// import { login, register } from '../apitest/auth';
 import { createContext, useState, useEffect } from 'react';
 import jwt_decode from 'jwt-decode';
-// import { useLocation } from 'react-router-dom';
 import { useContext } from 'react';
 
+const id = Number(localStorage.getItem('user-id'));
 const defaultAuthContext = {
   isAuthenticated: false,
   currentMember: null
@@ -12,7 +11,6 @@ const defaultAuthContext = {
 const AuthContext = createContext(defaultAuthContext);
 export const useAuth = () => useContext(AuthContext);
 export const AuthProvider = ({ children }) => {
-  const id = Number(localStorage.getItem('user-id'));
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [payload, setPayload] = useState({ id });
 

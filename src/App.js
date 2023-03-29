@@ -2,7 +2,6 @@ import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { SignUpPage, LoginPage, MainPage, AdminLoginPage, AdminMainPage, AdminUsersPage, ProfilePage, UserFollowerPage, SettingPage, ReplyPage, HomePage } from './Pages';
 import { AuthProvider } from './Context/AuthContext';
-import { userContext } from './Context/UserContext';
 const basename = process.env.PUBLIC_URL;
 
 export default function App() {
@@ -36,7 +35,10 @@ export default function App() {
               element={<AdminUsersPage />}
             />
             {/* <Route path="user/:UserId/tweet" element={<ProfileTweets />} /> */}
-            <Route path="profile/:userID" element={<ProfilePage />} />
+            <Route
+              path='profile/:userID'
+              element={<ProfilePage />}
+            />
             {/* <Route
                 path="user/:UserId/followers"
                 element={<UserFollowerPage />}
@@ -50,7 +52,10 @@ export default function App() {
               element={<SettingPage />}
             />
             {/* <Route path="tweet/:TweetId/replies" element={<ReplyPage />} /> */}
-            <Route path="tweet/:tweetID/replies" element={<ReplyPage />} />
+            <Route
+              path='tweet/:tweetID/replies'
+              element={<ReplyPage />}
+            />
             <Route
               path='*'
               element={<HomePage />}

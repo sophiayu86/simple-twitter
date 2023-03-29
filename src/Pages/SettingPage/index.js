@@ -1,21 +1,17 @@
 import React, { useState } from 'react';
 import { editUserAccoount } from '../../API/editUserAccoount';
 import { Header, Input, SideNav, NotificationCard } from '../../Components';
+import { useAuth } from '../../Context/AuthContext';
 import styles from './style.module.css';
 
 const SettingPage = () => {
-  // await 抓使用者資料（需要有id，抓user Context 的東西）
-  const contextData = {
-    id: 14,
-    account: 'user1',
-    name: 'user1',
-    email: 'user1@example.com'
-  };
+  const initialUserData = useAuth().currentMember; // console.log(initialUserData); 重新整理第一次會是空白
   const [editResult, setEditResult] = useState('');
+
   const initialInputInfo = {
-    account: { status: 'default', message: '', value: contextData.account },
-    name: { status: 'default', message: '', value: contextData.name },
-    email: { status: 'default', message: '', value: contextData.email },
+    account: { status: 'default', message: '', value: initialUserData?.account },
+    name: { status: 'default', message: '', value: initialUserData?.name },
+    email: { status: 'default', message: '', value: initialUserData?.email },
     password: { status: 'default', message: '', value: '' },
     checkPassword: { status: 'default', message: '', value: '' }
   };
@@ -87,19 +83,20 @@ const SettingPage = () => {
   };
 
   const handleSubmit = async () => {
-    for (const [key, info] of Object.entries(inputInfo)) {
-      if (key === 'name' || key === 'account' || key === 'email') {
-        if (!info.value.trim()) {
-          setInputInfo(prev => ({ ...prev, [key]: { status: 'error', message: '此欄位不可為空白', value: '' } }));
-          setEditResult({ status: 'error', message: '帳號、名稱、Email欄位不可為空白' });
-          return setTimeout(() => setEditResult(''), 1000);
-        }
-      }
+    const { account, name, email, password, checkPassword } = inputInfo;
+    if (!account.value?.trim() || !name.value?.trim() || !email.value?.trim()) {
+      setInputInfo(prev => ({
+        ...prev,
+        account: { status: 'error', message: '此欄位不可為空白', value: '' },
+        name: { status: 'error', message: '此欄位不可為空白', value: '' },
+        email: { status: 'error', message: '此欄位不可為空白', value: '' }
+      }));
+      setEditResult({ status: 'error', message: '帳號、名稱、Email欄位不可為空白' });
+      return setTimeout(() => setEditResult(''), 1000);
     }
 
-    const { account, name, email, password, checkPassword } = inputInfo;
     const { data, ...result } = await editUserAccoount({
-      id: contextData.id,
+      id: initialUserData.id,
       account: account.value,
       name: name.value,
       email: email.value,

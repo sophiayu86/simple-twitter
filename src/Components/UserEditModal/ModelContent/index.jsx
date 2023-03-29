@@ -32,7 +32,7 @@ export default function ModalContent({ userData, handleRender, onClose }) {
     if (result) {
       setUpdateResult(result);
       if (result.status === 'success') {
-        handleRender();
+        handleRender?.();
         setTimeout(() => onClose(), 1500);
       }
     }

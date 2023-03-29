@@ -4,28 +4,42 @@ import PopularList from '../../Lists/PopularList';
 import TweetList from '../../Lists/TweetList';
 import ReplyList from '../../Lists/ReplyList';
 import styles from './style.module.css';
-// import { getAllTweets } from '../../API/auth.js';
 
-const MainLayout = ({ header, tab , data, user, reply}) => {
-  const replyTarget = reply?.User?.account;
+const MainLayout = ({ header, tab, user, mainPageData, replyPageData }) => {
   return (
     <div className={styles.userpage}>
-      <SideNav currentPage='main' />
+      <SideNav
+        currentPage='main'
+        avatar={user?.avatar}
+        handleRender={mainPageData?.handleRender}
+      />
       <div className={styles.mainContent}>
         <Header text={header} />
         <div className={styles.contentList}>
           {tab === 'tweets' && (
             <div>
-              <PostTweetModal mode={'block'} user={user} />
-              <TweetList data={data} />
+              <PostTweetModal
+                mode={'block'}
+                avatar={user?.avatar}
+                handleRender={mainPageData.handleRender}
+              />
+              <TweetList
+                data={mainPageData.tweets}
+                handleRender={mainPageData.handleRender}
+              />
             </div>
           )}
           {tab === 'replies' && (
             <div>
               <ReplyCard
-                reply={reply}
+                tweet={replyPageData?.tweet}
+                signinUser={user}
+                handleRender={replyPageData?.handleRender}
               />
-              <ReplyList data={data} replyTarget={replyTarget}/>
+              <ReplyList
+                data={replyPageData?.replies}
+                tweet={replyPageData?.tweet}
+              />
             </div>
           )}
         </div>
