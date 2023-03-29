@@ -23,14 +23,18 @@ const MainPage = () => {
     getData();
   }, [render, id]);
 
+  const mainPageData = {
+    tweets: tweetsData,
+    handleRender: handleRender
+  };
+
   return (
     <div className={styles.mainpage}>
       <MainLayout
         header='首頁'
         tab='tweets'
-        data={tweetsData}
         user={userData}
-        handleRender={handleRender}
+        mainPageData={mainPageData}
       />
     </div>
   );

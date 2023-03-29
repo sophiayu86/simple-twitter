@@ -24,9 +24,17 @@
   margin-left: 8px;
   font-size: 13px;
 }
-.icon {
+.avatar {
   width: 50px;
   height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .content {

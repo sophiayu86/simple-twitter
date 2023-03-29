@@ -5,14 +5,13 @@ import TweetList from '../../Lists/TweetList';
 import ReplyList from '../../Lists/ReplyList';
 import styles from './style.module.css';
 
-const MainLayout = ({ header, tab, data, user, reply, handleRender }) => {
-  const replyTarget = reply?.User?.account;
+const MainLayout = ({ header, tab, user, mainPageData, replyPageData }) => {
   return (
     <div className={styles.userpage}>
       <SideNav
         currentPage='main'
         avatar={user?.avatar}
-        handleRender={handleRender}
+        handleRender={mainPageData?.handleRender}
       />
       <div className={styles.mainContent}>
         <Header text={header} />
@@ -22,17 +21,24 @@ const MainLayout = ({ header, tab, data, user, reply, handleRender }) => {
               <PostTweetModal
                 mode={'block'}
                 avatar={user?.avatar}
-                handleRender={handleRender}
+                handleRender={mainPageData.handleRender}
               />
-              <TweetList data={data} />
+              <TweetList
+                data={mainPageData.tweets}
+                handleRender={mainPageData.handleRender}
+              />
             </div>
           )}
           {tab === 'replies' && (
             <div>
-              <ReplyCard reply={reply} />
+              <ReplyCard
+                tweet={replyPageData?.tweet}
+                signinUser={user}
+                handleRender={replyPageData?.handleRender}
+              />
               <ReplyList
-                data={data}
-                replyTarget={replyTarget}
+                data={replyPageData?.replies}
+                tweet={replyPageData?.tweet}
               />
             </div>
           )}

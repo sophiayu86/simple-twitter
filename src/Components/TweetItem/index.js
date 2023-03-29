@@ -1,18 +1,17 @@
 import React, { useState } from 'react';
 import { ReactComponent as Delete } from '../../Assets/icon/delete.svg';
-import { ReactComponent as Talk } from '../../Assets/icon/talk.svg';
 import { ReactComponent as Liked } from '../../Assets/icon/liked.svg';
 import { Link } from 'react-router-dom';
 import styles from './style.module.css';
+import PostReplyModal from '../PostReplyModal';
 
-const TweetItem = ({ replyTarget, tweetID, userID, authorImg, name, tag, content, time, admin, reply, liked, msgCount, likesCount }) => {
+const TweetItem = ({ replyTarget, tweetID, userID, authorImg, name, tag, content, time, admin, reply, liked, msgCount, likesCount, handleRender }) => {
   const [likeState, setLikeStatus] = useState(liked);
   function handleLikeStateChange() {
     setLikeStatus(!likeState);
   }
   return (
     <div className={styles.card}>
-      <Link to={`/tweet/${tweetID}/replies`}></Link>
       <div className={styles.tweetItem}>
         <Link to={`/profile/${userID}`}>
           <img
@@ -42,7 +41,11 @@ const TweetItem = ({ replyTarget, tweetID, userID, authorImg, name, tag, content
       </Link>
       {!admin && !reply && (
         <div className={styles.interact}>
-          <Talk className={styles.icon} />
+          <PostReplyModal
+            className={styles.icon}
+            tweetId={tweetID}
+            handleRender={handleRender}
+          />
           <span>{msgCount}</span>
           <Liked
             className={`${styles.icon} ${likeState ? styles.liked : styles.unliked}`}
