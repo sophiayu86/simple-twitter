@@ -67,7 +67,6 @@ const LoginPage = () => {
 
     setLoginResult(result);
     if (result?.status === 'success') {
-      localStorage.setItem('user-id', result.data?.user.id);
       localStorage.setItem('jwt-token', result.data?.token);
       setTimeout(() => navigate('/main'), 2000);
     } else {

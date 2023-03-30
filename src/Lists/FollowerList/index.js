@@ -2,69 +2,21 @@ import React from 'react';
 import styles from './style.module.css';
 import { FollowItem } from '../../Components';
 
-const FollowerList = () => {
+const FollowerList = ({ data }) => {
   return (
     <div className={styles.followerList}>
-      <FollowItem
-        name='Pizza'
-        content='Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. '
-        following={true}
-      />
-      <FollowItem
-        name='Pizza'
-        content='Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. '
-        following={false}
-      />
-      <FollowItem
-        name='Pizza'
-        content='Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. '
-        following={true}
-      />
-      <FollowItem
-        name='Pizza'
-        content='Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. '
-        following={false}
-      />
-      <FollowItem
-        name='Pizza'
-        content='Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. '
-        following={true}
-      />
-      <FollowItem
-        name='Pizza'
-        content='Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. '
-        following={false}
-      />
-      <FollowItem
-        name='Pizza'
-        content='Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. '
-        following={true}
-      />
-      <FollowItem
-        name='Pizza'
-        content='Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. '
-        following={false}
-      />
-      <FollowItem
-        name='Pizza'
-        content='Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. '
-        following={true}
-      />
-      <FollowItem
-        name='Pizza'
-        content='Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. '
-        following={false}
-      />
-      <FollowItem
-        name='Pizza'
-        content='Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. '
-        following={false}
-      />
-      <FollowItem
-        name='Pizza'
-        content='Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum. '
-        following={false}
-      />
+      {data.map(item => {
+        return (
+          <FollowItem
+            key={item.followerId}
+            id={item.followerId}
+            name={item.name}
+            avatar={item.avatar}
+            content={item.introduction}
+            following={item.isFollowing}
+          />
+        );
+      })}
     </div>
   );
 };

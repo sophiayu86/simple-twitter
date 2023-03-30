@@ -1,47 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { addFollow, removeFollow } from '../../API/Followship';
+import { Link } from 'react-router-dom';
 import styles from './style.module.css';
 
-const PopularItem = ({ id, name, tag, avatar, following, handleRender }) => {
-  const handleAddFollow = async e => {
+const PopularItem = ({ id, name, tag, avatar, following }) => {
+  const [followingStatus, setfollowingStatus] = useState(following);
+  const handleFollow = async e => {
+    e.stopPropagation();
     const { id } = e.target;
-    const { status } = await addFollow(id);
-    if (status === 'success') return handleRender();
+    setfollowingStatus(!followingStatus);
+    followingStatus ? await removeFollow(id) : await addFollow(id);
   };
-
-  const handleRemoveFollow = async e => {
-    const { id } = e.target;
-    const { status } = await removeFollow(id);
-    if (status === 'success') return handleRender();
-  };
-
   return (
     <div className={styles.popularItem}>
       <div className={styles.info}>
-        <div className={styles.avatar}>
-          <img
-            src={avatar ? avatar : 'https://i.imgur.com/TGuHpHB.jpg'}
-            alt=''
-          />
-        </div>
+        <Link to={`/profile/${id}`}>
+          <div className={styles.avatar}>
+            <img
+              src={avatar ? avatar : 'https://i.imgur.com/TGuHpHB.jpg'}
+              alt=''
+            />
+          </div>
+        </Link>
         <div className={styles.textBlock}>
           <div className={styles.name}>{name}</div>
           <div className={styles.tag}>{tag}</div>
         </div>
       </div>
       <div className={styles.buttonFiled}>
-        {following ? (
+        {followingStatus ? (
           <button
             id={id}
             className={styles.activeButton}
-            onClick={e => handleRemoveFollow(e)}>
+            onClick={e => handleFollow(e)}>
             正在跟隨
           </button>
         ) : (
           <button
             id={id}
             className={styles.button}
-            onClick={e => handleAddFollow(e)}>
+            onClick={e => handleFollow(e)}>
             跟隨
           </button>
         )}

@@ -1,18 +1,25 @@
 import React from 'react';
-import { ReactComponent as ACIcon } from '../../Assets/icon/acIcon.svg';
+import { Link } from 'react-router-dom';
 import styles from './style.module.css';
 
-const FollowItem = ({ name, content, following }) => {
+const FollowItem = ({ id, name, content, avatar, following }) => {
   return (
     <div className={styles.card}>
-      <div className={styles.followItem}>
-        <ACIcon className={styles.ACIcon} />
-
-        <p>{name}</p>
-
-        {following ? <button className={styles.activeButton}>正在跟隨</button> : <button className={styles.button}>跟隨</button>}
+      <Link to={`/profile/${id}`}>
+        <div className={styles.avatar}>
+          <img
+            src={avatar}
+            alt=''
+          />
+        </div>
+      </Link>
+      <div className={styles.rightContent}>
+        <div className={styles.title}>
+          <p>{name}</p>
+          {following ? <button className={styles.activeButton}>正在跟隨</button> : <button className={styles.button}>跟隨</button>}
+        </div>
+        <div className={styles.body}>{content}</div>
       </div>
-      <div className={styles.content}>{content}</div>
     </div>
   );
 };

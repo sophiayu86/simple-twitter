@@ -17,7 +17,7 @@ const MainLayout = ({ header, tab, user, mainPageData, replyPageData }) => {
         <Header text={header} />
         <div className={styles.contentList}>
           {tab === 'tweets' && (
-            <div>
+            <div className={styles.container}>
               <PostTweetModal
                 mode={'block'}
                 avatar={user?.avatar}

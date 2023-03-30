@@ -11,7 +11,6 @@ import styles from './style.module.css';
 const AdminNav = ({ currentPage }) => {
   const navigate = useNavigate();
   const handleLogout = () => {
-    localStorage.removeItem('user-id');
     localStorage.removeItem('jwt-token');
     navigate('/admin_login');
   };
