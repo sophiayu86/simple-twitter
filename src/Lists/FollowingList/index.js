@@ -12,26 +12,30 @@ const FollowingList = ({ userId }) => {
   useEffect(() => {
     const getData = async () => {
       const followingsData = await getUserFollowings(userId);
-      setFollowings(followingsData);
+      if (followingsData.length) return setFollowings(followingsData);
     };
     getData();
   }, [userId, render]);
 
   return (
     <div className={styles.followingList}>
-      {followings.map(item => {
-        return (
-          <FollowItem
-            key={item.followingId}
-            id={item.followingId}
-            name={item.name}
-            avatar={item.avatar}
-            content={item.introduction}
-            following={item.isFollowing}
-            handleRender={handleRender}
-          />
-        );
-      })}
+      {followings.length ? (
+        followings.map(item => {
+          return (
+            <FollowItem
+              key={item.followingId}
+              id={item.followingId}
+              name={item.name}
+              avatar={item.avatar}
+              content={item.introduction}
+              following={item.isFollowing}
+              handleRender={handleRender}
+            />
+          );
+        })
+      ) : (
+        <h5 className={styles.blank}>尚未追隨其他使用者</h5>
+      )}
     </div>
   );
 };
