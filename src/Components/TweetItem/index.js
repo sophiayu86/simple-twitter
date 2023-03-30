@@ -5,12 +5,21 @@ import { Link } from 'react-router-dom';
 import styles from './style.module.css';
 import PostReplyModal from '../PostReplyModal';
 import { deleteTweet } from '../../API/deleteTweet';
+import { addLike, removeLike } from '../../API/Like';
 
 const TweetItem = ({ id, replyTarget, tweetID, userID, authorImg, name, tag, content, time, admin, reply, liked, msgCount, likesCount, handleRender }) => {
   const [likeState, setLikeStatus] = useState(liked);
-  function handleLikeStateChange() {
+  const [likesNums, setLikesNums] = useState(likesCount);
+  const handleLikeStatus = async id => {
     setLikeStatus(!likeState);
-  }
+    if (likeState) {
+      setLikesNums(prev => (prev = prev - 1));
+      await removeLike(id);
+    } else {
+      setLikesNums(prev => (prev = prev + 1));
+      await addLike(id);
+    }
+  };
 
   const handleDelete = async id => {
     try {
@@ -66,9 +75,9 @@ const TweetItem = ({ id, replyTarget, tweetID, userID, authorImg, name, tag, con
             <Liked
               className={`${styles.icon} ${likeState ? styles.liked : styles.unliked}`}
               stroke='#6C757D'
-              onClick={handleLikeStateChange}
+              onClick={() => handleLikeStatus(tweetID)}
             />
-            <span>{likesCount}</span>
+            <span>{likesNums}</span>
           </div>
         )}
       </div>
