@@ -14,46 +14,47 @@ const tabsList = [
 
 const ProfileLayout = ({ user, tweets, replies, likes, handleRender }) => {
   const [tab, setTab] = useState('tweets');
-
   return (
     <div className={styles.userpage}>
       <SideNav
         currentPage='user'
-        avatar={user.avatar}
+        avatar={user?.avatar}
         handleRender={handleRender}
       />
       <div className={styles.mainContent}>
-        <ProfileHeader
-          text={user?.account}
-          num={user?.tweets}
-        />
-        <div className={styles.contentList}>
-          {user && (
-            <UserCard
-              user={user}
-              isFollowing={user.isFollowing}
-              handleRender={handleRender}
+        {user && !user.iat && (
+          <>
+            <ProfileHeader
+              text={user?.name}
+              num={user?.tweets}
             />
-          )}
-          <ProfileTabs
-            data={tabsList}
-            currentTab={tab}
-            changeTab={setTab}
-          />
-          {tab === 'tweets' && tweets && (
-            <UserTweetList
-              data={tweets}
-              user={user}
-            />
-          )}
-          {tab === 'replies' && replies && (
-            <UserReplyList
-              data={replies}
-              user={user}
-            />
-          )}
-          {tab === 'likes' && likes && <UserLikeList data={likes} />}
-        </div>
+            <div className={styles.contentList}>
+              <UserCard
+                user={user}
+                isFollowing={user.isFollowing}
+                handleRender={handleRender}
+              />
+              <ProfileTabs
+                data={tabsList}
+                currentTab={tab}
+                changeTab={setTab}
+              />
+              {tab === 'tweets' && tweets && (
+                <UserTweetList
+                  data={tweets}
+                  user={user}
+                />
+              )}
+              {tab === 'replies' && replies && (
+                <UserReplyList
+                  data={replies}
+                  user={user}
+                />
+              )}
+              {tab === 'likes' && likes && <UserLikeList data={likes} />}
+            </div>
+          </>
+        )}
       </div>
       <PopularList />
     </div>

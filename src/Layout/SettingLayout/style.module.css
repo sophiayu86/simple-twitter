@@ -1,0 +1,48 @@
+.settingPage {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.mainContent {
+  position: relative;
+  height: 100%;
+  width: 53.4%;
+  min-width: 641px;
+  border-right: 1px solid #e6ecf0;
+}
+
+.inputSection {
+  margin-top: 68px;
+  padding: 24px 24px 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formControl {
+  display: flex;
+  justify-content: flex-end;
+  margin: 16px 24px;
+}
+
+.btn {
+  margin-left: auto;
+  padding: 8px 24px;
+  font-size: 20px;
+  line-height: 30px;
+  border: none;
+  border-radius: 100px;
+  color: #fff;
+  background-color: #ff6600;
+  cursor: pointer;
+}
+
+.notification {
+  position: absolute;
+  top: 36px;
+  right: 48px;
+  z-index: 999;
+  text-align: right;
+}

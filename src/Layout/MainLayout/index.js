@@ -49,15 +49,19 @@ const MainLayout = ({ header, tab, user, mainPageData, replyPageData }) => {
           )}
           {tab === 'replies' && (
             <div>
-              <ReplyCard
-                tweet={replyPageData?.tweet}
-                signinUser={user}
-                handleRender={replyPageData?.handleRender}
-              />
-              <ReplyList
-                data={replyPageData?.replies}
-                tweet={replyPageData?.tweet}
-              />
+              {user && (
+                <>
+                  <ReplyCard
+                    tweet={replyPageData?.tweet}
+                    signinUser={userData}
+                    handleRender={replyPageData?.handleRender}
+                  />
+                  <ReplyList
+                    data={replyPageData?.replies}
+                    tweet={replyPageData?.tweet}
+                  />
+                </>
+              )}
             </div>
           )}
         </div>

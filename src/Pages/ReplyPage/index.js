@@ -9,7 +9,7 @@ import { useParams } from 'react-router-dom';
 import { useAuth } from '../../Context/AuthContext';
 
 const ReplyPage = () => {
-  const userId = useAuth().currentMember.id;
+  const userId = useAuth().currentMember?.id;
   const { tweetID } = useParams();
   const [userData, setUserData] = useState({});
   const [tweetData, setTweetData] = useState([]);
@@ -20,10 +20,11 @@ const ReplyPage = () => {
   };
   useEffect(() => {
     const getData = async () => {
+      if (!userId) return;
       const [replies, tweet, user] = await Promise.all([getAllReplies(tweetID), getOneTweet(tweetID), getOneUser(userId)]);
       setRepliesData(replies);
       setTweetData(tweet);
-      setUserData(user);
+      setUserData(prev => ({ ...prev, avatar: user.data.avatar }));
     };
     getData();
   }, [userId, tweetID, render]);

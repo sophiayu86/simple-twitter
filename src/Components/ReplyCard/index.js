@@ -9,7 +9,6 @@ const ReplyCard = ({ tweet, signinUser, handleRender }) => {
   function handleLikeStateChange() {
     setLikeStatus(!likeState);
   }
-
   return (
     <div className={styles.replyBlock}>
       <div className={styles.replyCard}>

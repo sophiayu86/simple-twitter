@@ -5,12 +5,14 @@ import { ReactComponent as CoverEdit } from '../../../Assets/icon/coverEdit.svg'
 import { ReactComponent as AvatarEdit } from '../../../Assets/icon/avatarEdit.svg';
 import { useState } from 'react';
 import { editUserProfile } from '../../../API/editUserProfile.js';
+import { useAuth } from '../../../Context/AuthContext';
 
 export default function ModalContent({ userData, handleRender, onClose }) {
+  const { handleContextRender } = useAuth();
   const { id, name, introduction, avatar, cover } = userData;
   const initialInputInfo = {
     name: { status: 'default', message: `${name?.length}/50`, value: name },
-    introduction: { status: 'default', message: `${introduction?.length}/160`, value: introduction }
+    introduction: { status: 'default', message: `${introduction?.length}/160`, value: introduction !== 'null' ? introduction : '' }
   };
   const [inputInfo, setInputInfo] = useState(initialInputInfo);
   const [imagePrev, setImagePrev] = useState({ avatar, cover });
@@ -32,6 +34,7 @@ export default function ModalContent({ userData, handleRender, onClose }) {
       setUpdateResult(result);
       if (result.status === 'success') {
         handleRender?.();
+        handleContextRender?.();
         setTimeout(() => onClose(), 1500);
       }
     }

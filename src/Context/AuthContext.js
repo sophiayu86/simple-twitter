@@ -2,6 +2,7 @@ import { createContext, useState, useEffect } from 'react';
 import jwt_decode from 'jwt-decode';
 import { useContext } from 'react';
 import axiosInstance from '../API/getToken/json';
+import { getOneUser } from '../API/getOneUser';
 
 const defaultAuthContext = {
   isAuthenticated: false,
@@ -13,6 +14,11 @@ export const useAuth = () => useContext(AuthContext);
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [payload, setPayload] = useState(null);
+  const [render, setRender] = useState(0);
+  const [signinUser, setSigninUser] = useState(null);
+  const handleContextRender = () => {
+    setRender(prev => (prev += 1));
+  };
 
   useEffect(() => {
     const checkTokenIsValid = async () => {
@@ -21,6 +27,11 @@ export const AuthProvider = ({ children }) => {
       if (tempPayload) {
         setIsAuthenticated(true);
         setPayload(tempPayload);
+        const { data } = await getOneUser(tempPayload.id);
+        if (data) {
+          const { id, account, name, email, avatar, cover, introduction } = data;
+          setSigninUser(prev => ({ ...prev, id, account, name, email, avatar, cover, introduction }));
+        }
       } else {
         setIsAuthenticated(false);
         setPayload(null);
@@ -29,7 +40,7 @@ export const AuthProvider = ({ children }) => {
       }
     };
     checkTokenIsValid();
-  }, []);
+  }, [render]);
 
   return (
     <AuthContext.Provider
@@ -46,6 +57,16 @@ export const AuthProvider = ({ children }) => {
           iat: payload.iat,
           exp: payload.exp
         },
+        signinUser: signinUser && {
+          id: signinUser.id,
+          avatar: signinUser.avatar,
+          cover: signinUser.cover,
+          account: signinUser.account,
+          name: signinUser.name,
+          introduction: signinUser.introduction,
+          email: signinUser.email
+        },
+        handleContextRender,
         userLogin: async ({ account, password }) => {
           try {
             const { data } = await axiosInstance.post('/user/signin', {
