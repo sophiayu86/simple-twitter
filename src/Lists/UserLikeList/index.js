@@ -16,7 +16,7 @@ const UserLikeList = ({ data }) => {
         tag={item.account}
         authorImg={item.avatar}
         userID={item.tweeterId}
-        time={item.createdAt}
+        time={item.tweetUpdatedAt}
       />
     ))
   ) : (

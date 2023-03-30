@@ -11,7 +11,7 @@ const UserTweetList = ({ data, user }) => {
         tag={user?.account}
         key={item.id}
         liked={item.isLike}
-        time='3小時'
+        time={item.updatedAt}
         content={item.description}
         msgCount={item.replies}
         likesCount={item.likes}

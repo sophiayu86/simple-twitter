@@ -9,7 +9,7 @@ const TweetList = ({ data, handleRender }) => {
       liked={item.isLike}
       name={item.User.name}
       tag={item.User.account}
-      time='3小時'
+      time={item.updatedAt}
       content={item.description}
       msgCount={item.replies}
       likesCount={item.likes}

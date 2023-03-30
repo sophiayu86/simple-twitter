@@ -10,7 +10,7 @@ const UserReplyList = ({ data, user }) => {
         name={user?.name}
         tag={user?.account}
         key={item.id}
-        time='3小時'
+        time={item.updatedAt}
         reply={true}
         replyTarget={item.tweeterName}
         content={item.comment}

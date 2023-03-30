@@ -3,6 +3,7 @@ import styles from './style.module.css';
 import { ReactComponent as Cross } from '../../../Assets/icon/cross.svg';
 import { postReply } from '../../../API/postReply.js';
 import NotificationCard from '../../NotificationCard';
+import { relativeTimeFormat } from '../../../helpers';
 
 export default function ModalContent({ tweetInfo, onClose, signinUser, handleRender }) {
   const { tweetId, name, account, avatar, updatedAt, description } = tweetInfo;
@@ -59,7 +60,7 @@ export default function ModalContent({ tweetInfo, onClose, signinUser, handleRen
             <div className={styles.title}>
               <span className={styles.name}>{name}</span>
               <span className={styles.subInfo}>
-                @{account}・{updatedAt}
+                @{account}・{relativeTimeFormat(updatedAt)}
               </span>
             </div>
             <p className={styles.description}>{description}</p>

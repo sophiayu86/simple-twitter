@@ -11,7 +11,7 @@ const ReplyList = ({ data, tweet }) => {
       liked={item.isLike}
       name={item.User.name}
       tag={item.User.account}
-      time='3小時'
+      time={item.updatedAt}
       content={item.comment}
       msgCount={item.replies}
       likesCount={item.likes}
