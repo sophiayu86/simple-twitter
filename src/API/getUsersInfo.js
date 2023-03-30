@@ -3,7 +3,7 @@ import axiosInstance from './getToken/json';
 export const getUserTweets = async userId => {
   try {
     const { status, data } = await axiosInstance.get(`/users/${userId}/tweets`);
-    if (status === 200) return data;
+    if (status === 200) return { status: 'success', data };
   } catch (error) {
     const { status } = error.response;
     const { message } = error.response.data;
@@ -15,7 +15,7 @@ export const getUserTweets = async userId => {
 export const getUserReplyTweets = async userId => {
   try {
     const { status, data } = await axiosInstance.get(`/users/${userId}/replied_tweets`);
-    if (status === 200) return data;
+    if (status === 200) return { status: 'success', data };
   } catch (error) {
     const { status } = error.response;
     const { message } = error.response.data;
@@ -27,7 +27,7 @@ export const getUserReplyTweets = async userId => {
 export const getUserLikes = async userId => {
   try {
     const { status, data } = await axiosInstance.get(`/users/${userId}/likes`);
-    if (status === 200) return data;
+    if (status === 200) return { status: 'success', data };
   } catch (error) {
     const { status } = error.response;
     const { message } = error.response.data;

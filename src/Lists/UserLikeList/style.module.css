@@ -1,3 +1,10 @@
 .tweetList {
   width: auto;
 }
+
+.blank {
+  margin: 36px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #b5b5be;
+}

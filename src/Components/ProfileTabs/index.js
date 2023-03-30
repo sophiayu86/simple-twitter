@@ -4,7 +4,7 @@ const ProfileTabs = ({ data, currentTab, changeTab }) => {
   const renderTabs = data.map(item => (
     <div
       key={item.label}
-      className={currentTab === item.value ? style.active : ''}
+      className={currentTab === item.value ? style.active : style.default}
       onClick={() => changeTab(item.value)}>
       {item.label}
     </div>

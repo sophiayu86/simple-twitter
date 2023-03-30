@@ -15,14 +15,10 @@ const tabsList = [
 const FollowshipLayout = ({ userId }) => {
   const [tab, setTab] = useState('followers');
   const [user, setUser] = useState({});
-  const [followers, setFollowers] = useState([]);
-  const [followings, setFollowings] = useState([]);
 
   useEffect(() => {
     const getData = async () => {
-      const [followersData, followingsData, user] = await Promise.all([getUserFollowers(userId), getUserFollowings(userId), getOneUser(userId)]);
-      setFollowers(followersData);
-      setFollowings(followingsData);
+      const user = await getOneUser(userId);
       setUser(user);
     };
     getData();
@@ -42,7 +38,7 @@ const FollowshipLayout = ({ userId }) => {
             currentTab={tab}
             changeTab={setTab}
           />
-          <div className={styles.container}>{tab === 'followers' ? <FollowerList data={followers ? followers : []} /> : <FollowingList data={followings ? followings : []} />}</div>
+          <div className={styles.container}>{tab === 'followers' ? <FollowerList userId={userId} /> : <FollowingList userId={userId} />}</div>
         </div>
       </div>
       <PopularList />

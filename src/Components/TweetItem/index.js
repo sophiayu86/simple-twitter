@@ -6,6 +6,7 @@ import styles from './style.module.css';
 import PostReplyModal from '../PostReplyModal';
 import { deleteTweet } from '../../API/deleteTweet';
 import { addLike, removeLike } from '../../API/Like';
+import { relativeTimeFormat } from '../../helpers';
 
 const TweetItem = ({ id, replyTarget, tweetID, userID, authorImg, name, tag, content, time, admin, reply, liked, msgCount, likesCount, handleRender }) => {
   const [likeState, setLikeStatus] = useState(liked);
@@ -33,18 +34,26 @@ const TweetItem = ({ id, replyTarget, tweetID, userID, authorImg, name, tag, con
 
   return (
     <div className={styles.card}>
-      <Link to={`/profile/${userID}`}>
+      {!admin ? (
+        <Link to={`/profile/${userID}`}>
+          <img
+            alt='author-img'
+            src={authorImg}
+            className={styles.authorImg}
+          />
+        </Link>
+      ) : (
         <img
           alt='author-img'
           src={authorImg}
           className={styles.authorImg}
         />
-      </Link>
+      )}
       <div className={styles.rightContent}>
         <div className={styles.title}>
           <p>{name}</p>
           <span>
-            @{tag}・{time}
+            @{tag}・{relativeTimeFormat(time)}
           </span>
           {admin && (
             <Delete
@@ -60,10 +69,13 @@ const TweetItem = ({ id, replyTarget, tweetID, userID, authorImg, name, tag, con
             回覆<span>@{replyTarget}</span>
           </div>
         )}
-        <p className={styles.body}>
-          <Link to={`/tweet/${tweetID}/replies`}>{content}</Link>
-        </p>
-
+        {!admin ? (
+          <p className={styles.body}>
+            <Link to={`/tweet/${tweetID}/replies`}>{content}</Link>
+          </p>
+        ) : (
+          <p className={styles.body}>{content}</p>
+        )}
         {!admin && !reply && (
           <div className={styles.interact}>
             <PostReplyModal

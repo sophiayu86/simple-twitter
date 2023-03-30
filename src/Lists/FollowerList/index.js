@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './style.module.css';
 import { FollowItem } from '../../Components';
+import { getUserFollowers } from '../../API/getUsersInfo';
 
-const FollowerList = ({ data }) => {
+const FollowerList = ({ userId }) => {
+  const [followers, setFollowers] = useState([]);
+  useEffect(() => {
+    const getData = async () => {
+      const followersData = await getUserFollowers(userId);
+      setFollowers(followersData);
+    };
+    getData();
+  }, [userId]);
+
   return (
     <div className={styles.followerList}>
-      {data.map(item => {
+      {followers.map(item => {
         return (
           <FollowItem
             key={item.followerId}

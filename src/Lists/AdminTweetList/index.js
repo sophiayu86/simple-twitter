@@ -3,6 +3,7 @@ import styles from './style.module.css';
 import { TweetItem } from '../../Components';
 
 const AdminTweetList = ({ data, handleRender }) => {
+  console.log(data[0]);
   const renderData = data?.map(item => (
     <TweetItem
       key={item.id}
@@ -10,7 +11,7 @@ const AdminTweetList = ({ data, handleRender }) => {
       liked={item.isLike}
       name={item.User.name}
       tag={item.User.account}
-      time='3小時'
+      time={item.updatedAt}
       content={item.description}
       msgCount={item.replies}
       likesCount={item.likes}

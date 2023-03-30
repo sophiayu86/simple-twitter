@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styles from './style.module.css';
 import { ReactComponent as Liked } from '../../Assets/icon/liked.svg';
+import { absoluteTimeFormat } from '../../helpers';
 import PostReplyModal from '../PostReplyModal';
 
 const ReplyCard = ({ tweet, signinUser, handleRender }) => {
@@ -8,6 +9,7 @@ const ReplyCard = ({ tweet, signinUser, handleRender }) => {
   function handleLikeStateChange() {
     setLikeStatus(!likeState);
   }
+
   return (
     <div className={styles.replyBlock}>
       <div className={styles.replyCard}>
@@ -23,12 +25,12 @@ const ReplyCard = ({ tweet, signinUser, handleRender }) => {
             <div className={styles.tag}>@{tweet.User?.account}</div>
           </div>
         </div>
-        <div className={styles.content}> {tweet.description}</div>
-        <div className={styles.replyCardFooter}>{tweet.createdAt}</div>
+        <div className={styles.content}>{tweet.description}</div>
+        <div className={styles.replyCardFooter}>{absoluteTimeFormat(tweet.createdAt)}</div>
       </div>
       <div className={styles.bar}>
         <span>{tweet.replies} </span>回覆
-        <span>{tweet.likes}</span>喜歡次數
+        <span>{tweet.likes} </span>喜歡次數
       </div>
       <div className={styles.interact}>
         <PostReplyModal

@@ -1,7 +1,6 @@
 .tabs {
   display: flex;
   height: 53px;
-  /* margin-top: 12px; */
   background-color: white;
   border-bottom: 1px solid #e6ecf0;
 }
@@ -11,9 +10,16 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  font-weight: 700;
+  box-sizing: border-box;
 }
 
 .active {
   color: #ff6600;
-  border-bottom: 5px solid #ff6600;
+  border-bottom: 2px solid #ff6600;
+}
+
+.default {
+  color: #657786;
+  border-bottom: 2px solid #ffffff;
 }
