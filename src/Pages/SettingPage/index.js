@@ -5,9 +5,8 @@ import { useAuth } from '../../Context/AuthContext';
 import styles from './style.module.css';
 
 const SettingPage = () => {
-  const initialUserData = useAuth().currentMember; // console.log(initialUserData); 重新整理第一次會是空白
+  const initialUserData = useAuth().currentMember;
   const [editResult, setEditResult] = useState('');
-
   const initialInputInfo = {
     account: { status: 'default', message: '', value: initialUserData?.account },
     name: { status: 'default', message: '', value: initialUserData?.name },
@@ -112,7 +111,12 @@ const SettingPage = () => {
 
   return (
     <div className={styles.settingPage}>
-      <SideNav currentPage='userSetting' />
+      {initialUserData && (
+        <SideNav
+          currentPage='userSetting'
+          avatar={initialUserData.avatar}
+        />
+      )}
       <div className={styles.mainContent}>
         <Header text='帳戶設定' />
         <section className={styles.inputSection}>

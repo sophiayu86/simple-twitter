@@ -5,10 +5,12 @@ import { getOneUser } from '../../API/getOneUser';
 import { getUserTweets, getUserReplyTweets, getUserLikes } from '../../API/getUsersInfo';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { useAuth } from '../../Context/AuthContext';
 
 const ProfilePage = () => {
   const { userID } = useParams();
-  const [userData, setUserData] = useState(null);
+  const { currentMember } = useAuth();
+  const [userData, setUserData] = useState(currentMember);
   const [tweetsData, setTweetsData] = useState([]);
   const [repliesData, setRepliesData] = useState([]);
   const [likesData, setLikesData] = useState([]);
@@ -22,7 +24,7 @@ const ProfilePage = () => {
       if (tweets.status === 'success') setTweetsData(tweets.data);
       if (replies.status === 'success') setRepliesData(replies.data);
       if (likes.status === 'success') setLikesData(likes.data);
-      setUserData(user);
+      if (user.status === 'success') setUserData(user.data);
     };
     getData();
   }, [render, userID]);

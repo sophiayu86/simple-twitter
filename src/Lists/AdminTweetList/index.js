@@ -3,7 +3,6 @@ import styles from './style.module.css';
 import { TweetItem } from '../../Components';
 
 const AdminTweetList = ({ data, handleRender }) => {
-  console.log(data[0]);
   const renderData = data?.map(item => (
     <TweetItem
       key={item.id}

@@ -17,8 +17,7 @@ export default function ModalContent({ userData, handleRender, onClose }) {
   const [imageFile, setImageFile] = useState({ avatar: '', cover: '' });
   const [updateResult, setUpdateResult] = useState(null);
 
-  const handleSubmit = async (id, e) => {
-    e.stopPropagation();
+  const handleSubmit = async id => {
     const { name, introduction } = inputInfo;
     if (!name.value?.trim()) return setInputInfo(prev => ({ ...prev, name: { status: 'error', message: '名稱不可為空白' } }));
     if (name.status === 'error' || introduction.status === 'error') return;

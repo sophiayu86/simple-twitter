@@ -6,7 +6,7 @@ import MainLayout from '../../Layout/MainLayout';
 import { useAuth } from '../../Context/AuthContext';
 
 const MainPage = () => {
-  const { isAuthenticated, currentMember } = useAuth();
+  const { isAuthenticated } = useAuth();
   const [tweetsData, setTweetsData] = useState([]);
   const [render, setRender] = useState(0);
   const handleRender = () => {
@@ -30,7 +30,6 @@ const MainPage = () => {
       <MainLayout
         header='首頁'
         tab='tweets'
-        user={currentMember}
         mainPageData={mainPageData}
       />
     </div>

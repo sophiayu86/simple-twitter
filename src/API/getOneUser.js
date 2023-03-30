@@ -3,7 +3,7 @@ import axiosInstance from './getToken/json';
 export const getOneUser = async userId => {
   try {
     const { status, data } = await axiosInstance.get(`/users/${userId}`);
-    if (status === 200) return data;
+    if (status === 200) return { status: 'success', data };
   } catch (error) {
     const { status } = error.response;
     const { message } = error.response.data;

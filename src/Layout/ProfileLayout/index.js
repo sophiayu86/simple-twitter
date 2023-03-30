@@ -14,9 +14,14 @@ const tabsList = [
 
 const ProfileLayout = ({ user, tweets, replies, likes, handleRender }) => {
   const [tab, setTab] = useState('tweets');
+
   return (
     <div className={styles.userpage}>
-      <SideNav currentPage='user' />
+      <SideNav
+        currentPage='user'
+        avatar={user.avatar}
+        handleRender={handleRender}
+      />
       <div className={styles.mainContent}>
         <ProfileHeader
           text={user?.account}

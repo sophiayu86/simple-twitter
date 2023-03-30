@@ -1,28 +1,46 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Header, SideNav, ReplyCard, PostTweetModal } from '../../Components';
 import PopularList from '../../Lists/PopularList';
 import TweetList from '../../Lists/TweetList';
 import ReplyList from '../../Lists/ReplyList';
 import styles from './style.module.css';
+import { useAuth } from '../../Context/AuthContext';
+import { getOneUser } from '../../API/getOneUser';
 
 const MainLayout = ({ header, tab, user, mainPageData, replyPageData }) => {
+  const { currentMember } = useAuth();
+  const userId = currentMember?.id;
+  const [userData, setUserData] = useState([]);
+
+  useEffect(() => {
+    const getData = async () => {
+      const { data } = await getOneUser(userId);
+      if (data) setUserData(prev => ({ ...prev, avatar: data.avatar, cover: data.cover, name: data.name, account: data.account, email: data.email }));
+    };
+    getData();
+  }, [userId]);
+
   return (
     <div className={styles.userpage}>
-      <SideNav
-        currentPage='main'
-        avatar={user?.avatar}
-        handleRender={mainPageData?.handleRender}
-      />
+      {userData && (
+        <SideNav
+          currentPage='main'
+          avatar={userData.avatar}
+          handleRender={mainPageData?.handleRender}
+        />
+      )}
       <div className={styles.mainContent}>
         <Header text={header} />
         <div className={styles.contentList}>
           {tab === 'tweets' && (
             <div className={styles.container}>
-              <PostTweetModal
-                mode={'block'}
-                avatar={user?.avatar}
-                handleRender={mainPageData.handleRender}
-              />
+              {userData && (
+                <PostTweetModal
+                  mode={'block'}
+                  avatar={userData.avatar}
+                  handleRender={mainPageData.handleRender}
+                />
+              )}
               <TweetList
                 data={mainPageData.tweets}
                 handleRender={mainPageData.handleRender}
