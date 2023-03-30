@@ -7,12 +7,13 @@ import { ReactComponent as UserIcon0 } from '../../Assets/icon/userIcon0.svg';
 import { ReactComponent as UserIcon1 } from '../../Assets/icon/userIcon1.svg';
 import { ReactComponent as LogoutIcon } from '../../Assets/icon/logoutIcon.svg';
 import styles from './style.module.css';
+import { useAuth } from '../../Context/AuthContext';
 
 const AdminNav = ({ currentPage }) => {
   const navigate = useNavigate();
+  const { logout } = useAuth();
   const handleLogout = () => {
-    localStorage.removeItem('jwt-token');
-    localStorage.clear();
+    logout();
     navigate('/admin_login');
   };
   return (

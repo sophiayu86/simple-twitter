@@ -13,11 +13,10 @@ import { PostTweetModal } from '../../Components';
 import { useAuth } from '../../Context/AuthContext';
 
 const SideNav = ({ currentPage, avatar, handleRender }) => {
-  const { currentMember } = useAuth();
+  const { currentMember, logout } = useAuth();
   const navigate = useNavigate();
   const handleLogout = () => {
-    localStorage.removeItem('jwt-token');
-    localStorage.clear();
+    logout();
     navigate('/login');
   };
   return (
