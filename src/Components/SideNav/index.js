@@ -17,6 +17,7 @@ const SideNav = ({ currentPage, avatar, handleRender }) => {
   const navigate = useNavigate();
   const handleLogout = () => {
     localStorage.removeItem('jwt-token');
+    localStorage.clear();
     navigate('/login');
   };
   return (
