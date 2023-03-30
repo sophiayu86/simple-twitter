@@ -92,7 +92,10 @@ export default function ModalContent({ userData, handleRender, onClose }) {
           <h5 className={style.title}>編輯個人資料</h5>
           <button
             className={style.submitBtn}
-            onClick={e => handleSubmit(id, e)}>
+            onClick={e => {
+              e.stopPropagation();
+              handleSubmit(id);
+            }}>
             儲存
           </button>
         </div>

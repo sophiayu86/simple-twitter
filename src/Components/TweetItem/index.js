@@ -58,7 +58,8 @@ const TweetItem = ({ id, replyTarget, tweetID, userID, authorImg, name, tag, con
           {admin && (
             <Delete
               className={styles.deleteIcon}
-              onClick={() => {
+              onClick={e => {
+                e.stopPropagation();
                 handleDelete(id);
               }}
             />
@@ -87,7 +88,10 @@ const TweetItem = ({ id, replyTarget, tweetID, userID, authorImg, name, tag, con
             <Liked
               className={`${styles.icon} ${likeState ? styles.liked : styles.unliked}`}
               stroke='#6C757D'
-              onClick={() => handleLikeStatus(tweetID)}
+              onClick={e => {
+                e.stopPropagation();
+                handleLikeStatus(tweetID);
+              }}
             />
             <span>{likesNums}</span>
           </div>

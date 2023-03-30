@@ -7,7 +7,10 @@ const TweetButton = ({ text, userId, handleClick }) => {
   return (
     <button
       className={buttonStyle}
-      onClick={() => handleClick?.(userId)}>
+      onClick={e => {
+        e.stopPropagation();
+        handleClick?.(userId);
+      }}>
       {text}
     </button>
   );

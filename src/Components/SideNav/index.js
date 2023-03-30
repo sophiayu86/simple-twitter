@@ -25,19 +25,28 @@ const SideNav = ({ currentPage, avatar, handleRender }) => {
         <ACIcon />
       </div>
       <div
-        onClick={() => navigate('/main')}
+        onClick={e => {
+          e.stopPropagation();
+          navigate('/main');
+        }}
         className={styles.navItem}>
         {currentPage === 'main' ? <IndexIcon1 className={styles.selected} /> : <IndexIcon0 />}
         <span>首頁</span>
       </div>
       <div
-        onClick={() => navigate(`/profile/${currentMember.id}`)}
+        onClick={e => {
+          e.stopPropagation();
+          navigate(`/profile/${currentMember.id}`);
+        }}
         className={styles.navItem}>
         {currentPage === 'user' ? <UserIcon1 className={styles.selected} /> : <UserIcon0 />}
         <span>個人資料</span>
       </div>
       <div
-        onClick={() => navigate('/user/setting')}
+        onClick={e => {
+          e.stopPropagation();
+          navigate('/user/setting');
+        }}
         className={styles.navItem}>
         {currentPage === 'userSetting' ? <SettingIcon1 className={styles.selected} /> : <SettingIcon0 />}
         <span>設定</span>
