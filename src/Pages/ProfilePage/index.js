@@ -19,9 +19,9 @@ const ProfilePage = () => {
   useEffect(() => {
     const getData = async () => {
       const [tweets, replies, likes, user] = await Promise.all([getUserTweets(userID), getUserReplyTweets(userID), getUserLikes(userID), getOneUser(userID)]);
-      setTweetsData(tweets);
-      setRepliesData(replies);
-      setLikesData(likes);
+      if (tweets.status === 'success') setTweetsData(tweets.data);
+      if (replies.status === 'success') setRepliesData(replies.data);
+      if (likes.status === 'success') setLikesData(likes.data);
       setUserData(user);
     };
     getData();
