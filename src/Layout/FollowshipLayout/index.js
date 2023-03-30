@@ -42,7 +42,7 @@ const FollowshipLayout = ({ userId }) => {
             currentTab={tab}
             changeTab={setTab}
           />
-          <div className={styles.container}>{tab === 'followers' ? <FollowerList data={followers ? followers : []} /> : <FollowingList data={followings ? followings : []} />}</div>
+          <div className={styles.container}>{tab === 'followers' ? <FollowerList userId={userId} /> : <FollowingList userId={userId} />}</div>
         </div>
       </div>
       <PopularList />
