@@ -15,7 +15,7 @@ export const addLike = async teeetId => {
 export const removeLike = async teeetId => {
   try {
     const { status } = await axiosInstance.post(`/tweets/${teeetId}/unlike`);
-    if (status === 200) return { status: 'success', message: '取消追蹤成功' };
+    if (status === 200) return { status: 'success', message: '取消按讚成功' };
   } catch (error) {
     const { status } = error.response;
     const { message } = error.response.data;
