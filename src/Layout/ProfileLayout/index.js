@@ -12,7 +12,7 @@ const tabsList = [
   { label: '喜歡的內容', value: 'likes' }
 ];
 
-const ProfileLayout = ({ user, tweets, replies, likes, handleRender }) => {
+const ProfileLayout = ({ signinUser, user, tweets, replies, likes, handleRender }) => {
   const [tab, setTab] = useState('tweets');
   return (
     <div className={styles.userpage}>
@@ -22,7 +22,7 @@ const ProfileLayout = ({ user, tweets, replies, likes, handleRender }) => {
         handleRender={handleRender}
       />
       <div className={styles.mainContent}>
-        {user && !user.iat && (
+        {signinUser && user && tweets && replies && likes && !user.iat && (
           <>
             <ProfileHeader
               text={user?.name}
@@ -43,15 +43,22 @@ const ProfileLayout = ({ user, tweets, replies, likes, handleRender }) => {
                 <UserTweetList
                   data={tweets}
                   user={user}
+                  signinUser={signinUser}
                 />
               )}
               {tab === 'replies' && replies && (
                 <UserReplyList
                   data={replies}
                   user={user}
+                  signinUser={signinUser}
                 />
               )}
-              {tab === 'likes' && likes && <UserLikeList data={likes} />}
+              {tab === 'likes' && likes && (
+                <UserLikeList
+                  data={likes}
+                  signinUser={signinUser}
+                />
+              )}
             </div>
           </>
         )}

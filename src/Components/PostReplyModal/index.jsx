@@ -3,7 +3,6 @@ import { createPortal } from 'react-dom';
 import ModalContent from './ModalContent/index';
 import { ReactComponent as Talk } from '../../Assets/icon/talk.svg';
 import { getOneTweet } from '../../API/getOneTweet';
-import { useAuth } from '../../Context/AuthContext';
 
 export default function PostReplyModal({ className, tweetId, signinUser, handleRender }) {
   const [tweetInfo, setTweetInfo] = useState({});

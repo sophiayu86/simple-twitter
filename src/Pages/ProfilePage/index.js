@@ -10,7 +10,7 @@ import { useAuth } from '../../Context/AuthContext';
 const ProfilePage = () => {
   const { userID } = useParams();
   const { currentMember } = useAuth();
-  const [userData, setUserData] = useState(currentMember);
+  const [userData, setUserData] = useState(null);
   const [tweetsData, setTweetsData] = useState([]);
   const [repliesData, setRepliesData] = useState([]);
   const [likesData, setLikesData] = useState([]);
@@ -32,6 +32,7 @@ const ProfilePage = () => {
   return (
     <div className={styles.profilePage}>
       <ProfileLayout
+        signinUser={currentMember}
         user={userData}
         tweets={tweetsData}
         replies={repliesData}

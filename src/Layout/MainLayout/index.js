@@ -43,6 +43,7 @@ const MainLayout = ({ header, tab, user, mainPageData, replyPageData }) => {
               )}
               <TweetList
                 data={mainPageData.tweets}
+                signinUser={userData}
                 handleRender={mainPageData.handleRender}
               />
             </div>

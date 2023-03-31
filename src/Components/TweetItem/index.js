@@ -8,7 +8,7 @@ import { deleteTweet } from '../../API/deleteTweet';
 import { addLike, removeLike } from '../../API/Like';
 import { relativeTimeFormat } from '../../helpers';
 
-const TweetItem = ({ id, replyTarget, tweetID, userID, authorImg, name, tag, content, time, admin, reply, liked, msgCount, likesCount, handleRender }) => {
+const TweetItem = ({ id, replyTarget, tweetID, userID, authorImg, name, tag, content, time, admin, reply, liked, msgCount, likesCount, handleRender, signinUser }) => {
   const [likeState, setLikeStatus] = useState(liked);
   const [likesNums, setLikesNums] = useState(likesCount);
   const handleLikeStatus = async id => {
@@ -83,6 +83,7 @@ const TweetItem = ({ id, replyTarget, tweetID, userID, authorImg, name, tag, con
               className={styles.icon}
               tweetId={tweetID}
               handleRender={handleRender}
+              signinUser={signinUser}
             />
             <span>{msgCount}</span>
             <Liked

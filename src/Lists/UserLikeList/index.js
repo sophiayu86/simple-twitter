@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './style.module.css';
 import { TweetItem } from '../../Components';
 
-const UserLikeList = ({ data }) => {
+const UserLikeList = ({ data, signinUser }) => {
   const renderData = data.length ? (
     data.map(item => (
       <TweetItem
@@ -17,6 +17,7 @@ const UserLikeList = ({ data }) => {
         authorImg={item.avatar}
         userID={item.tweeterId}
         time={item.tweetUpdatedAt}
+        signinUser={signinUser}
       />
     ))
   ) : (

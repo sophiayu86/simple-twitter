@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './style.module.css';
 import { TweetItem } from '../../Components';
 
-const UserTweetList = ({ data, user }) => {
+const UserTweetList = ({ data, user, signinUser }) => {
   const renderData = data.length ? (
     data.map(item => (
       <TweetItem
@@ -16,6 +16,7 @@ const UserTweetList = ({ data, user }) => {
         msgCount={item.replies}
         likesCount={item.likes}
         tweetID={item.id}
+        signinUser={signinUser}
       />
     ))
   ) : (
