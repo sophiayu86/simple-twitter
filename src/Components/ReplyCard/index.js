@@ -1,23 +1,42 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './style.module.css';
 import { ReactComponent as Liked } from '../../Assets/icon/liked.svg';
 import { absoluteTimeFormat } from '../../helpers';
 import PostReplyModal from '../PostReplyModal';
+import { addLike, removeLike } from '../../API/Like';
+import { Link } from 'react-router-dom';
 
 const ReplyCard = ({ tweet, signinUser, handleRender }) => {
-  const [likeState, setLikeStatus] = useState(tweet?.isLike);
-  function handleLikeStateChange() {
+  const [likeState, setLikeStatus] = useState(false);
+  const [likesNums, setLikesNums] = useState(0);
+  console.log("in ReplyCard", tweet);
+  useEffect(()=>{
+    setLikesNums(tweet.likes)
+    setLikeStatus(tweet.isLike)
+  }, [tweet])
+  let tweetID=tweet?.id;
+  const handleLikeStatus = async id => {
     setLikeStatus(!likeState);
-  }
+    if (likeState) {
+      setLikesNums(likesNums- 1);
+      await removeLike(id);
+    } else {
+      setLikesNums(likesNums+ 1);
+      await addLike(id);
+    }
+  };
   return (
     <div className={styles.replyBlock}>
       <div className={styles.replyCard}>
         <div className={styles.replyCardHeader}>
           <div className={styles.avatar}>
+            {console.log(`/profile/${tweet?.UserId}`)}
+          <Link to={`/profile/${tweet?.UserId}`}>
             <img
               src={tweet.User?.avatar}
               alt=''
             />
+            </Link>
           </div>
           <div>
             <div className={styles.headerTitle}>{tweet.User?.name}</div>
@@ -29,7 +48,7 @@ const ReplyCard = ({ tweet, signinUser, handleRender }) => {
       </div>
       <div className={styles.bar}>
         <span>{tweet.replies} </span>回覆
-        <span>{tweet.likes} </span>喜歡次數
+        <span>{likesNums} </span>喜歡次數
       </div>
       <div className={styles.interact}>
         <PostReplyModal
@@ -41,7 +60,10 @@ const ReplyCard = ({ tweet, signinUser, handleRender }) => {
         <Liked
           className={`${styles.interactIcon} ${likeState ? styles.liked : styles.unliked}`}
           stroke='#6C757D'
-          onClick={handleLikeStateChange}
+          onClick={e => {
+            e.stopPropagation();
+            handleLikeStatus(tweetID);
+          }}
         />
       </div>
     </div>
