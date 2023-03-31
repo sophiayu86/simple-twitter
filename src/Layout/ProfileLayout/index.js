@@ -18,15 +18,14 @@ const ProfileLayout = ({ signinUser, user, tweets, replies, likes, handleRender 
     <div className={styles.userpage}>
       <SideNav
         currentPage='user'
-        avatar={user?.avatar}
         handleRender={handleRender}
       />
       <div className={styles.mainContent}>
-        {signinUser && user && tweets && replies && likes && !user.iat && (
+        {signinUser && user && tweets && replies && likes && (
           <>
             <ProfileHeader
-              text={user?.name}
-              num={user?.tweets}
+              text={user.name}
+              num={user.tweets}
             />
             <div className={styles.contentList}>
               <UserCard
@@ -50,7 +49,6 @@ const ProfileLayout = ({ signinUser, user, tweets, replies, likes, handleRender 
                 <UserReplyList
                   data={replies}
                   user={user}
-                  signinUser={signinUser}
                 />
               )}
               {tab === 'likes' && likes && (

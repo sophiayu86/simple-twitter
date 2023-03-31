@@ -119,10 +119,7 @@ const SettingLayout = ({ userData, userId }) => {
 
   return (
     <div className={styles.settingPage}>
-      <SideNav
-        currentPage='userSetting'
-        avatar={userData?.avatar}
-      />
+      <SideNav currentPage='userSetting' />
       <div className={styles.mainContent}>
         <Header text='帳戶設定' />
         {inputInfo && (

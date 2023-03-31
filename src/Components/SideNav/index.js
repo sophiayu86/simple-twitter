@@ -12,8 +12,8 @@ import styles from './style.module.css';
 import { PostTweetModal } from '../../Components';
 import { useAuth } from '../../Context/AuthContext';
 
-const SideNav = ({ currentPage, avatar, handleRender }) => {
-  const { currentMember, logout } = useAuth();
+const SideNav = ({ currentPage, handleRender }) => {
+  const { signinUser, logout } = useAuth();
   const navigate = useNavigate();
   const handleLogout = () => {
     logout();
@@ -36,7 +36,7 @@ const SideNav = ({ currentPage, avatar, handleRender }) => {
       <div
         onClick={e => {
           e.stopPropagation();
-          navigate(`/profile/${currentMember.id}`);
+          navigate(`/profile/${signinUser?.id}`);
         }}
         className={styles.navItem}>
         {currentPage === 'user' ? <UserIcon1 className={styles.selected} /> : <UserIcon0 />}
@@ -53,7 +53,7 @@ const SideNav = ({ currentPage, avatar, handleRender }) => {
       </div>
       <PostTweetModal
         mode={'button'}
-        avatar={avatar}
+        avatar={signinUser?.avatar}
         handleRender={handleRender}
       />
       <div

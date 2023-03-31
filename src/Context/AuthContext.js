@@ -14,8 +14,8 @@ export const useAuth = () => useContext(AuthContext);
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [payload, setPayload] = useState(null);
-  const [render, setRender] = useState(0);
   const [signinUser, setSigninUser] = useState(null);
+  const [render, setRender] = useState(0);
   const handleContextRender = () => {
     setRender(prev => (prev += 1));
   };
@@ -48,12 +48,6 @@ export const AuthProvider = ({ children }) => {
         isAuthenticated,
         currentMember: payload && {
           id: payload.id,
-          avatar: payload.avatar,
-          cover: payload.cover,
-          account: payload.account,
-          name: payload.name,
-          introduction: payload.introduction,
-          email: payload.email,
           iat: payload.iat,
           exp: payload.exp
         },
@@ -77,6 +71,7 @@ export const AuthProvider = ({ children }) => {
             const tempPayload = jwt_decode(token);
             if (tempPayload) {
               setPayload(tempPayload);
+              setSigninUser(tempPayload);
               setIsAuthenticated(true);
               localStorage.setItem('jwt-token', token);
               return { status: 'success', message: '登入成功，正在前往首頁...' };
@@ -101,6 +96,7 @@ export const AuthProvider = ({ children }) => {
             const tempPayload = jwt_decode(token);
             if (tempPayload) {
               setPayload(tempPayload);
+              setSigninUser(tempPayload);
               setIsAuthenticated(true);
               localStorage.setItem('jwt-token', token);
               return { status: 'success', message: '登入成功，正在前往後台首頁...' };

@@ -6,15 +6,15 @@ import FollowingList from '../../Lists/FollowingList';
 import styles from './style.module.css';
 
 const tabsList = [
-  { label: '追蹤者', value: 'followers' },
-  { label: '正在追蹤', value: 'following' }
+  { label: '追隨者', value: 'followers' },
+  { label: '正在追隨', value: 'following' }
 ];
 
 const FollowshipLayout = ({ user, userID }) => {
   const [tab, setTab] = useState('followers');
   return (
     <div className={styles.userpage}>
-      {user && <SideNav avatar={user.avatar} />}
+      <SideNav />
       {user && (
         <div className={styles.mainContent}>
           <ProfileHeader

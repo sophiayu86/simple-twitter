@@ -9,7 +9,7 @@ const MainPage = () => {
   const { isAuthenticated } = useAuth();
   const [tweetsData, setTweetsData] = useState([]);
   const [render, setRender] = useState(0);
-  const handleRender = () => {
+  const handleMainPageRender = () => {
     setRender(prev => (prev += 1));
   };
   useEffect(() => {
@@ -22,7 +22,7 @@ const MainPage = () => {
 
   const mainPageData = {
     tweets: tweetsData,
-    handleRender: handleRender
+    handleRender: handleMainPageRender
   };
 
   return (
