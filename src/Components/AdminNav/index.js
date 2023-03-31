@@ -7,11 +7,13 @@ import { ReactComponent as UserIcon0 } from '../../Assets/icon/userIcon0.svg';
 import { ReactComponent as UserIcon1 } from '../../Assets/icon/userIcon1.svg';
 import { ReactComponent as LogoutIcon } from '../../Assets/icon/logoutIcon.svg';
 import styles from './style.module.css';
+import { useAuth } from '../../Context/AuthContext';
 
 const AdminNav = ({ currentPage }) => {
   const navigate = useNavigate();
+  const { logout } = useAuth();
   const handleLogout = () => {
-    localStorage.removeItem('jwt-token');
+    logout();
     navigate('/admin_login');
   };
   return (
@@ -20,13 +22,19 @@ const AdminNav = ({ currentPage }) => {
         <ACIcon />
       </div>
       <div
-        onClick={() => navigate('/admin_main')}
+        onClick={e => {
+          e.stopPropagation();
+          navigate('/admin_main');
+        }}
         className={styles.navItem}>
         {currentPage === 'admin_main' ? <IndexIcon1 className={styles.selected} /> : <IndexIcon0 />}
         <span>推文清單</span>
       </div>
       <div
-        onClick={() => navigate('/admin_users')}
+        onClick={e => {
+          e.stopPropagation();
+          navigate('/admin_users');
+        }}
         className={styles.navItem}>
         {currentPage === 'admin_users' ? <UserIcon1 className={styles.selected} /> : <UserIcon0 />}
         <span>使用者列表</span>

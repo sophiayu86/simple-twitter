@@ -5,7 +5,10 @@ const ProfileTabs = ({ data, currentTab, changeTab }) => {
     <div
       key={item.label}
       className={currentTab === item.value ? style.active : style.default}
-      onClick={() => changeTab(item.value)}>
+      onClick={e => {
+        e.stopPropagation();
+        changeTab(item.value);
+      }}>
       {item.label}
     </div>
   ));

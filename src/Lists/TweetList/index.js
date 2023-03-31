@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './style.module.css';
 import { TweetItem } from '../../Components';
 
-const TweetList = ({ data, handleRender }) => {
+const TweetList = ({ data, handleRender, signinUser }) => {
   const renderData = data?.map(item => (
     <TweetItem
       key={item.id}
@@ -17,6 +17,7 @@ const TweetList = ({ data, handleRender }) => {
       userID={item.User.id}
       tweetID={item.id}
       handleRender={handleRender}
+      signinUser={signinUser}
     />
   ));
   return <div className={styles.tweetList}>{renderData}</div>;

@@ -12,11 +12,11 @@ import styles from './style.module.css';
 import { PostTweetModal } from '../../Components';
 import { useAuth } from '../../Context/AuthContext';
 
-const SideNav = ({ currentPage, avatar, handleRender }) => {
-  const { currentMember } = useAuth();
+const SideNav = ({ currentPage, handleRender }) => {
+  const { signinUser, logout } = useAuth();
   const navigate = useNavigate();
   const handleLogout = () => {
-    localStorage.removeItem('jwt-token');
+    logout();
     navigate('/login');
   };
   return (
@@ -25,26 +25,35 @@ const SideNav = ({ currentPage, avatar, handleRender }) => {
         <ACIcon />
       </div>
       <div
-        onClick={() => navigate('/main')}
+        onClick={e => {
+          e.stopPropagation();
+          navigate('/main');
+        }}
         className={styles.navItem}>
         {currentPage === 'main' ? <IndexIcon1 className={styles.selected} /> : <IndexIcon0 />}
         <span>首頁</span>
       </div>
       <div
-        onClick={() => navigate(`/profile/${currentMember.id}`)}
+        onClick={e => {
+          e.stopPropagation();
+          navigate(`/profile/${signinUser?.id}`);
+        }}
         className={styles.navItem}>
         {currentPage === 'user' ? <UserIcon1 className={styles.selected} /> : <UserIcon0 />}
         <span>個人資料</span>
       </div>
       <div
-        onClick={() => navigate('/user/setting')}
+        onClick={e => {
+          e.stopPropagation();
+          navigate('/user/setting');
+        }}
         className={styles.navItem}>
         {currentPage === 'userSetting' ? <SettingIcon1 className={styles.selected} /> : <SettingIcon0 />}
         <span>設定</span>
       </div>
       <PostTweetModal
         mode={'button'}
-        avatar={avatar}
+        avatar={signinUser?.avatar}
         handleRender={handleRender}
       />
       <div

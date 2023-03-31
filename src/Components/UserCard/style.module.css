@@ -52,6 +52,7 @@
 .userActions {
   position: relative;
   display: flex;
+  min-height: 40px;
   justify-content: flex-end;
   align-items: center;
   margin: 16px 16px 0 0;

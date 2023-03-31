@@ -38,27 +38,29 @@ const UserCard = ({ user, noti, isFollowing, handleRender }) => {
           <>
             <Msg />
             {noti ? <Noti1 /> : <Noti0 />}
-            <div>
-              {followingStatus ? (
-                <TweetButton
-                  text='正在跟隨'
-                  userId={user?.id}
-                  handleClick={handleFollow}
-                />
-              ) : (
-                <TweetButton
-                  text='跟隨'
-                  userId={user?.id}
-                  handleClick={handleFollow}
-                />
-              )}
-            </div>
+            {followingStatus ? (
+              <TweetButton
+                text='正在跟隨'
+                userId={user?.id}
+                handleClick={handleFollow}
+              />
+            ) : (
+              <TweetButton
+                text='跟隨'
+                userId={user?.id}
+                handleClick={handleFollow}
+              />
+            )}
           </>
         )}
       </div>
-      <div className={styles.username}>{user?.name}</div>
-      <div className={styles.account}>@{user?.account}</div>
-      <div className={styles.intro}>{user?.introduction}</div>
+      {!user.iat && (
+        <>
+          <div className={styles.username}>{user?.name}</div>
+          <div className={styles.account}>@{user?.account}</div>
+          <div className={styles.intro}>{user.introduction !== 'null' ? user.introduction : ''}</div>
+        </>
+      )}
       <div className={styles.followship}>
         <Link to={`/followers/${user?.id}`}>
           <span className={styles.following}>{user?.followings} 個</span>

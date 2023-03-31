@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { adminLogin } from '../../API/auth.js';
 import styles from './style.module.css';
 import { ReactComponent as ACIcon } from '../../Assets/icon/acIcon.svg';
 import { NotificationCard, Input } from '../../Components';
+import { useAuth } from '../../Context/AuthContext';
 
 const AdminLoginPage = () => {
+  const { adminLogin } = useAuth();
   const navigate = useNavigate();
   const initialInputInfo = {
     account: { status: 'default', message: '', value: '' },
@@ -37,7 +38,10 @@ const AdminLoginPage = () => {
     }
     const accountValue = inputInfo.account.value;
     const passwordValue = inputInfo.password.value;
-    if (!accountValue.trim() || !passwordValue.trim()) return setLoginResult({ status: 'error', message: '帳號及密碼不可為空白' });
+    if (!accountValue.trim() || !passwordValue.trim()) {
+      setLoginResult({ status: 'error', message: '帳號及密碼不可為空白' });
+      return setTimeout(() => setLoginResult(''), 1000);
+    }
 
     const result = await adminLogin({
       account: accountValue,
@@ -46,10 +50,9 @@ const AdminLoginPage = () => {
 
     setLoginResult(result);
     if (result?.status === 'success') {
-      localStorage.setItem('jwt-token', result.data?.token);
-      setTimeout(() => navigate('/admin_main'), 1500);
+      setTimeout(() => navigate('/admin_main'), 1000);
     } else {
-      setTimeout(() => setLoginResult(''), 1500);
+      setTimeout(() => setLoginResult(''), 1000);
     }
   };
   return (

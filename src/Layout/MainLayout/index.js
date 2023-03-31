@@ -4,13 +4,15 @@ import PopularList from '../../Lists/PopularList';
 import TweetList from '../../Lists/TweetList';
 import ReplyList from '../../Lists/ReplyList';
 import styles from './style.module.css';
+import { useAuth } from '../../Context/AuthContext';
 
-const MainLayout = ({ header, tab, user, mainPageData, replyPageData }) => {
+const MainLayout = ({ header, tab, mainPageData, replyPageData }) => {
+  const { signinUser } = useAuth();
+
   return (
     <div className={styles.userpage}>
       <SideNav
         currentPage='main'
-        avatar={user?.avatar}
         handleRender={mainPageData?.handleRender}
       />
       <div className={styles.mainContent}>
@@ -18,28 +20,35 @@ const MainLayout = ({ header, tab, user, mainPageData, replyPageData }) => {
         <div className={styles.contentList}>
           {tab === 'tweets' && (
             <div className={styles.container}>
-              <PostTweetModal
-                mode={'block'}
-                avatar={user?.avatar}
-                handleRender={mainPageData.handleRender}
-              />
+              {signinUser && (
+                <PostTweetModal
+                  mode={'block'}
+                  avatar={signinUser.avatar}
+                  handleRender={mainPageData.handleRender}
+                />
+              )}
               <TweetList
                 data={mainPageData.tweets}
+                signinUser={signinUser}
                 handleRender={mainPageData.handleRender}
               />
             </div>
           )}
           {tab === 'replies' && (
             <div>
-              <ReplyCard
-                tweet={replyPageData?.tweet}
-                signinUser={user}
-                handleRender={replyPageData?.handleRender}
-              />
-              <ReplyList
-                data={replyPageData?.replies}
-                tweet={replyPageData?.tweet}
-              />
+              {signinUser && (
+                <>
+                  <ReplyCard
+                    tweet={replyPageData?.tweet}
+                    signinUser={signinUser}
+                    handleRender={replyPageData?.handleRender}
+                  />
+                  <ReplyList
+                    data={replyPageData?.replies}
+                    tweet={replyPageData?.tweet}
+                  />
+                </>
+              )}
             </div>
           )}
         </div>

@@ -5,20 +5,21 @@ import { ReactComponent as CoverEdit } from '../../../Assets/icon/coverEdit.svg'
 import { ReactComponent as AvatarEdit } from '../../../Assets/icon/avatarEdit.svg';
 import { useState } from 'react';
 import { editUserProfile } from '../../../API/editUserProfile.js';
+import { useAuth } from '../../../Context/AuthContext';
 
 export default function ModalContent({ userData, handleRender, onClose }) {
+  const { handleContextRender } = useAuth();
   const { id, name, introduction, avatar, cover } = userData;
   const initialInputInfo = {
     name: { status: 'default', message: `${name?.length}/50`, value: name },
-    introduction: { status: 'default', message: `${introduction?.length}/160`, value: introduction }
+    introduction: { status: 'default', message: `${introduction?.length}/160`, value: introduction !== 'null' ? introduction : '' }
   };
   const [inputInfo, setInputInfo] = useState(initialInputInfo);
   const [imagePrev, setImagePrev] = useState({ avatar, cover });
   const [imageFile, setImageFile] = useState({ avatar: '', cover: '' });
   const [updateResult, setUpdateResult] = useState(null);
 
-  const handleSubmit = async (id, e) => {
-    e.stopPropagation();
+  const handleSubmit = async id => {
     const { name, introduction } = inputInfo;
     if (!name.value?.trim()) return setInputInfo(prev => ({ ...prev, name: { status: 'error', message: '名稱不可為空白' } }));
     if (name.status === 'error' || introduction.status === 'error') return;
@@ -33,6 +34,7 @@ export default function ModalContent({ userData, handleRender, onClose }) {
       setUpdateResult(result);
       if (result.status === 'success') {
         handleRender?.();
+        handleContextRender?.();
         setTimeout(() => onClose(), 1500);
       }
     }
@@ -92,7 +94,10 @@ export default function ModalContent({ userData, handleRender, onClose }) {
           <h5 className={style.title}>編輯個人資料</h5>
           <button
             className={style.submitBtn}
-            onClick={e => handleSubmit(id, e)}>
+            onClick={e => {
+              e.stopPropagation();
+              handleSubmit(id);
+            }}>
             儲存
           </button>
         </div>

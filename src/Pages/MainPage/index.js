@@ -1,31 +1,28 @@
 import React from 'react';
 import styles from './style.module.css';
 import { getAllTweets } from '../../API/getAllTweets';
-import { getOneUser } from '../../API/getOneUser';
 import { useEffect, useState } from 'react';
 import MainLayout from '../../Layout/MainLayout';
 import { useAuth } from '../../Context/AuthContext';
 
 const MainPage = () => {
-  const id = useAuth().currentMember?.id;
+  const { isAuthenticated } = useAuth();
   const [tweetsData, setTweetsData] = useState([]);
-  const [userData, setUserData] = useState({});
   const [render, setRender] = useState(0);
-  const handleRender = () => {
+  const handleMainPageRender = () => {
     setRender(prev => (prev += 1));
   };
   useEffect(() => {
     const getData = async () => {
-      const [tweets, user] = await Promise.all([getAllTweets(), getOneUser(id)]);
+      const tweets = await getAllTweets();
       setTweetsData(tweets);
-      setUserData(user);
     };
-    getData();
-  }, [render, id]);
+    if (isAuthenticated) getData();
+  }, [isAuthenticated, render]);
 
   const mainPageData = {
     tweets: tweetsData,
-    handleRender: handleRender
+    handleRender: handleMainPageRender
   };
 
   return (
@@ -33,7 +30,6 @@ const MainPage = () => {
       <MainLayout
         header='首頁'
         tab='tweets'
-        user={userData}
         mainPageData={mainPageData}
       />
     </div>
