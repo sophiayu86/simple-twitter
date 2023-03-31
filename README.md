@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# 關於 Alphitter
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+本專案是模仿社交網站 Twitter，使用者可體驗有如 Twitter 的基本社交功能， 包含：登入後可以發文、回覆文章、喜歡文章、註冊新帳號、編輯個人資料、於個人頁面瀏覽個人所有的發文、追蹤並取消追蹤其他使用者。
 
-## Available Scripts
+## 登入帳號
 
-In the project directory, you can run:
+本網站須先登入後再開始使用。若尚無帳號，請先點選登入畫面最下方「註冊」。
 
-### `npm start`
+## 註冊帳號
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+請輸入註冊帳號所需之資料。
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 發佈文章
 
-### `npm test`
+於主畫面，請點選橘色「推文」按鈕以發佈文章。
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 喜歡貼文
 
-### `npm run build`
+按下貼文下方的愛心圖案表達喜歡。
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 回覆貼文
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+按下貼文下方的話語圖案以回覆該貼文。
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 瀏覽個人頁面
 
-### `npm run eject`
+主頁左側選單點選「個人資料」以瀏覽自己發過的推文、回覆過的貼文、喜歡的貼文、跟隨幾位使用者、有幾位跟隨者。
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 瀏覽其他使用者的個人頁面
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+點擊其他使用者照片，進入該使用者的個人頁面。
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 編輯個人資料
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+主頁左側選單點選「設定」以修改個人資料。
 
-## Learn More
+## 推薦跟蹤
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+主頁右側選單「推薦跟蹤」對使用者按下「跟隨」按鈕可以跟隨使用者，按下「正在跟隨」取消跟隨。
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 登出
 
-### Code Splitting
+按下「登出」鍵以登出帳戶。
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 本專案組員
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Elynna、Sophia、Peggy、Roan
