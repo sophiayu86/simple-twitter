@@ -3,7 +3,6 @@ import { ProfileHeader, SideNav, ProfileTabs } from '../../Components';
 import PopularList from '../../Lists/PopularList';
 import FollowerList from '../../Lists/FollowerList';
 import FollowingList from '../../Lists/FollowingList';
-import { getUserFollowers, getUserFollowings } from '../../API/getUsersInfo';
 import { getOneUser } from '../../API/getOneUser';
 import styles from './style.module.css';
 

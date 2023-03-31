@@ -8,25 +8,29 @@ const FollowerList = ({ userId }) => {
   useEffect(() => {
     const getData = async () => {
       const followersData = await getUserFollowers(userId);
-      setFollowers(followersData);
+      if (followersData.length) return setFollowers(followersData);
     };
     getData();
   }, [userId]);
 
   return (
     <div className={styles.followerList}>
-      {followers.map(item => {
-        return (
-          <FollowItem
-            key={item.followerId}
-            id={item.followerId}
-            name={item.name}
-            avatar={item.avatar}
-            content={item.introduction}
-            following={item.isFollowing}
-          />
-        );
-      })}
+      {followers.length ? (
+        followers.map(item => {
+          return (
+            <FollowItem
+              key={item.followerId}
+              id={item.followerId}
+              name={item.name}
+              avatar={item.avatar}
+              content={item.introduction}
+              following={item.isFollowing}
+            />
+          );
+        })
+      ) : (
+        <h5 className={styles.blank}>尚未有追隨者</h5>
+      )}
     </div>
   );
 };
