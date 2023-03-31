@@ -4,6 +4,7 @@ import { ReactComponent as Liked } from '../../Assets/icon/liked.svg';
 import { absoluteTimeFormat } from '../../helpers';
 import PostReplyModal from '../PostReplyModal';
 import { addLike, removeLike } from '../../API/Like';
+import { Link } from 'react-router-dom';
 
 const ReplyCard = ({ tweet, signinUser, handleRender }) => {
   const [likeState, setLikeStatus] = useState(false);
@@ -29,10 +30,13 @@ const ReplyCard = ({ tweet, signinUser, handleRender }) => {
       <div className={styles.replyCard}>
         <div className={styles.replyCardHeader}>
           <div className={styles.avatar}>
+            {console.log(`/profile/${tweet?.UserId}`)}
+          <Link to={`/profile/${tweet?.UserId}`}>
             <img
               src={tweet.User?.avatar}
               alt=''
             />
+            </Link>
           </div>
           <div>
             <div className={styles.headerTitle}>{tweet.User?.name}</div>
