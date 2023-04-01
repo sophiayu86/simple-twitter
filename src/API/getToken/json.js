@@ -28,7 +28,7 @@ axiosInstance.interceptors.response.use(
   },
   error => {
     if (error.response && error.response.status === HttpStatus.UNAUTHORIZED) {
-      window.location.href = window.location.origin + '/simple-twitter/login';
+      window.location.href = window.location.origin + 'login';
     }
 
     return Promise.reject(error);
