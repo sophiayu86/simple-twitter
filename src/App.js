@@ -1,5 +1,5 @@
 import './App.css';
-import { HashRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { SignUpPage, LoginPage, MainPage, AdminLoginPage, AdminMainPage, AdminUsersPage, ProfilePage, UserFollowerPage, SettingPage, ReplyPage } from './Pages';
 import { AuthProvider } from './Context/AuthContext';
 const basename = process.env.PUBLIC_URL;
@@ -7,7 +7,7 @@ const basename = process.env.PUBLIC_URL;
 export default function App() {
   return (
     <div className='App'>
-      <HashRouter basename={basename}>
+      <BrowserRouter basename={basename}>
         <AuthProvider>
           <Routes>
             <Route
@@ -62,7 +62,7 @@ export default function App() {
             />
           </Routes>
         </AuthProvider>
-      </HashRouter>
+      </BrowserRouter>
     </div>
   );
 }
