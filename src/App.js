@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import { SignUpPage, LoginPage, MainPage, AdminLoginPage, AdminMainPage, AdminUsersPage, ProfilePage, UserFollowerPage, SettingPage, ReplyPage } from './Pages';
 import { AuthProvider } from './Context/AuthContext';
 const basename = process.env.PUBLIC_URL;
@@ -7,7 +7,7 @@ const basename = process.env.PUBLIC_URL;
 export default function App() {
   return (
     <div className='App'>
-      <BrowserRouter basename={basename}>
+      <HashRouter basename={basename}>
         <AuthProvider>
           <Routes>
             <Route
@@ -56,13 +56,13 @@ export default function App() {
               path='tweet/:tweetID/replies'
               element={<ReplyPage />}
             />
-            {/* <Route
+            <Route
               path='*'
-              element={<HomePage />}
-            /> */}
+              element={<LoginPage />}
+            />
           </Routes>
         </AuthProvider>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }
