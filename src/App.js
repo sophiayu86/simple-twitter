@@ -57,7 +57,7 @@ export default function App() {
               element={<ReplyPage />}
             />
             <Route
-              path='*'
+              path='/'
               element={<LoginPage />}
             />
           </Routes>
