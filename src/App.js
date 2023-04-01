@@ -56,10 +56,10 @@ export default function App() {
               path='tweet/:tweetID/replies'
               element={<ReplyPage />}
             />
-            <Route
+            {/* <Route
               path='*'
               element={<HomePage />}
-            />
+            /> */}
           </Routes>
         </AuthProvider>
       </BrowserRouter>
