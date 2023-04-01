@@ -19,9 +19,24 @@ export default function ModalContent({ userData, handleRender, onClose }) {
   const [imageFile, setImageFile] = useState({ avatar: '', cover: '' });
   const [updateResult, setUpdateResult] = useState(null);
 
+  const handleImageChange = (e, setPrev, setFile) => {
+    const { name } = e.target;
+    const file = e.target.files?.[0]; // 取得選中檔案們的一個檔案
+    const src = file ? window?.URL.createObjectURL(file) : imagePrev[name];
+    setPrev(prev => ({ ...prev, [name]: src }));
+    setFile(prev => ({ ...prev, [name]: file }));
+  };
   const handleSubmit = async id => {
     const { name, introduction } = inputInfo;
-    if (!name.value?.trim()) return setInputInfo(prev => ({ ...prev, name: { status: 'error', message: '名稱不可為空白' } }));
+    if (!name.value?.trim()) {
+      return setInputInfo(prev => ({ ...prev, name: { status: 'error', message: '名稱不可為空白' } }));
+    }
+    if (name.value.trim().length > 50) {
+      return setInputInfo(prev => ({ ...prev, name: { status: 'error', message: '不可超過50字', value: name.value } }));
+    }
+    if (introduction.value.trim().length > 160) {
+      return setInputInfo(prev => ({ ...prev, introduction: { status: 'error', message: '不可超過160字', introduction: introduction.value } }));
+    }
     if (name.status === 'error' || introduction.status === 'error') return;
     const formData = new FormData();
     formData.append('name', inputInfo.name.value);
@@ -35,7 +50,9 @@ export default function ModalContent({ userData, handleRender, onClose }) {
       if (result.status === 'success') {
         handleRender?.();
         handleContextRender?.();
-        setTimeout(() => onClose(), 1500);
+        setTimeout(() => onClose(), 1000);
+      } else {
+        setTimeout(() => setUpdateResult(''), 1000);
       }
     }
   };
@@ -43,27 +60,17 @@ export default function ModalContent({ userData, handleRender, onClose }) {
     e.stopPropagation();
     onClose();
   };
-  const handleImageChange = (e, setPrev, setFile) => {
-    const { name } = e.target;
-    const file = e.target.files?.[0]; // 取得選中檔案們的一個檔案
-    const src = file ? window?.URL.createObjectURL(file) : imagePrev[name];
-    setPrev(prev => ({ ...prev, [name]: src }));
-    setFile(prev => ({ ...prev, [name]: file }));
-  };
   const onHandlers = {
     handleOnChange: (inputName, value) => {
-      setInputInfo(prev => {
-        if (inputName === 'name') {
-          return value.length > 50
-            ? { ...prev, [inputName]: { status: 'error', message: '不可超過50字', value } }
-            : { ...prev, [inputName]: { status: 'focus', message: `${value?.length}/50`, value } };
-        }
-        if (inputName === 'introduction') {
-          return value.length > 160
-            ? { ...prev, [inputName]: { status: 'error', message: '不可超過160字', value } }
-            : { ...prev, [inputName]: { status: 'focus', message: `${value?.length}/160`, value } };
-        }
-      });
+      if (inputName === 'name') {
+        if (value.length > 50) return setInputInfo(prev => ({ ...prev, name: { status: 'error', message: '不可超過50字', value } }));
+        return setInputInfo(prev => ({ ...prev, name: { status: 'focus', message: `${value?.length}/50`, value } }));
+      }
+
+      if (inputName === 'introduction') {
+        if (value.length > 160) return setInputInfo(prev => ({ ...prev, introduction: { status: 'error', message: '不可超過160字', value } }));
+        return setInputInfo(prev => ({ ...prev, introduction: { status: 'focus', message: `${value?.length}/160`, value } }));
+      }
     },
     handleOnFocus: (inputName, value) => {
       setInputInfo(prev => {

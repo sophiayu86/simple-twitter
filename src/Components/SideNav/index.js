@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { ReactComponent as ACIcon } from '../../Assets/icon/acIcon.svg';
 import { ReactComponent as IndexIcon0 } from '../../Assets/icon/indexIcon0.svg';
 import { ReactComponent as IndexIcon1 } from '../../Assets/icon/indexIcon1.svg';
@@ -15,6 +15,8 @@ import { useAuth } from '../../Context/AuthContext';
 const SideNav = ({ currentPage, handleRender }) => {
   const { signinUser, logout } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+
   const handleLogout = () => {
     logout();
     navigate('/login');
@@ -39,7 +41,7 @@ const SideNav = ({ currentPage, handleRender }) => {
           navigate(`/profile/${signinUser?.id}`);
         }}
         className={styles.navItem}>
-        {currentPage === 'user' ? <UserIcon1 className={styles.selected} /> : <UserIcon0 />}
+        {currentPage === 'user' && location.pathname === `/profile/${signinUser?.id}` ? <UserIcon1 className={styles.selected} /> : <UserIcon0 />}
         <span>個人資料</span>
       </div>
       <div

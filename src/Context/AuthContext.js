@@ -1,6 +1,6 @@
-import { createContext, useState, useEffect } from 'react';
+import { createContext, useState, useEffect, useContext } from 'react';
 import jwt_decode from 'jwt-decode';
-import { useContext } from 'react';
+import { useLocation } from 'react-router-dom';
 import axiosInstance from '../API/getToken/json';
 import { getOneUser } from '../API/getOneUser';
 
@@ -12,6 +12,7 @@ const defaultAuthContext = {
 const AuthContext = createContext(defaultAuthContext);
 export const useAuth = () => useContext(AuthContext);
 export const AuthProvider = ({ children }) => {
+  const location = useLocation();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [payload, setPayload] = useState(null);
   const [signinUser, setSigninUser] = useState(null);
@@ -23,10 +24,11 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const checkTokenIsValid = async () => {
       const token = localStorage.getItem('jwt-token');
-      const tempPayload = jwt_decode(token);
+      const tempPayload = token ? jwt_decode(token) : null;
       if (tempPayload) {
         setIsAuthenticated(true);
         setPayload(tempPayload);
+        if (location.pathname === '/login' || location.pathname === '/signup') return;
         const { data } = await getOneUser(tempPayload.id);
         if (data) {
           const { id, account, name, email, avatar, cover, introduction } = data;
@@ -40,7 +42,7 @@ export const AuthProvider = ({ children }) => {
       }
     };
     checkTokenIsValid();
-  }, [render]);
+  }, [render, location.pathname]);
 
   return (
     <AuthContext.Provider
@@ -63,12 +65,12 @@ export const AuthProvider = ({ children }) => {
         handleContextRender,
         userLogin: async ({ account, password }) => {
           try {
-            const { data } = await axiosInstance.post('/user/signin', {
+            const { status, data } = await axiosInstance.post('/user/signin', {
               account,
               password
             });
-            const { token } = data;
-            const tempPayload = jwt_decode(token);
+            const token = status === 200 ? data.token : null;
+            const tempPayload = token ? jwt_decode(token) : null;
             if (tempPayload) {
               setPayload(tempPayload);
               setSigninUser(tempPayload);
@@ -88,12 +90,12 @@ export const AuthProvider = ({ children }) => {
         },
         adminLogin: async ({ account, password }) => {
           try {
-            const { data } = await axiosInstance.post('/admin/signin', {
+            const { status, data } = await axiosInstance.post('/admin/signin', {
               account,
               password
             });
-            const { token } = data;
-            const tempPayload = jwt_decode(token);
+            const token = status === 200 ? data.token : null;
+            const tempPayload = token ? jwt_decode(token) : null;
             if (tempPayload) {
               setPayload(tempPayload);
               setSigninUser(tempPayload);

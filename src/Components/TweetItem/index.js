@@ -75,7 +75,7 @@ const TweetItem = ({ id, replyTarget, tweetID, userID, authorImg, name, tag, con
             <Link to={`/tweet/${tweetID}/replies`}>{content}</Link>
           </p>
         ) : (
-          <p className={styles.body}>{content}</p>
+          <p className={styles.body}>{content.length > 50 ? content.slice(0, 50) + '...' : content}</p>
         )}
         {!admin && !reply && (
           <div className={styles.interact}>

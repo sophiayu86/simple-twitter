@@ -11,13 +11,14 @@ const SettingLayout = ({ userData, userId }) => {
   useEffect(() => {
     if (!userData) return;
     const { account, name, email } = userData;
-    setInputInfo({
+    setInputInfo(prev => ({
+      ...prev,
       account: { status: 'default', message: '', value: account },
       name: { status: 'default', message: '', value: name },
       email: { status: 'default', message: '', value: email },
       password: { status: 'default', message: '', value: '' },
       checkPassword: { status: 'default', message: '', value: '' }
-    });
+    }));
   }, [userData]);
 
   const onHandlers = {
@@ -60,7 +61,7 @@ const SettingLayout = ({ userData, userId }) => {
     handleOnBlur: (inputName, value) => {
       setInputInfo(prev => {
         if (inputName === 'account' || inputName === 'name' || inputName === 'email') {
-          if (!value?.trim()) return { ...prev, [inputName]: { status: 'error', message: '所有欄位皆不可為空白', value } };
+          if (!value?.trim()) return { ...prev, [inputName]: { status: 'error', message: '此欄位不可為空白', value } };
         }
         if (inputName === 'name' && value.length > 50) return { ...prev, name: { status: 'error', message: '名稱請勿超過50個字', value } };
         if (inputName === 'checkPassword') {
@@ -88,16 +89,16 @@ const SettingLayout = ({ userData, userId }) => {
 
   const handleSubmit = async () => {
     const { account, name, email, password, checkPassword } = inputInfo;
-    if (!account.value?.trim() || !name.value?.trim() || !email.value?.trim()) {
-      setInputInfo(prev => ({
-        ...prev,
-        account: { status: 'error', message: '此欄位不可為空白', value: '' },
-        name: { status: 'error', message: '此欄位不可為空白', value: '' },
-        email: { status: 'error', message: '此欄位不可為空白', value: '' }
-      }));
-      setEditResult({ status: 'error', message: '帳號、名稱、Email欄位不可為空白' });
-      return setTimeout(() => setEditResult(''), 1000);
+    if (!account.value?.trim()) {
+      setInputInfo(prev => ({ ...prev, account: { status: 'error', message: '此欄位不可為空白', value: '' } }));
     }
+    if (!name.value?.trim()) {
+      setInputInfo(prev => ({ ...prev, name: { status: 'error', message: '此欄位不可為空白', value: '' } }));
+    }
+    if (!email.value?.trim()) {
+      setInputInfo(prev => ({ ...prev, email: { status: 'error', message: '此欄位不可為空白', value: '' } }));
+    }
+    if (!account.value?.trim() || !name.value?.trim() || !email.value?.trim()) return;
 
     const { data, ...result } = await editUserAccoount({
       id: userId,
