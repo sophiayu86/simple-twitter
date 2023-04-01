@@ -1,6 +1,6 @@
-import { createContext, useState, useEffect } from 'react';
+import { createContext, useState, useEffect, useContext } from 'react';
 import jwt_decode from 'jwt-decode';
-import { useContext } from 'react';
+import { useLocation } from 'react-router-dom';
 import axiosInstance from '../API/getToken/json';
 import { getOneUser } from '../API/getOneUser';
 
@@ -12,6 +12,7 @@ const defaultAuthContext = {
 const AuthContext = createContext(defaultAuthContext);
 export const useAuth = () => useContext(AuthContext);
 export const AuthProvider = ({ children }) => {
+  const location = useLocation();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [payload, setPayload] = useState(null);
   const [signinUser, setSigninUser] = useState(null);
@@ -27,6 +28,7 @@ export const AuthProvider = ({ children }) => {
       if (tempPayload) {
         setIsAuthenticated(true);
         setPayload(tempPayload);
+        if (location.pathname === '/login' || location.pathname === '/signup') return;
         const { data } = await getOneUser(tempPayload.id);
         if (data) {
           const { id, account, name, email, avatar, cover, introduction } = data;
@@ -40,7 +42,7 @@ export const AuthProvider = ({ children }) => {
       }
     };
     checkTokenIsValid();
-  }, [render]);
+  }, [render, location.pathname]);
 
   return (
     <AuthContext.Provider
