@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { SignUpPage, LoginPage, MainPage, AdminLoginPage, AdminMainPage, AdminUsersPage, ProfilePage, UserFollowerPage, SettingPage, ReplyPage, HomePage } from './Pages';
+import { SignUpPage, LoginPage, MainPage, AdminLoginPage, AdminMainPage, AdminUsersPage, ProfilePage, UserFollowerPage, SettingPage, ReplyPage } from './Pages';
 import { AuthProvider } from './Context/AuthContext';
 const basename = process.env.PUBLIC_URL;
 
@@ -56,10 +56,10 @@ export default function App() {
               path='tweet/:tweetID/replies'
               element={<ReplyPage />}
             />
-            <Route
+            {/* <Route
               path='*'
               element={<HomePage />}
-            />
+            /> */}
           </Routes>
         </AuthProvider>
       </BrowserRouter>
