@@ -24,7 +24,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const checkTokenIsValid = async () => {
       const token = localStorage.getItem('jwt-token');
-      const tempPayload = jwt_decode(token);
+      const tempPayload = token ? jwt_decode(token) : null;
       if (tempPayload) {
         setIsAuthenticated(true);
         setPayload(tempPayload);
@@ -65,12 +65,12 @@ export const AuthProvider = ({ children }) => {
         handleContextRender,
         userLogin: async ({ account, password }) => {
           try {
-            const { data } = await axiosInstance.post('/user/signin', {
+            const { status, data } = await axiosInstance.post('/user/signin', {
               account,
               password
             });
-            const { token } = data;
-            const tempPayload = jwt_decode(token);
+            const token = status === 200 ? data.token : null;
+            const tempPayload = token ? jwt_decode(token) : null;
             if (tempPayload) {
               setPayload(tempPayload);
               setSigninUser(tempPayload);
@@ -90,12 +90,12 @@ export const AuthProvider = ({ children }) => {
         },
         adminLogin: async ({ account, password }) => {
           try {
-            const { data } = await axiosInstance.post('/admin/signin', {
+            const { status, data } = await axiosInstance.post('/admin/signin', {
               account,
               password
             });
-            const { token } = data;
-            const tempPayload = jwt_decode(token);
+            const token = status === 200 ? data.token : null;
+            const tempPayload = token ? jwt_decode(token) : null;
             if (tempPayload) {
               setPayload(tempPayload);
               setSigninUser(tempPayload);
