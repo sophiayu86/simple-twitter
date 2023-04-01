@@ -70,7 +70,7 @@ const TweetItem = ({ id, replyTarget, tweetID, userID, authorImg, name, tag, con
             回覆<span>@{replyTarget}</span>
           </div>
         )}
-        {!admin ? (
+        {!admin && !reply ? (
           <p className={styles.body}>
             <Link to={`/tweet/${tweetID}/replies`}>{content}</Link>
           </p>
