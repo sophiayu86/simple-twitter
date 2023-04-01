@@ -1,70 +1,89 @@
-# Getting Started with Create React App
+# 關於 Simple Twitter
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+本專案是模仿社交網站 Twitter，使用者可體驗有如 Twitter 的基本社交功能， 包含：登入後可以發文、回覆文章、喜歡文章、註冊新帳號、編輯個人資料、於個人頁面瀏覽個人所有的發文、追蹤並取消追蹤其他使用者。
 
-## Available Scripts
+## 如何開始
 
-In the project directory, you can run:
+可以選擇於本機操作，或是於遠端連線操作。
 
-### `npm start`
+### 1. 本機操作：
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+請先 git clone 本專案檔後，開啟終端機，於終端機以 cd 指令移至專案檔資料夾，並依序輸入以下兩個指令：
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+`npm install`
 
-### `npm test`
+NPM 安裝完後，再輸入：
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+`npm start`
 
-### `npm run build`
+待讀取完，會於網頁瀏覽器自動開啟本專案。
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 2. 遠端連線操作
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+連進以下網址：
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+https://sophiayu86.github.io/simple-twitter/login
 
-### `npm run eject`
+## 登入帳號
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+本網站須先登入後再開始使用。若尚無帳號，請先點選登入畫面最下方「註冊」。
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![1](./src/Assets//readme/1.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 註冊帳號
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+請輸入註冊帳號所需之資料。
 
-## Learn More
+![2](./src/Assets//readme/2.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 發佈文章
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+於主畫面，請點選橘色「推文」按鈕以發佈文章。
 
-### Code Splitting
+![3](./src/Assets//readme/3.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 喜歡貼文
 
-### Analyzing the Bundle Size
+按下貼文下方的愛心圖案表達喜歡。
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+![4](./src/Assets//readme/4.png)
 
-### Making a Progressive Web App
+## 回覆貼文
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+按下貼文下方的話語圖案以回覆該貼文。
 
-### Advanced Configuration
+![5](./src/Assets//readme/5.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 瀏覽個人頁面
 
-### Deployment
+主頁左側選單點選「個人資料」以瀏覽自己發過的推文、回覆過的貼文、喜歡的貼文、跟隨幾位使用者、有幾位跟隨者。
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+![6](./src/Assets//readme/6.png)
 
-### `npm run build` fails to minify
+## 瀏覽其他使用者的個人頁面
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+點擊其他使用者照片，進入該使用者的個人頁面。
+
+![7](./src/Assets//readme/7.png)
+
+## 編輯個人資料
+
+主頁左側選單點選「設定」以修改個人資料。
+
+![8](./src/Assets//readme/8.png)
+
+## 推薦跟蹤
+
+主頁右側選單「推薦跟蹤」對使用者按下「跟隨」按鈕可以跟隨使用者，按下「正在跟隨」取消跟隨。
+
+![9](./src/Assets//readme/9.png)
+
+## 登出
+
+按下「登出」鍵以登出帳戶。
+
+![10](./src/Assets//readme/10.png)
+
+## 本專案組員
+
+Elynna、Sophia、Peggy、Roan
