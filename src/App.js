@@ -34,15 +34,12 @@ export default function App() {
               path='admin_users'
               element={<AdminUsersPage />}
             />
-            {/* <Route path="user/:UserId/tweet" element={<ProfileTweets />} /> */}
+           
             <Route
               path='profile/:userID'
               element={<ProfilePage />}
             />
-            {/* <Route
-                path="user/:UserId/followers"
-                element={<UserFollowerPage />}
-              /> */}
+            
             <Route
               path='followers/:userID'
               element={<UserFollowerPage />}
@@ -51,7 +48,7 @@ export default function App() {
               path='user/setting'
               element={<SettingPage />}
             />
-            {/* <Route path="tweet/:TweetId/replies" element={<ReplyPage />} /> */}
+            
             <Route
               path='tweet/:tweetID/replies'
               element={<ReplyPage />}
@@ -67,17 +64,4 @@ export default function App() {
   );
 }
 
-// export default function App() {
-//   return (
-//     <div className="App">
-//       <BrowserRouter>
-//       <Nav/>
-//       <LoginInput />
-//       <SideNav/>
-//       <RegisterInput/>
-//       </BrowserRouter>
 
-//       <p>test</p>
-//     </div>
-//   );
-// }
