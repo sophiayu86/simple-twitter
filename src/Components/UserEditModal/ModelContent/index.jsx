@@ -122,6 +122,7 @@ export default function ModalContent({ userData, handleRender, onClose }) {
             <img
               src={imagePrev.cover || 'https://i.imgur.com/vzIPCvD.png'}
               alt=''
+              onError={e => (e.target.src = 'https://i.imgur.com/TGuHpHB.jpg')}
             />
             <CoverEdit className={style.editIcon} />
           </label>
@@ -138,6 +139,7 @@ export default function ModalContent({ userData, handleRender, onClose }) {
             <img
               src={imagePrev.avatar || 'https://i.imgur.com/TGuHpHB.jpg'}
               alt=''
+              onError={e => (e.target.src = 'https://i.imgur.com/TGuHpHB.jpg')}
             />
             <div className={style.ring}></div>
             <AvatarEdit className={style.editIcon} />

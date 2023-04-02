@@ -53,6 +53,7 @@ export default function ModalContent({ tweetInfo, onClose, signinUser, handleRen
               src={avatar ? avatar : 'https://i.imgur.com/TGuHpHB.jpg'}
               className={styles.avatar}
               alt=''
+              onError={e => (e.target.src = 'https://i.imgur.com/TGuHpHB.jpg')}
             />
             <span className={styles.connectLine}></span>
           </div>
@@ -74,6 +75,7 @@ export default function ModalContent({ tweetInfo, onClose, signinUser, handleRen
             src={signinUser.avatar ? signinUser.avatar : 'https://i.imgur.com/TGuHpHB.jpg'}
             className={styles.avatar}
             alt=''
+            onError={e => (e.target.src = 'https://i.imgur.com/TGuHpHB.jpg')}
           />
           <textarea
             name='comment'

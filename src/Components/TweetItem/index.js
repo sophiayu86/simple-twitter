@@ -40,6 +40,7 @@ const TweetItem = ({ id, replyTarget, tweetID, userID, authorImg, name, tag, con
             alt='author-img'
             src={authorImg}
             className={styles.authorImg}
+            onError={e => (e.target.src = 'https://i.imgur.com/TGuHpHB.jpg')}
           />
         </Link>
       ) : (
@@ -47,6 +48,7 @@ const TweetItem = ({ id, replyTarget, tweetID, userID, authorImg, name, tag, con
           alt='author-img'
           src={authorImg}
           className={styles.authorImg}
+          onError={e => (e.target.src = 'https://i.imgur.com/TGuHpHB.jpg')}
         />
       )}
       <div className={styles.rightContent}>
