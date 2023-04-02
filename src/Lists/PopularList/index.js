@@ -16,7 +16,9 @@ const PopularList = () => {
   return (
     <div className={styles.popularList}>
       <div className={styles.container}>
-        <div className={styles.pageTitle}>推薦跟蹤</div>
+        <div className={styles.pageTitle}>
+          <p>推薦跟蹤</p>
+        </div>
         <div className={styles.followList}>
           {users?.map(user => {
             return (
