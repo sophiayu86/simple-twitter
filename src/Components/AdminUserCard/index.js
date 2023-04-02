@@ -21,6 +21,7 @@ const AdminUserCard = ({ userData }) => {
             src={userData.avatar}
             className={styles.avatarImg}
             alt='avatarImg'
+            onError={e => (e.target.src = 'https://i.imgur.com/TGuHpHB.jpg')}
           />
         </div>
         <div className={styles.nameAndId}>
