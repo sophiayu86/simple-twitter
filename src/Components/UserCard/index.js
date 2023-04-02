@@ -65,11 +65,11 @@ const UserCard = ({ user, noti, isFollowing, handleRender }) => {
       )}
       <div className={styles.followship}>
         <Link to={`/followers/${user?.id}`}>
-          <span className={styles.following}>{user?.followings} 個</span>
+          <span className={styles.following}>{user?.followings.length} 個</span>
           <span style={{ color: '#929292' }}>跟隨中</span>
         </Link>
         <Link to={`/followers/${user?.id}`}>
-          <span className={styles.follower}>{user?.followers} 位</span>
+          <span className={styles.follower}>{user?.followers.length} 位</span>
           <span style={{ color: '#929292' }}>跟隨者</span>
         </Link>
       </div>
