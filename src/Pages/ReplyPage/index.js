@@ -24,7 +24,6 @@ const ReplyPage = () => {
         setRepliesData(replies);
       }
       if (tweet) {
-        console.info("settweetxxx", tweet);
         setTweetData(tweet);
       }
     };

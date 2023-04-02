@@ -38,7 +38,7 @@ export const AuthProvider = ({ children }) => {
         setIsAuthenticated(false);
         setPayload(null);
         localStorage.removeItem('jwt-token');
-        return; //倒去login
+        return;
       }
     };
     checkTokenIsValid();
