@@ -19,6 +19,7 @@ const FollowItem = ({ id, name, content, avatar, following, handleRender }) => {
           <img
             src={avatar}
             alt=''
+            onError={e => (e.target.src = 'https://i.imgur.com/TGuHpHB.jpg')}
           />
         </div>
       </Link>

@@ -20,11 +20,13 @@ const UserCard = ({ user, noti, isFollowing, handleRender }) => {
         <img
           src={user?.cover}
           alt=''
+          onError={e => (e.target.src = 'https://i.imgur.com/vzIPCvD.png')}
         />
         <div className={styles.avatar}>
           <img
             src={user?.avatar}
             alt=''
+            onError={e => (e.target.src = 'https://i.imgur.com/TGuHpHB.jpg')}
           />
         </div>
       </div>
