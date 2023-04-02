@@ -1,3 +1,4 @@
-.mainpage{
-    height: 100%;
+.mainpage {
+  height: 100%;
+  overflow: hidden;
 }

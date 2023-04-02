@@ -36,7 +36,9 @@ export default function ModalContent({ avatar, onClose, handleRender }) {
   };
   const handleOnChange = value => {
     setDescription(prev => {
-      return value.length > 140 ? { ...prev, status: 'error', message: '不可超過140字', value } : { ...prev, status: 'default', message: '', value };
+      return value.length > 140
+        ? { ...prev, status: 'error', message: '不可超過140字', value }
+        : { ...prev, status: 'default', message: '', value };
     });
   };
 

@@ -1,6 +1,7 @@
 .popularList {
   border-left: 1px solid #e6ecf0;
   min-width: 427px;
+  overflow-y: auto;
 }
 
 .container {

@@ -13,7 +13,8 @@ const MainLayout = ({ header, tab, mainPageData, replyPageData }) => {
     <div className={styles.userpage}>
       <SideNav
         currentPage='main'
-        handleRender={mainPageData?.handleRender}
+        handle
+        Render={mainPageData?.handleRender}
       />
       <div className={styles.mainContent}>
         <Header text={header} />
