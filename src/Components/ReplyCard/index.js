@@ -9,19 +9,18 @@ import { Link } from 'react-router-dom';
 const ReplyCard = ({ tweet, signinUser, handleRender }) => {
   const [likeState, setLikeStatus] = useState(false);
   const [likesNums, setLikesNums] = useState(0);
-  console.log("in ReplyCard", tweet);
-  useEffect(()=>{
-    setLikesNums(tweet.likes)
-    setLikeStatus(tweet.isLike)
-  }, [tweet])
-  let tweetID=tweet?.id;
+  useEffect(() => {
+    setLikesNums(tweet.likes);
+    setLikeStatus(tweet.isLike);
+  }, [tweet]);
+  let tweetID = tweet?.id;
   const handleLikeStatus = async id => {
     setLikeStatus(!likeState);
     if (likeState) {
-      setLikesNums(likesNums- 1);
+      setLikesNums(likesNums - 1);
       await removeLike(id);
     } else {
-      setLikesNums(likesNums+ 1);
+      setLikesNums(likesNums + 1);
       await addLike(id);
     }
   };
@@ -30,12 +29,12 @@ const ReplyCard = ({ tweet, signinUser, handleRender }) => {
       <div className={styles.replyCard}>
         <div className={styles.replyCardHeader}>
           <div className={styles.avatar}>
-            {console.log(`/profile/${tweet?.UserId}`)}
-          <Link to={`/profile/${tweet?.UserId}`}>
-            <img
-              src={tweet.User?.avatar}
-              alt=''
-            />
+            <Link to={`/profile/${tweet?.UserId}`}>
+              <img
+                src={tweet.User?.avatar}
+                alt=''
+                onError={e => (e.target.src = 'https://i.imgur.com/TGuHpHB.jpg')}
+              />
             </Link>
           </div>
           <div>

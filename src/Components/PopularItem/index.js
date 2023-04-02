@@ -19,6 +19,7 @@ const PopularItem = ({ id, name, tag, avatar, following }) => {
             <img
               src={avatar ? avatar : 'https://i.imgur.com/TGuHpHB.jpg'}
               alt=''
+              onError={e => (e.target.src = 'https://i.imgur.com/TGuHpHB.jpg')}
             />
           </div>
         </Link>
